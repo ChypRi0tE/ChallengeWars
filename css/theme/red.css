@@ -1,0 +1,122 @@
+body {
+    background-color: #95a4c0;
+    font: 12px Arial, sans-serif;
+    color: #c00;
+}
+
+header {
+    background-image: linear-gradient(#515763 0%,  #f00 100%);
+    background-image: -moz-linear-gradient(#515763 0%,  #f00 100%);
+    background-image: -webkit-linear-gradient(#515763 0%,  #f00 100%);
+}
+
+/*-----------------------------
+**--NAVIGATION-----------------
+------------------------------*/
+.nav-button-container:not(.nav-button-container--notification) {
+    box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.07) inset, 1px 1px 0 rgba(255, 255, 255, 0.02) inset;
+    background-image: linear-gradient(#8a92a1 0px,  #757e8f 8px,  #4e5666 100%);
+    background-image: -moz-linear-gradient(#8a92a1 0px,  #757e8f 8px,  #4e5666 100%);
+    background-image: -webkit-linear-gradient(#8a92a1 0px,  #757e8f 8px,  #4e5666 100%);
+    border-radius: 4px;
+}
+.nav-button {
+    color: #21262f;
+    font: bold 11px/29px Arial, sans-serif;
+}
+.nav-button-container--inactive i {
+    color: #12141a;
+}
+.nav-button-container--active i {
+    color: #fff;
+}
+.nav-notification {
+    color: #fff;
+    background-color: #e9202a;
+}
+.nav-button-container:not(.nav-button-container--notification) .nav-button:hover:not(.nav-button--notification) {
+    background-image: linear-gradient(#9ba2b0 0px,  #8c94a3 8px,  #596070 100%);
+    background-image: -moz-linear-gradient(#9ba2b0 0px,  #8c94a3 8px,  #596070 100%);
+    background-image: -webkit-linear-gradient(#9ba2b0 0px,  #8c94a3 8px,  #596070 100%);
+    color: #21262f;
+}
+.nav-button-container:not(.nav-button-container--notification) .nav-button.is-selected {
+    background-image: linear-gradient(#4e525f 0px,  #434857 5px,  #2b2e3a 100%);
+    background-image: -moz-linear-gradient(#4e525f 0px,  #434857 5px,  #2b2e3a 100%);
+    background-image: -webkit-linear-gradient(#4e525f 0px,  #434857 5px,  #2b2e3a 100%);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3) inset;
+    color: #aec5f3;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.2);
+}
+.nav-button-container.is-selected .nav-button {
+    background-image: linear-gradient(#d0d5de 0px,  #c9cdd7 5px,  #9097a6 100%);
+    background-image: -moz-linear-gradient(#d0d5de 0px,  #c9cdd7 5px,  #9097a6 100%);
+    background-image: -webkit-linear-gradient(#d0d5de 0px,  #c9cdd7 5px,  #9097a6 100%);
+    color: #3c465c;
+    text-shadow: 1px 1px rgba(255, 255, 255, 0.2);
+}
+.nav-button-container.is-selected .nav-button:hover:not(.is-selected) {
+    background-image: linear-gradient(#f0f1f5 0px,  #d1d4de 100%);
+    background-image: -moz-linear-gradient(#f0f1f5 0px,  #d1d4de 100%);
+    background-image: -webkit-linear-gradient(#f0f1f5 0px,  #d1d4de 100%);
+}
+.nav-logo-outer-wrap {
+    background-image: linear-gradient(#dce9ff 0%,  #4d8cff 100%);
+    background-image: -moz-linear-gradient(#dce9ff 0%,  #4d8cff 100%);
+    background-image: -webkit-linear-gradient(#dce9ff 0%,  #4d8cff 100%);
+    width: 11px;
+    height: 11px;
+    padding: 2px;
+    border-radius: 2px;
+    display: block;
+    box-shadow: 1px 1px 0px rgba(255, 255, 255, 0.2) inset, 0px 0px 10px rgba(77, 140, 255, 0.4);
+    margin: 0 5px;
+}
+.nav-logo-inner-wrap {
+    width: 100%;
+    height: 100%;
+    background-color: #404652;
+    border-radius: 1px;
+    box-shadow: 0px 0px 5px rgba(77, 140, 255, 0.4) inset, 0 1px 0px rgba(255, 255, 255, 0.4);
+}
+.nav-avatar-outer-wrap {
+    padding: 4px;
+    background-color: rgba(0, 0, 0, 0.3);
+    height: 20px;
+    width: 20px;
+    border-right: 1px solid rgba(102, 104, 114, 0.6);
+    border-bottom: 1px solid rgba(102, 104, 114, 0.7);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5) inset;
+    border-radius: 4px;
+}
+.nav-row {
+    background-image: linear-gradient(#fff 0%,  #f6f7f9 100%);
+    background-image: -moz-linear-gradient(#fff 0%,  #f6f7f9 100%);
+    background-image: -webkit-linear-gradient(#fff 0%,  #f6f7f9 100%);
+}
+.nav-row:not(:first-child) {
+    border-top: 1px dotted #d2d6e0;
+}
+.nav-row:hover i {
+    color: #fff;
+}
+.nav-row:hover {
+    background-image: linear-gradient(#63a0f4 0%,  #63a0f4 100%);
+    background-image: -moz-linear-gradient(#63a0f4 0%,  #63a0f4 100%);
+    background-image: -webkit-linear-gradient(#63a0f4 0%,  #63a0f4 100%);
+    text-shadow: none;
+}
+.nav-row-summary-name {
+    color: #4b72d4;
+    font: bold 11px/15px Arial, sans-serif;
+}
+.nav-row-summary-description {
+    color: #6b7a8c;
+    font: 11px/13px Arial, sans-serif;
+}
+.nav-row:hover .nav-row-summary-name {
+    color: #fff;
+}
+.nav-row:hover .nav-row-summary-description {
+    color: rgba(255, 255, 255, 0.7);
+}
