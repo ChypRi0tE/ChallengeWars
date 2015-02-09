@@ -13,6 +13,7 @@
     }
     spl_autoload_register('load');
     session_start();
+
     function    isLogged() {
         return isset($_SESSION['currentUser']) && ($_SESSION['currentUser'] != null);
     }
@@ -26,7 +27,6 @@
         }
         return $bdd;
     }
-
     function    isSelected($link) {
         global $_PAGENAME_;
         if (strtolower($_PAGENAME_) == strtolower($link))

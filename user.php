@@ -6,7 +6,9 @@
     include('View/Website/Header.php');
 ?>
 <body>
-<?php if (isLogged()) {include('View/Website/LoggedNav.php');} else {include('View/Website/GuestNav.php');} ?>
+<?php if (isLogged()) {
+    include('View/Website/LoggedNav.php');} else {
+    include('View/Website/GuestNav.php');} ?>
 <?php include("View/".$_PAGENAME_."/Featured.php"); ?>
 <div class="page-outer-wrap">
     <div class="page-inner-wrap">

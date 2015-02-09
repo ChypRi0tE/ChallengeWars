@@ -1,6 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
   <data-source name="MySQL - challengewars@localhost" uuid="8eb5ead6-f9c5-41d2-a415-0a21df366c57">
-    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+    <database-info product="MySQL" version="5.6.21" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.34 ( Revision: jess.balint@oracle.com-20141014163213-wqbwpf1ok2kvo1om )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="challengewars"/>
+    <table name="cw_challenges" schema="" catalog="challengewars" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="title" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="dateCreation" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="dateEnd" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="idCreator" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="idPrize" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="description" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="isFeatured" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="status" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="cw_challenges_comments" schema="" catalog="challengewars" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="idChallenge" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="idUser" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="datePost" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="content" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="cw_challenges_inscriptions" schema="" catalog="challengewars" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="idChallenge" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="idUser" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="dateInscription" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="cw_users" schema="" catalog="challengewars" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="username" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="mail" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <column name="avatar" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <column name="level" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="rank" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="username" unique="true" columns="username,mail"/>
+    </table>
+    <table name="cw_users_stats" schema="" catalog="challengewars" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="idUser" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="dateInscription" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="challJoined" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="challWon" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="challCreated" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="commentPosted" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="idUser" unique="true" columns="idUser"/>
+    </table>
   </data-source>
 </component>

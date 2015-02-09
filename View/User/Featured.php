@@ -1,7 +1,7 @@
 <div class="featured-container">
     <div class="featured-outer-wrap featured-outer-wrap--user" style="background-color: rgb(31,37,46);">
         <div class="featured-inner-wrap">
-            <div class="global-image-outer-wrap global-image-outer-wrap--avatar-large"><div class="global-image-inner-wrap" style="background-image:url(img/avatar.jpg);"></div></div>
+            <div class="global-image-outer-wrap global-image-outer-wrap--avatar-large"><div class="global-image-inner-wrap" style="background-image:url(assets/img/avatar.jpg);"></div></div>
             <div class="featured-summary">
                 <div class="featured-heading"><div class="featured-heading-medium">ChypRiotE</div></div>
                 <div class="featured-table">

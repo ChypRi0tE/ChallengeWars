@@ -9,15 +9,15 @@
 namespace Challenge;
 
 class Challenge {
-    private $_id;
-    private $_title;
-    private $_dateCreation;
-    private $_dateEnd;
-    private $_idCreator;
-    private $_idPrize;
-    private $_description;
-    private $_isFeatured;
-    private $_status;
+    protected  $_id;
+    protected $_title;
+    protected $_dateCreation;
+    protected $_dateEnd;
+    protected $_idCreator;
+    protected $_idPrize;
+    protected $_description;
+    protected $_isFeatured;
+    protected $_status;
 
 
     public function __construct(array $data) {
@@ -28,8 +28,6 @@ class Challenge {
             $method = 'set' . ucfirst($key);
             if (method_exists($this, $method)) {
                 $this->$method($value);
-            } else {
-                throw new SiteError("Challenge", "Couldn't create challenge from array.", $data);
             }
         }
     }
@@ -55,12 +53,6 @@ class Challenge {
     }
     public function setDateEnd($dateEnd) {
         $this->_dateEnd = $dateEnd;
-    }
-    public function getGame() {
-        return $this->_game;
-    }
-    public function setGame($game) {
-        $this->_game = $game;
     }
     public function getId() {
         return $this->_id;

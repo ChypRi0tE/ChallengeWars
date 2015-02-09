@@ -18,7 +18,7 @@ class Challenge implements Manager {
         $this->_table = $table;
     }
     public function     add($challenge) {
-        if (!($challenge instanceof \Challenge\Challenge)) {throw new \Error\TypeError("Manager/Challenge", "Challenge", $challenge->type);}
+        if (!($challenge instanceof \Challenge\Challenge)) {new \Error\TypeError("Manager/Challenge", "Challenge", $challenge->type);}
 
         $q = $this->_bdd->prepare("INSERT INTO " . $this->_table . "
                     ('title', 'dateCreation', 'dateEnd', 'idCreator', 'idPrize', 'description', 'isFeatured', 'status')
@@ -78,23 +78,56 @@ class Challenge implements Manager {
         $this->_bdd->exec('DELETE FROM '.$this->_table.' WHERE id = '.$id);
     }
 
+
+    /**
+     * Returns the next challenge to end.
+     * @return \Challenge\Challenge
+     */
+    public function     getNext() {
+        $q = $this->_bdd->query('SELECT * FROM '.$this->_table.' ORDER BY dateEnd ASC LIMIT 1');
+        $data = $q->fetch();
+        return new \Challenge\Challenge($data);
+    }
+    /**
+     * Returns the t challenge to end.
+     * @return \Challenge\Challenge
+     */
     public function     getFeatured() {
-        //TODO
+        $q = $this->_bdd->query('SELECT * FROM '.$this->_table.' WHERE status = 1 AND isFeatured = 1 ORDER BY dateEnd ASC');
+        $list = [];
+        while ($data = $q->fetch()) {
+            $list[] = new \Challenge\Challenge($data);
+        }
+        return $list;
     }
     public function     getEnded() {
-        //TODO
+        $q = $this->_bdd->query('SELECT * FROM '.$this->_table.' WHERE status = 2 ORDER BY dateEnd DESC');
+        $list = [];
+        while ($data = $q->fetch()) {
+            $list[] = new \Challenge\Challenge($data);
+        }
+        return $list;
     }
     public function     getOngoing() {
+        $q = $this->_bdd->query('SELECT * FROM '.$this->_table.' WHERE status = 1 ORDER BY dateEnd ASC');
+        $list = [];
+        while ($data = $q->fetch()) {
+            $list[] = new \Challenge\Challenge($data);
+        }
+        return $list;
+    }
+    public function     getCreated($id) {
+        $q = $this->_bdd->query('SELECT * FROM '.$this->_table.' WHERE idCreator = '.$id.' ORDER BY dateEnd ASC');
+        $list = [];
+        while ($data = $q->fetch()) {
+            $list[] = new \Challenge\Challenge($data);
+        }
+        return $list;
+    }
+    public function     getWon($id) {
         //TODO
     }
-
-    public function     getCreated($user) {
-        //TODO
-    }
-    public function     getWon($user) {
-        //TODO
-    }
-    public function     getEntered($user) {
+    public function     getEntered($id) {
         //TODO
     }
 }

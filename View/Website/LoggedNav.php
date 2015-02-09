@@ -119,7 +119,7 @@
             </div>
             <div class="nav-button-container nav-button-container--notification">
                 <a href="/user/ChypRiotE" class="nav-avatar-outer-wrap">
-                    <div class="nav-avatar-inner-wrap" style="background-image:url(img/<?php echo $_SESSION['currentUser']->getAvatar(); ?>);"></div>
+                    <div class="nav-avatar-inner-wrap" style="background-image:url(assets/img/<?php echo $_SESSION['currentUser']->getAvatar(); ?>);"></div>
                 </a>
             </div>
         </div>

@@ -13,8 +13,8 @@
             </div>
         </div>
     </div>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/script.js"></script>
-    <?php if (file_exists("js/pages/".$_PAGENAME_.".js")){echo "<script src=\"js/pages/".$_PAGENAME_.".js\"></script>";} ?>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/script.js"></script>
+    <?php if (file_exists("assets/js/pages/".$_PAGENAME_.".js")){echo "<script src=\"assets/js/pages/".$_PAGENAME_.".js\"></script>";} ?>
 </footer>

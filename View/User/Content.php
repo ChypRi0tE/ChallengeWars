@@ -14,7 +14,7 @@
                 <a href="/challenge/ge4uO/perfection/entries"><i class="fa fa-tag"></i> <span>378 entries</span></a>
                 <a href="/challenge/ge4uO/perfection/comments"><i class="fa fa-comment"></i> <span>22 comments</span></a>
             </div>
-        </div><a class="global-image-outer-wrap global-image-outer-wrap--game-medium" href="/challenge/ge4uO/perfection"><div class="global-image-inner-wrap" style="background-image:url(img/chall.jpg);"></div>
+        </div><a class="global-image-outer-wrap global-image-outer-wrap--game-medium" href="/challenge/ge4uO/perfection"><div class="global-image-inner-wrap" style="background-image:url(assets/img/chall.jpg);"></div>
         </a>
     </div>
 </div>
@@ -30,7 +30,7 @@
                 <a href="/challenge/630Qb/duke-nukem-manhattan-project/entries"><i class="fa fa-tag"></i> <span>529 entries</span></a>
                 <a href="/challenge/630Qb/duke-nukem-manhattan-project/comments"><i class="fa fa-comment"></i> <span>24 comments</span></a>
             </div>
-        </div><a class="global-image-outer-wrap global-image-outer-wrap--game-medium" href="/challenge/630Qb/duke-nukem-manhattan-project"><div class="global-image-inner-wrap" style="background-image:url(img/chall.jpg);"></div>
+        </div><a class="global-image-outer-wrap global-image-outer-wrap--game-medium" href="/challenge/630Qb/duke-nukem-manhattan-project"><div class="global-image-inner-wrap" style="background-image:url(assets/img/chall.jpg);"></div>
         </a>
     </div>
 </div>
@@ -46,7 +46,7 @@
                 <a href="/challenge/reCe6/cities-in-motion-2/entries"><i class="fa fa-tag"></i> <span>1,201 entries</span></a>
                 <a href="/challenge/reCe6/cities-in-motion-2/comments"><i class="fa fa-comment"></i> <span>37 comments</span></a>
             </div>
-        </div><a class="global-image-outer-wrap global-image-outer-wrap--game-medium" href="/challenge/reCe6/cities-in-motion-2"><div class="global-image-inner-wrap" style="background-image:url(img/chall.jpg);"></div>
+        </div><a class="global-image-outer-wrap global-image-outer-wrap--game-medium" href="/challenge/reCe6/cities-in-motion-2"><div class="global-image-inner-wrap" style="background-image:url(assets/img/chall.jpg);"></div>
         </a>
     </div>
 </div>

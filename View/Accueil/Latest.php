@@ -13,7 +13,7 @@
                     <div class="table-row-inner-wrap">
                         <div>
                             <a class="global-image-outer-wrap global-image-outer-wrap--avatar-small" href="/user/madjoki">
-                                <div class="global-image-inner-wrap" style="background-image:url(img/avatar.jpg);"></div>
+                                <div class="global-image-inner-wrap" style="background-image:url(assets/img/avatar.jpg);"></div>
                             </a>
                         </div>
                         <div class="table-column--width-fill">
@@ -29,7 +29,7 @@
                             </div>
                             <div>
                                 <a class="global-image-outer-wrap global-image-outer-wrap--avatar-small" href="/user/benutzername">
-                                    <div class="global-image-inner-wrap" style="background-image:url(img/avatar.jpg);"></div>
+                                    <div class="global-image-inner-wrap" style="background-image:url(assets/img/avatar.jpg);"></div>
                                 </a>
                             </div>
 
@@ -40,7 +40,7 @@
                     <div class="table-row-inner-wrap">
                         <div>
                             <a class="global-image-outer-wrap global-image-outer-wrap--avatar-small" href="/user/NB264">
-                                <div class="global-image-inner-wrap" style="background-image:url(img/avatar.jpg);"></div>
+                                <div class="global-image-inner-wrap" style="background-image:url(assets/img/avatar.jpg);"></div>
                             </a>
                         </div>
                         <div class="table-column--width-fill">
@@ -56,7 +56,7 @@
                             </div>
                             <div>
                                 <a class="global-image-outer-wrap global-image-outer-wrap--avatar-small" href="/user/NB264">
-                                    <div class="global-image-inner-wrap" style="background-image:url(img/avatar.jpg);"></div>
+                                    <div class="global-image-inner-wrap" style="background-image:url(assets/img/avatar.jpg);"></div>
                                 </a>
                             </div>
 
@@ -67,7 +67,7 @@
                     <div class="table-row-inner-wrap">
                         <div>
                             <a class="global-image-outer-wrap global-image-outer-wrap--avatar-small" href="/user/PsychoClown">
-                                <div class="global-image-inner-wrap" style="background-image:url(img/avatar.jpg);"></div>
+                                <div class="global-image-inner-wrap" style="background-image:url(assets/img/avatar.jpg);"></div>
                             </a>
                         </div>
                         <div class="table-column--width-fill">
@@ -83,7 +83,7 @@
                             </div>
                             <div>
                                 <a class="global-image-outer-wrap global-image-outer-wrap--avatar-small" href="/user/faboitas">
-                                    <div class="global-image-inner-wrap" style="background-image:url(img/avatar.jpg);"></div>
+                                    <div class="global-image-inner-wrap" style="background-image:url(assets/img/avatar.jpg);"></div>
                                 </a>
                             </div>
 
@@ -94,7 +94,7 @@
                     <div class="table-row-inner-wrap">
                         <div>
                             <a class="global-image-outer-wrap global-image-outer-wrap--avatar-small" href="/user/Per3zat">
-                                <div class="global-image-inner-wrap" style="background-image:url(img/avatar.jpg);"></div>
+                                <div class="global-image-inner-wrap" style="background-image:url(assets/img/avatar.jpg);"></div>
                             </a>
                         </div>
                         <div class="table-column--width-fill">
@@ -110,7 +110,7 @@
                             </div>
                             <div>
                                 <a class="global-image-outer-wrap global-image-outer-wrap--avatar-small" href="/user/faboitas">
-                                    <div class="global-image-inner-wrap" style="background-image:url(img/avatar.jpg);"></div>
+                                    <div class="global-image-inner-wrap" style="background-image:url(assets/img/avatar.jpg);"></div>
                                 </a>
                             </div>
 
@@ -121,7 +121,7 @@
                     <div class="table-row-inner-wrap">
                         <div>
                             <a class="global-image-outer-wrap global-image-outer-wrap--avatar-small" href="/user/Tzell">
-                                <div class="global-image-inner-wrap" style="background-image:url(img/avatar.jpg);"></div>
+                                <div class="global-image-inner-wrap" style="background-image:url(assets/img/avatar.jpg);"></div>
                             </a>
                         </div>
                         <div class="table-column--width-fill">
@@ -137,7 +137,7 @@
                             </div>
                             <div>
                                 <a class="global-image-outer-wrap global-image-outer-wrap--avatar-small" href="/user/Soulieh">
-                                    <div class="global-image-inner-wrap" style="background-image:url(img/avatar.jpg);"></div>
+                                    <div class="global-image-inner-wrap" style="background-image:url(assets/img/avatar.jpg);"></div>
                                 </a>
                             </div>
 
