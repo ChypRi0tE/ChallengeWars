@@ -2,19 +2,18 @@
 /**
  * Created by PhpStorm.
  * User: ChypRiotE
- * Date: 09/02/2015
- * Time: 20:28
+ * Date: 13/02/2015
+ * Time: 03:07
  */
 
 namespace Challenge;
 
 
-class Comment {
-    protected   $id;
-    protected   $idChallenge;
-    protected   $idUser;
-    protected   $datePost;
-    protected   $content;
+class Entry {
+    protected $id;
+    protected $idChallenge;
+    protected $idUser;
+    protected $dateEntry;
 
     public function __construct(array $data) {
         $this->create($data);
@@ -28,17 +27,11 @@ class Comment {
         }
     }
 
-    public function getContent() {
-        return $this->content;
+    public function getDateEntry() {
+        return $this->dateEntry;
     }
-    public function setContent($content) {
-        $this->content = $content;
-    }
-    public function getDatePost() {
-        return $this->datePost;
-    }
-    public function setDatePost($datePost) {
-        $this->datePost = $datePost;
+    public function setDateEntry($dateEntry) {
+        $this->dateEntry = $dateEntry;
     }
     public function getId() {
         return $this->id;
@@ -46,16 +39,16 @@ class Comment {
     public function setId($id) {
         $this->id = $id;
     }
-    public function getIdUser() {
-        return $this->idUser;
-    }
-    public function setIdUser($idAuthor) {
-        $this->idUser = $idAuthor;
-    }
     public function getIdChallenge() {
         return $this->idChallenge;
     }
     public function setIdChallenge($idChallenge) {
         $this->idChallenge = $idChallenge;
     }
-}
+    public function getIdUser() {
+        return $this->idUser;
+    }
+    public function setIdUser($idUser) {
+        $this->idUser = $idUser;
+    }
+} 

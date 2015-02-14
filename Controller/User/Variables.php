@@ -7,3 +7,5 @@
  */
 $_PAGENAME_ = "User";
 $_PAGEHEAD_ = "ChypRiotE";
+
+$_LIST_NB = 10;

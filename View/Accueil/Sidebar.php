@@ -8,47 +8,51 @@
         <li class="sidebar-navigation-item is-selected">
             <a class="sidebar-navigation-item-link" href="/challenges"><i class="fa fa-caret-right"></i>
                 <div class="sidebar-navigation-item-name">All</div>
-                <div class="sidebar-navigation-item-underline"></div><div class="sidebar-navigation-item-count">1,008</div>
+                <div class="sidebar-navigation-item-underline"></div><div class="sidebar-navigation-item-count"><?php echo $ChallengeManager->getNbOngoing(); ?></div>
             </a>
         </li>
         <li class="sidebar-navigation-item">
             <a class="sidebar-navigation-item-link" href="/challenges/search?type=group">
-                <div class="sidebar-navigation-item-name">Group</div>
-                <div class="sidebar-navigation-item-underline"></div><div class="sidebar-navigation-item-count">1</div>
+                <div class="sidebar-navigation-item-name">Starter</div>
+                <div class="sidebar-navigation-item-underline"></div><div class="sidebar-navigation-item-count"><?php echo $ChallengeManager->getNbStarter(); ?></div>
             </a>
         </li>
         <li class="sidebar-navigation-item">
             <a class="sidebar-navigation-item-link" href="/challenges/search?type=wishlist">
-                <div class="sidebar-navigation-item-name">Wishlist</div>
-                <div class="sidebar-navigation-item-underline"></div><div class="sidebar-navigation-item-count">18</div>
+                <div class="sidebar-navigation-item-name">Advanced</div>
+                <div class="sidebar-navigation-item-underline"></div><div class="sidebar-navigation-item-count"><?php echo $ChallengeManager->getNbAdvanced(); ?></div>
             </a>
         </li>
+        <?php if (isLogged()) { ?>
         <li class="sidebar-navigation-item">
             <a class="sidebar-navigation-item-link" href="/challenges/search?type=new">
-                <div class="sidebar-navigation-item-name">New</div>
-                <div class="sidebar-navigation-item-underline"></div><div class="sidebar-navigation-item-count">457</div>
+                <div class="sidebar-navigation-item-name">Friends</div>
+                <div class="sidebar-navigation-item-underline"></div><div class="sidebar-navigation-item-count"><?php echo $ChallengeManager->getNbFriends($_SESSION['currentUser']->getId()); ?></div>
             </a>
         </li>
+        <?php } ?>
     </ul>
+    <?php if (isLogged()) { ?>
     <h3 class="sidebar-heading">My Challenges</h3>
     <ul class="sidebar-navigation">
         <li class="sidebar-navigation-item">
             <a class="sidebar-navigation-item-link" href="/challenges/created">
                 <div class="sidebar-navigation-item-name">Created</div>
-                <div class="sidebar-navigation-item-underline"></div><div class="sidebar-navigation-item-count">10</div>
+                <div class="sidebar-navigation-item-underline"></div><div class="sidebar-navigation-item-count"><?php echo $ChallengeManager->getNbCreated($_SESSION['currentUser']->getId()); ?></div>
             </a>
         </li>
         <li class="sidebar-navigation-item">
             <a class="sidebar-navigation-item-link" href="/challenges/entered">
                 <div class="sidebar-navigation-item-name">Entered</div>
-                <div class="sidebar-navigation-item-underline"></div><div class="sidebar-navigation-item-count">4,674</div>
+                <div class="sidebar-navigation-item-underline"></div><div class="sidebar-navigation-item-count"><?php echo $ChallengeManager->getNbEntered($_SESSION['currentUser']->getId()); ?></div>
             </a>
         </li>
         <li class="sidebar-navigation-item">
             <a class="sidebar-navigation-item-link" href="/challenges/won">
                 <div class="sidebar-navigation-item-name">Won</div>
-                <div class="sidebar-navigation-item-underline"></div><div class="sidebar-navigation-item-count">9</div>
+                <div class="sidebar-navigation-item-underline"></div><div class="sidebar-navigation-item-count"><?php echo $ChallengeManager->getNbWon($_SESSION['currentUser']->getId()); ?></div>
             </a>
         </li>
     </ul>
+    <?php } ?>
 </div>

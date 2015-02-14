@@ -15,7 +15,7 @@ class User {
     protected   $_mail;
     protected   $_password;
     protected   $_avatar;
-    protected   $_level;
+    protected   $_points;
     protected   $_rank;
 
     public function __construct(array $data) {
@@ -46,11 +46,11 @@ class User {
     public function setId($id) {
         $this->_id = $id;
     }
-    public function getLevel() {
-        return $this->_level;
+    public function getPoints() {
+        return $this->_points;
     }
-    public function setLevel($level) {
-        $this->_level = $level;
+    public function setPoints($points) {
+        $this->_points = $points;
     }
     public function getMail() {
         return $this->_mail;

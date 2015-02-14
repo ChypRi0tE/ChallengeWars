@@ -21,12 +21,12 @@ class User implements \Manager {
     public function    add($user) {
         if (!($user instanceof \Member\User)) {new \Error\TypeError("Manager/User", "User", $user->type);}
         $q = $this->_bdd->prepare("INSERT INTO " . $this->_table . "
-                     (username, mail, password, avatar, level, rank)
+                     (username, mail, password, avatar, points, rank)
                     VALUES (:username,
                     :mail,
                     :password,
                     :avatar,
-                    :level,
+                    :points,
                     :rank)
                   ");
 
@@ -34,7 +34,7 @@ class User implements \Manager {
         $q->bindValue(':mail', $user->getMail());
         $q->bindValue(':password', $user->getPassword());
         $q->bindValue(':avatar', $user->getAvatar());
-        $q->bindValue(':level', $user->getLevel());
+        $q->bindValue(':points', $user->getPoints());
         $q->bindValue(':rank', $user->getRank());
         $q->execute();
     }
@@ -50,7 +50,7 @@ class User implements \Manager {
                     mail = :mail,
                     password = :password,
                     avatar = :avatar,
-                    level = :level,
+                    points = :points,
                     rank = :rank
                     WHERE
                     id = :id
@@ -60,7 +60,7 @@ class User implements \Manager {
         $q->bindValue(':mail', $user->getMail());
         $q->bindValue(':password', $user->getPassword());
         $q->bindValue(':avatar', $user->getAvatar());
-        $q->bindValue(':level', $user->getLevel());
+        $q->bindValue(':points', $user->getPoints());
         $q->bindValue(':rank', $user->getRank());
         $q->bindValue(':id', $user->getId());
 

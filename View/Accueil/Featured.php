@@ -1,7 +1,7 @@
 <div class="featured-container">
     <div class="featured-outer-wrap featured-outer-wrap--home" style="background-color: rgb(46,35,9);">
         <div class="featured-inner-wrap">
-            <a href="/challenge/<?php echo $nextChallenge->getId(); ?>" class="global-image-outer-wrap global-image-outer-wrap--game-xlarge"><img src="assets/img/featured.jpg" /></a>
+            <a href="/challenge/<?php echo $nextChallenge->getId(); ?>" class="global-image-outer-wrap global-image-outer-wrap--game-xlarge"><img src="assets/img/filler460.jpg" /></a>
             <div class="featured-summary">
                 <?php   if(isLogged()) { ?>
                 <div class="featured-heading">
@@ -23,7 +23,7 @@
                     </div>
                     <div class="featured-column featured-column--width-fill"><?php echo $nextChallenge->getTitle(); ?></div>
                     <div class="featured-column">
-                        <i style="color: rgb(230,205,149);" class="fa fa-tag"></i> 1,751 entries
+                        <i style="color: rgb(230,205,149);" class="fa fa-tag"></i> <?php echo $EntryManager->getNbForChallenge($nextChallenge->getId()); ?> entries
                     </div>
                     <a href="/challenge/<?php echo $nextChallenge->getId(); ?>" class="featured-action-button"><i class="fa fa-arrow-circle-right"></i> View Featured</a>
                 </div>

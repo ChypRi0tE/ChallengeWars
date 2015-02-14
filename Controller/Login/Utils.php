@@ -72,9 +72,10 @@
         $data['password'] = md5($_POST['register-password']);
         $data['mail'] = $_POST['register-mail'];
         $data['avatar'] = 'default.jpg';
-        $data['level'] = 1;
+        $data['points'] = 1;
         $data['rank'] = 0;
         $mgr = new Member\Manager\User($_bdd, $_TABLE_USERS_);
         $usr = new \Member\User($data);
         $mgr->add($usr);
+        header('Location: /ChallengeWars');
     }

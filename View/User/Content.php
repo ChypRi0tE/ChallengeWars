@@ -1,56 +1,87 @@
 <div class="page-heading">
-    <div class="page-heading-breadcrumbs"><a href="/user/ChypRiotE">ChypRiotE</a></div>
+    <div class="page-heading-breadcrumbs">
+        <a href="user.php?id=<?php echo $thisUser->getId(); ?>"><?php echo $thisUser->getUsername(); ?></a>
+        <i class="fa fa-angle-right"></i>
+        <?php echo getPageHeading($tabPanel); ?>
+    </div>
 </div>
 <div>
-<div class="challenge-row-outer-wrap">
-    <div class="challenge-row-inner-wrap">
-        <div class="challenge-summary">
-            <h2 class="challenge-heading">
-                <a class="challenge-heading-name" href="/challenge/ge4uO/perfection">Perfection.</a><span class="challenge-heading-thin">(3P)</span><a class="challenge-icon" rel="nofollow" target="_blank" href="http://store.steampowered.com/app/246360/"><i class="fa fa-steam"></i></a>
-            </h2>
-            <div class="challenge-columns">
-                <div><i class="fa fa-clock-o"></i> <span title="March 11, 2014, 10:45pm">Ended 10 months ago</span></div><div class="challenge-column--positive"><i class="fa fa-check-circle"></i> <a href="/user/pyrokaos">pyrokaos</a></div><div class="challenge-column--width-fill text-right"><span title="March 11, 2014, 9:47pm">10 months ago</span></div></div>
-            <div class="challenge-links">
-                <a href="/challenge/ge4uO/perfection/entries"><i class="fa fa-tag"></i> <span>378 entries</span></a>
-                <a href="/challenge/ge4uO/perfection/comments"><i class="fa fa-comment"></i> <span>22 comments</span></a>
+<?php if ($tabPanel != "Comments") {
+    for ($i = 0; $i != $_LIST_NB && !empty($listChallenge[$i]); $i++) {
+        $user = $UserManager->get($listChallenge[$i]->getIdCreator()); ?>
+        <div class="challenge-row-outer-wrap">
+            <div class="challenge-row-inner-wrap">
+                <div class="challenge-summary">
+                    <h2 class="challenge-heading">
+                        <a class="challenge-heading-name"
+                           href="challenge.php?id=<?php echo $listChallenge[$i]->getId(); ?>">
+                            <?php echo $listChallenge[$i]->getTitle(); ?></a>
+                        <?php if ($listChallenge[$i]->getIsAdvanced()) { ?>
+                            <span class="challenge-heading-thin">(8 CP)</span>
+                        <?php } ?>
+                        <?php // <a class="challenge-icon" rel="nofollow" target="_blank" href="http://store.steampowered.com/app/246360/"><i class="fa fa-steam"></i></a> ?>
+                    </h2>
+
+                    <div class="challenge-columns">
+                        <div><i class="fa fa-clock-o"></i> <span
+                                title="<?php echo $listChallenge[$i]->getDateEnd(); ?>"><?php getTimeFromNow($listChallenge[$i]->getDateEnd()); ?></span>
+                        </div>
+                        <?php if ($listChallenge[$i]->getStatus() == 2) { ?>
+                            <div class="challenge-column--positive"><i class="fa fa-check-circle"></i> <a
+                                    href="user.php?id=<?php echo $user->getId(); ?>"><?php echo $user->getUsername(); ?></a>
+                            </div>
+                        <?php } ?>
+                        <div class="challenge-column--width-fill text-right"><span
+                                title="<?php echo $listChallenge[$i]->getDateCreation(); ?>">10 months ago</span></div>
+                    </div>
+                    <div class="challenge-links">
+                        <a href="challenge.php?id=<?php echo $listChallenge[$i]->getId(); ?>&tab=entries"><i
+                                class="fa fa-tag"></i>
+                            <span><?php echo $EntryManager->getNbForChallenge($listChallenge[$i]->getId()); ?>
+                                entries</span></a>
+                        <a href="challenge.php?id=<?php echo $listChallenge[$i]->getId(); ?>&tab=comments"><i
+                                class="fa fa-comment"></i>
+                            <span><?php echo $CommentManager->getNbForChallenge($listChallenge[$i]->getId()); ?>
+                                comments</span></a>
+                        <a href="challenge.php?id=<?php echo $listChallenge[$i]->getId(); ?>&tab=rankings"><i
+                                class="fa fa-trophy"></i> <span>rankings</span></a>
+                    </div>
+                </div>
+                <a class="global-image-outer-wrap global-image-outer-wrap--game-medium"
+                   href="challenge.php?id=<?php echo $listChallenge[$i]->getId(); ?>">
+                    <div class="global-image-inner-wrap" style="background-image:url(assets/img/filler500.jpg);"></div>
+                </a>
             </div>
-        </div><a class="global-image-outer-wrap global-image-outer-wrap--game-medium" href="/challenge/ge4uO/perfection"><div class="global-image-inner-wrap" style="background-image:url(assets/img/chall.jpg);"></div>
-        </a>
+        </div>
+    <?php }
+} else { ?>
+<div class="table">
+<div class="table-heading">
+    <div class="table-column--width-fill">Challenge</div>
+    <div class="table-column--width-small text-center">Date</div>
+</div>
+<div class="table-rows">
+<?php for ($i = 0; !empty($listComments[$i]); $i++) {
+    $challenge = $ChallengeManager->get($listComments[$i]->getIdChallenge());?>
+    <div class="table-row-outer-wrap">
+        <div class="table-row-inner-wrap">
+            <div>
+                <a class="global-image-outer-wrap global-image-outer-wrap--game-small" href="challenge.php?id=<?php echo $challenge->getId(); ?>">
+                    <div class="global-image-inner-wrap" style="background-image:url(assets/img/filler500.jpg);"></div></a></div>
+            <div class="table-column--width-fill">
+                <a href="challenge.php?id=<?php echo $challenge->getId(); ?>" class="table-column-heading"><?php echo $challenge->getTitle(); ?></a></div>
+            <div class="table-column--width-small text-center"><span title="<?php echo $listComments[$i]->getDatePost(); ?>"><?php echo $listComments[$i]->getDatePost(); ?></span></div>
+        </div>
     </div>
+<?php } ?>
 </div>
-<div class="challenge-row-outer-wrap">
-    <div class="challenge-row-inner-wrap">
-        <div class="challenge-summary">
-            <h2 class="challenge-heading">
-                <a class="challenge-heading-name" href="/challenge/630Qb/duke-nukem-manhattan-project">Duke Nukem: Manhattan Project</a><span class="challenge-heading-thin">(6P)</span><a class="challenge-icon" rel="nofollow" target="_blank" href="http://store.steampowered.com/app/240200/"><i class="fa fa-steam"></i></a>
-            </h2>
-            <div class="challenge-columns">
-                <div><i class="fa fa-clock-o"></i> <span title="March 11, 2014, 10:45pm">Ended 10 months ago</span></div><div class="challenge-column--positive"><i class="fa fa-check-circle"></i> <a href="/user/Pagdzis">Pagdzis</a></div><div class="challenge-column--width-fill text-right"><span title="March 11, 2014, 9:45pm">10 months ago</span></div></div>
-            <div class="challenge-links">
-                <a href="/challenge/630Qb/duke-nukem-manhattan-project/entries"><i class="fa fa-tag"></i> <span>529 entries</span></a>
-                <a href="/challenge/630Qb/duke-nukem-manhattan-project/comments"><i class="fa fa-comment"></i> <span>24 comments</span></a>
-            </div>
-        </div><a class="global-image-outer-wrap global-image-outer-wrap--game-medium" href="/challenge/630Qb/duke-nukem-manhattan-project"><div class="global-image-inner-wrap" style="background-image:url(assets/img/chall.jpg);"></div>
-        </a>
-    </div>
+<?php } ?>
 </div>
-<div class="challenge-row-outer-wrap">
-    <div class="challenge-row-inner-wrap">
-        <div class="challenge-summary">
-            <h2 class="challenge-heading">
-                <a class="challenge-heading-name" href="/challenge/reCe6/cities-in-motion-2">Cities in Motion 2</a><span class="challenge-heading-thin">(20P)</span><a class="challenge-icon" rel="nofollow" target="_blank" href="http://store.steampowered.com/app/225420/"><i class="fa fa-steam"></i></a>
-            </h2>
-            <div class="challenge-columns">
-                <div><i class="fa fa-clock-o"></i> <span title="January 27, 2014, 11:15pm">Ended 1 year ago</span></div><div class="challenge-column--positive"><i class="fa fa-check-circle"></i> <a href="/user/GuuilBR">GuuilBR</a></div><div class="challenge-column--width-fill text-right"><span title="January 26, 2014, 10:14pm">1 year ago</span></div></div>
-            <div class="challenge-links">
-                <a href="/challenge/reCe6/cities-in-motion-2/entries"><i class="fa fa-tag"></i> <span>1,201 entries</span></a>
-                <a href="/challenge/reCe6/cities-in-motion-2/comments"><i class="fa fa-comment"></i> <span>37 comments</span></a>
-            </div>
-        </div><a class="global-image-outer-wrap global-image-outer-wrap--game-medium" href="/challenge/reCe6/cities-in-motion-2"><div class="global-image-inner-wrap" style="background-image:url(assets/img/chall.jpg);"></div>
-        </a>
-    </div>
-</div>
-</div>
+<?php //TODO pagination plus cool ?>
 <div class="pagination">
-    <div class="pagination-results">Displaying <strong>1</strong> to <strong>10</strong> of <strong>10</strong> results</div>
+    <?php if ($i) { ?>
+        <div class="pagination-results">Displaying <strong>1</strong> to <strong><?php echo $i; ?></strong> of <strong><?php echo getResults($tabPanel); ?></strong> results</div>
+    <?php } else { ?>
+        <div class="pagination-results">No results</div>
+    <?php } ?>
 </div>

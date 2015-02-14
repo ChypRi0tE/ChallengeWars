@@ -16,8 +16,9 @@ class Challenge {
     protected $_idCreator;
     protected $_idPrize;
     protected $_description;
-    protected $_isFeatured;
+    protected $_isAdvanced;
     protected $_status;
+    //TODO isAdvanced, requirement, type, image
 
 
     public function __construct(array $data) {
@@ -84,10 +85,10 @@ class Challenge {
     public function setStatus($status) {
         $this->_status = $status;
     }
-    public function getIsFeatured() {
-        return $this->_isFeatured;
+    public function getIsAdvanced() {
+        return $this->_isAdvanced;
     }
-    public function setIsFeatured($isFeatured) {
-        $this->_isFeatured = $isFeatured;
+    public function setIsAdvanced($isAdvanced) {
+        $this->_isAdvanced = $isAdvanced;
     }
 }

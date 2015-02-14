@@ -32,4 +32,23 @@
         if (strtolower($_PAGENAME_) == strtolower($link))
             echo "is-selected";
     }
+
+    function    getTimeFromNow($date) {
+        $dateEnd = new DateTime($date);
+        $dateToday = new DateTime();
+        $dateDiff = $dateEnd->diff($dateToday);
+
+        $r['day'] = $dateDiff->d;
+        $r['hour'] = $dateDiff->h;
+        $r['min'] = $dateDiff->i;
+
+        if ($r['day'] > 0) {
+            if ($r['hour'] == 0)
+                echo "Ending in " . $r['min'] . " minutes";
+            else
+                echo "Ending in " . $r['hour'] . " hours";
+        } else {
+            echo $dateDiff->format('%d %m %y - %h:%i');
+        }
+    }
 ?>

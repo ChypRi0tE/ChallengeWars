@@ -17,18 +17,19 @@ class Challenge implements Manager {
         $this->_bdd = $bdd;
         $this->_table = $table;
     }
+
     public function     add($challenge) {
         if (!($challenge instanceof \Challenge\Challenge)) {new \Error\TypeError("Manager/Challenge", "Challenge", $challenge->type);}
 
         $q = $this->_bdd->prepare("INSERT INTO " . $this->_table . "
-                    ('title', 'dateCreation', 'dateEnd', 'idCreator', 'idPrize', 'description', 'isFeatured', 'status')
+                    ('title', 'dateCreation', 'dateEnd', 'idCreator', 'idPrize', 'description', 'isAdvanced', 'status')
                     VALUES (:title,
                     :dateCreation,
                     :dateEnd,
                     :idCreator,
                     :idPrize,
                     :description,
-                    :isFeatured,
+                    :isAdvanced,
                     :status)
                   ");
 
@@ -38,7 +39,7 @@ class Challenge implements Manager {
         $q->bindValue(':idCreator', $challenge->getIdCreator(), PDO::PARAM_INT);
         $q->bindValue(':idPrize', $challenge->getIdPrize(), PDO::PARAM_INT);
         $q->bindValue(':description', $challenge->getDescription());
-        $q->bindValue(':isFeatured', $challenge->getIsFeatured(), PDO::PARAM_BOOL);
+        $q->bindValue(':isAdvanced', $challenge->getIsAdvanced(), PDO::PARAM_BOOL);
         $q->bindValue(':status', $challenge->getStatus(), PDO::PARAM_INT);
 
         $q->execute();
@@ -52,7 +53,7 @@ class Challenge implements Manager {
                     idCreator = :idCreator,
                     idPrize = :idPrize,
                     description = :description,
-                    isFeatured = :isFeatured,
+                    isAdvanced = :isAdvanced,
                     status = :status
                     WHERE id = :id
                   ');
@@ -63,7 +64,7 @@ class Challenge implements Manager {
         $q->bindValue(':idCreator', $challenge->getIdCreator(), PDO::PARAM_INT);
         $q->bindValue(':idPrize', $challenge->getIdPrize(), PDO::PARAM_INT);
         $q->bindValue(':description', $challenge->getDescription());
-        $q->bindValue(':isFeatured', $challenge->getIsFeatured(), PDO::PARAM_BOOL);
+        $q->bindValue(':isAdvanced', $challenge->getIsAdvanced(), PDO::PARAM_BOOL);
         $q->bindValue(':status', $challenge->getStatus(), PDO::PARAM_INT);
         $q->bindValue(':id', $challenge->getId(), PDO::PARAM_INT);
 
@@ -78,22 +79,23 @@ class Challenge implements Manager {
         $this->_bdd->exec('DELETE FROM '.$this->_table.' WHERE id = '.$id);
     }
 
-
-    /**
-     * Returns the next challenge to end.
-     * @return \Challenge\Challenge
-     */
     public function     getNext() {
         $q = $this->_bdd->query('SELECT * FROM '.$this->_table.' ORDER BY dateEnd ASC LIMIT 1');
         $data = $q->fetch();
         return new \Challenge\Challenge($data);
     }
-    /**
-     * Returns the t challenge to end.
-     * @return \Challenge\Challenge
-     */
-    public function     getFeatured() {
-        $q = $this->_bdd->query('SELECT * FROM '.$this->_table.' WHERE status = 1 AND isFeatured = 1 ORDER BY dateEnd ASC');
+    public function     getOngoing() {
+        $q = $this->_bdd->query('SELECT * FROM '.$this->_table.' WHERE status = 1 ORDER BY dateEnd ASC');
+        $list = [];
+        while ($data = $q->fetch()) {
+            $list[] = new \Challenge\Challenge($data);
+        }
+        return $list;
+    }
+
+
+    public function     getAdvanced() {
+        $q = $this->_bdd->query('SELECT * FROM '.$this->_table.' WHERE status = 1 AND isAdvanced = 1 ORDER BY dateEnd ASC');
         $list = [];
         while ($data = $q->fetch()) {
             $list[] = new \Challenge\Challenge($data);
@@ -102,14 +104,6 @@ class Challenge implements Manager {
     }
     public function     getEnded() {
         $q = $this->_bdd->query('SELECT * FROM '.$this->_table.' WHERE status = 2 ORDER BY dateEnd DESC');
-        $list = [];
-        while ($data = $q->fetch()) {
-            $list[] = new \Challenge\Challenge($data);
-        }
-        return $list;
-    }
-    public function     getOngoing() {
-        $q = $this->_bdd->query('SELECT * FROM '.$this->_table.' WHERE status = 1 ORDER BY dateEnd ASC');
         $list = [];
         while ($data = $q->fetch()) {
             $list[] = new \Challenge\Challenge($data);
@@ -128,6 +122,36 @@ class Challenge implements Manager {
         //TODO
     }
     public function     getEntered($id) {
-        //TODO
+        global $EntryManager;
+        $entries = $EntryManager->getForUser($id);
+        $list = [];
+        for ($i = 0; !empty($entries[$i]); $i++){
+            $list[] = $this->get($entries[$i]->getIdChallenge());
+        }
+        return $list;
+    }
+
+    public function     getNbOngoing() {
+        $q = $this->_bdd->query('SELECT count(*) FROM '.$this->_table.' WHERE status = 1');
+        return $q->fetch()[0];
+    }
+    public function     getNbStarter() {
+        $q = $this->_bdd->query('SELECT count(*) FROM '.$this->_table.' WHERE isAdvanced = false AND status = 1');
+        return $q->fetch()[0];
+    }
+    public function     getNbAdvanced() {
+        $q = $this->_bdd->query('SELECT count(*) FROM '.$this->_table.' WHERE isAdvanced = true AND status = 1');
+        return $q->fetch()[0];
+    }
+    public function     getNbCreated($id) {
+        $q = $this->_bdd->query('SELECT count(*) FROM '.$this->_table.' WHERE idCreator = '.$id);
+        return $q->fetch()[0];
+    }
+    public function     getNbWon($id) {
+        $q = $this->_bdd->query('SELECT count(*) FROM '.$this->_table.' WHERE isAdvanced = true AND status = 1');
+        return 2;
+    }
+    public function     getNbFriends($id) {
+        return 8;
     }
 }
