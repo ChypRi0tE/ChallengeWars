@@ -33,6 +33,19 @@
             echo "is-selected";
     }
 
+    function    getRelativeDate($date) {
+        $dateToday = new DateTime();
+        $dateCheck = new DateTime($date);
+        $dateDiff = $dateCheck->diff($dateToday);
+
+        if ($dateDiff->d == 0) {
+            echo "Today";
+        } else if ($dateDiff-> d == 1) {
+            echo "Tomorrow";
+        } else {
+            echo $dateDiff->d . " " . $dateCheck->format("PM");
+        }
+    }
     function    getTimeFromNow($date) {
         $dateEnd = new DateTime($date);
         $dateToday = new DateTime();
@@ -49,6 +62,19 @@
                 echo "Ending in " . $r['hour'] . " hours";
         } else {
             echo $dateDiff->format('%d %m %y - %h:%i');
+        }
+    }
+
+    function    getChallengeType($type) {
+        switch ($type) {
+            case 1:
+                return '<i class="fa fa-crosshairs"></i> Creep';
+            case 2:
+                return '<i class="fa fa-flag-checkered"></i> Victory';
+            case 3:
+                return '<i class="fa fa-clock-o"></i> Time';
+            case 4:
+                return '<i class="fa fa-cog"></i> Custom';
         }
     }
 ?>

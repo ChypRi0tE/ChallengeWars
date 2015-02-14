@@ -22,7 +22,7 @@ class Challenge implements Manager {
         if (!($challenge instanceof \Challenge\Challenge)) {new \Error\TypeError("Manager/Challenge", "Challenge", $challenge->type);}
 
         $q = $this->_bdd->prepare("INSERT INTO " . $this->_table . "
-                    ('title', 'dateCreation', 'dateEnd', 'idCreator', 'idPrize', 'description', 'isAdvanced', 'status')
+                    ('title', 'dateCreation', 'dateEnd', 'idCreator', 'idPrize', 'description', 'isAdvanced', 'status', 'cost', 'type', 'image')
                     VALUES (:title,
                     :dateCreation,
                     :dateEnd,
@@ -30,7 +30,10 @@ class Challenge implements Manager {
                     :idPrize,
                     :description,
                     :isAdvanced,
-                    :status)
+                    :status,
+                    :cost,
+                    :type,
+                    :image)
                   ");
 
         $q->bindValue(':title', $challenge->getTitle());
@@ -41,6 +44,9 @@ class Challenge implements Manager {
         $q->bindValue(':description', $challenge->getDescription());
         $q->bindValue(':isAdvanced', $challenge->getIsAdvanced(), PDO::PARAM_BOOL);
         $q->bindValue(':status', $challenge->getStatus(), PDO::PARAM_INT);
+        $q->bindValue(':cost', $challenge->getCost(), PDO::PARAM_INT);
+        $q->bindValue(':type', $challenge->getType(), PDO::PARAM_INT);
+        $q->bindValue(':image', $challenge->getImage());
 
         $q->execute();
     }
@@ -54,7 +60,10 @@ class Challenge implements Manager {
                     idPrize = :idPrize,
                     description = :description,
                     isAdvanced = :isAdvanced,
-                    status = :status
+                    status = :status,
+                    cost = :cost,
+                    type = :type,
+                    image = :image
                     WHERE id = :id
                   ');
 
@@ -66,6 +75,9 @@ class Challenge implements Manager {
         $q->bindValue(':description', $challenge->getDescription());
         $q->bindValue(':isAdvanced', $challenge->getIsAdvanced(), PDO::PARAM_BOOL);
         $q->bindValue(':status', $challenge->getStatus(), PDO::PARAM_INT);
+        $q->bindValue(':cost', $challenge->getCost(), PDO::PARAM_INT);
+        $q->bindValue(':type', $challenge->getType(), PDO::PARAM_INT);
+        $q->bindValue(':image', $challenge->getImage());
         $q->bindValue(':id', $challenge->getId(), PDO::PARAM_INT);
 
         $q->execute();

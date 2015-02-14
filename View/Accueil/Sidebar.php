@@ -1,4 +1,4 @@
-<div class="sidebar sidebar--wide">
+<div class="sidebar">
     <div class="sidebar-search-container">
         <input class="sidebar-search-input is-helper" name="search-query" type="text" data-helper-str="Search..." placeholder="Search..." />
         <i class="fa fa-search"></i>
@@ -6,7 +6,7 @@
     <h3 class="sidebar-heading">Browse</h3>
     <ul class="sidebar-navigation">
         <li class="sidebar-navigation-item is-selected">
-            <a class="sidebar-navigation-item-link" href="/challenges"><i class="fa fa-caret-right"></i>
+            <a class="sidebar-navigation-item-link" href="/ChallengeWars"><i class="fa fa-caret-right"></i>
                 <div class="sidebar-navigation-item-name">All</div>
                 <div class="sidebar-navigation-item-underline"></div><div class="sidebar-navigation-item-count"><?php echo $ChallengeManager->getNbOngoing(); ?></div>
             </a>
@@ -36,21 +36,21 @@
     <h3 class="sidebar-heading">My Challenges</h3>
     <ul class="sidebar-navigation">
         <li class="sidebar-navigation-item">
-            <a class="sidebar-navigation-item-link" href="/challenges/created">
+            <a class="sidebar-navigation-item-link" href="user.php?id=<?php echo $thisUser->getId(); ?>&tab=created">
                 <div class="sidebar-navigation-item-name">Created</div>
-                <div class="sidebar-navigation-item-underline"></div><div class="sidebar-navigation-item-count"><?php echo $ChallengeManager->getNbCreated($_SESSION['currentUser']->getId()); ?></div>
+                <div class="sidebar-navigation-item-underline"></div><div class="sidebar-navigation-item-count"><?php echo $thisStats->getChallCreated(); ?></div>
             </a>
         </li>
         <li class="sidebar-navigation-item">
-            <a class="sidebar-navigation-item-link" href="/challenges/entered">
+            <a class="sidebar-navigation-item-link" href="user.php?id=<?php echo $thisUser->getId(); ?>&tab=entered">
                 <div class="sidebar-navigation-item-name">Entered</div>
-                <div class="sidebar-navigation-item-underline"></div><div class="sidebar-navigation-item-count"><?php echo $ChallengeManager->getNbEntered($_SESSION['currentUser']->getId()); ?></div>
+                <div class="sidebar-navigation-item-underline"></div><div class="sidebar-navigation-item-count"><?php echo $thisStats->getChallEntered() ?></div>
             </a>
         </li>
         <li class="sidebar-navigation-item">
-            <a class="sidebar-navigation-item-link" href="/challenges/won">
+            <a class="sidebar-navigation-item-link" href="user.php?id=<?php echo $thisUser->getId(); ?>&tab=won">
                 <div class="sidebar-navigation-item-name">Won</div>
-                <div class="sidebar-navigation-item-underline"></div><div class="sidebar-navigation-item-count"><?php echo $ChallengeManager->getNbWon($_SESSION['currentUser']->getId()); ?></div>
+                <div class="sidebar-navigation-item-underline"></div><div class="sidebar-navigation-item-count"><?php echo $thisStats->getChallWon(); ?></div>
             </a>
         </li>
     </ul>

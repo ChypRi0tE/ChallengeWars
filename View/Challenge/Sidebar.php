@@ -3,8 +3,8 @@
         <input type="hidden" name="xsrf_token" value="6f188e293c737648170b50135684323e">
         <input type="hidden" name="do" value="">
         <input type="hidden" name="code" value="Fz9Fn">
-        <div data-do="entry_insert" class="sidebar-entry-insert"><i class="fa fa-plus-circle"></i> Enter Challenge<span class="sidebar-entry-points">(6P)</span></div>
-        <div data-do="entry_delete" class="sidebar-entry-delete is-hidden"><i class="fa fa-minus-circle"></i> Remove Entry<span class="sidebar-entry-points">(6P)</span></div>
+        <div class="sidebar-entry-insert"><i class="fa fa-plus-circle"></i> Enter Challenge<span class="sidebar-entry-points">(6P)</span></div>
+        <div class="sidebar-entry-delete is-hidden"><i class="fa fa-minus-circle"></i> Remove Entry<span class="sidebar-entry-points">(6P)</span></div>
         <div class="sidebar-entry-loading is-disabled is-hidden"><i class="fa fa-refresh fa-spin"></i> Please wait...</div>
     </form>
     <div class="sidebar-search-container">

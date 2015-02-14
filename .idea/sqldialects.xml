@@ -6,6 +6,7 @@
     <file url="file://$PROJECT_DIR$/Model/Challenge/Manager/Entry.php" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/Model/Member/Manager/Stats.php" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/Model/Member/Manager/User.php" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/SQL" dialect="MySQL" />
   </component>
 </project>
 

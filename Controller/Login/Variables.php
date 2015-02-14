@@ -6,4 +6,5 @@
  * Time: 18:21
  */
 $_PAGENAME_ = "Login";
+$_PAGETITLE_ = "Login";
 $_PAGEHEAD_ = "ChypRiotE";

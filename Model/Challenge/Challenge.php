@@ -18,8 +18,9 @@ class Challenge {
     protected $_description;
     protected $_isAdvanced;
     protected $_status;
-    //TODO isAdvanced, requirement, type, image
-
+    protected $_cost;
+    protected $_type;
+    protected $_image;
 
     public function __construct(array $data) {
         $this->create($data);
@@ -91,4 +92,23 @@ class Challenge {
     public function setIsAdvanced($isAdvanced) {
         $this->_isAdvanced = $isAdvanced;
     }
+    public function getCost() {
+        return $this->_cost;
+    }
+    public function setCost($cost) {
+        $this->_cost = $cost;
+    }
+    public function getImage() {
+        return $this->_image;
+    }
+    public function setImage($image) {
+        $this->_image = $image;
+    }
+    public function getType() {
+        return $this->_type;
+    }
+    public function setType($type) {
+        $this->_type = $type;
+    }
+
 }

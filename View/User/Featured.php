@@ -23,10 +23,6 @@
                             <div class="featured-table-row-right"><span title="April 3, 2013, 12:16pm">1 year ago</span></div>
                         </div>
                         <div class="featured-table-row">
-                            <div class="featured-table-row-left">Comments</div>
-                            <div class="featured-table-row-right"><?php echo $thisStats->getCommentPosted(); ?></div>
-                        </div>
-                        <div class="featured-table-row">
                             <div class="featured-table-row-left">&nbsp;</div>
                             <div class="featured-table-row-right"></div>
                         </div>
@@ -34,15 +30,19 @@
                     <div class="featured-table-column">
                         <div class="featured-table-row">
                             <div class="featured-table-row-left">Challenge Created</div>
-                            <div class="featured-table-row-right"><a style="color: rgb(156,184,230);" href="/user/ChypRiotE"><?php echo $thisStats->getChallCreated(); ?></a></div>
+                            <div class="featured-table-row-right"><a style="color: rgb(156,184,230);" href="user.php?id=<?php echo $idUser; ?>&tab=created"><?php echo $thisStats->getChallCreated(); ?></a></div>
                         </div>
                         <div class="featured-table-row">
                             <div class="featured-table-row-left">Challenge Entered</div>
-                            <div class="featured-table-row-right"><a style="color: rgb(156,184,230);" href="user.php?ChypRiotE/feedback"><?php echo $thisStats->getChallEntered();; ?></a></div>
+                            <div class="featured-table-row-right"><a style="color: rgb(156,184,230);" href="user.php?id=<?php echo $idUser; ?>&tab=entries"><?php echo $thisStats->getChallEntered(); ?></a></div>
                         </div>
                         <div class="featured-table-row">
                             <div class="featured-table-row-left">Challenge Won</div>
-                            <div class="featured-table-row-right"><a style="color: rgb(156,184,230);" href="/user/ChypRiotE/giveaways/won"><?php echo $thisStats->getChallWon(); ?></a> (3%)</div>
+                            <div class="featured-table-row-right"><a style="color: rgb(156,184,230);" href="user.php?id=<?php echo $idUser; ?>&tab=won"><?php echo $thisStats->getChallWon(); ?></a> (3%)</div>
+                        </div>
+                        <div class="featured-table-row">
+                            <div class="featured-table-row-left">Comments Posted</div>
+                            <div class="featured-table-row-right"><a style="color: rgb(156,184,230);" href="user.php?id=<?php echo $idUser; ?>&tab=comments"><?php echo $thisStats->getCommentPosted(); ?></a></div>
                         </div>
                         <div class="featured-table-row">
                             <div class="featured-table-row-left">&nbsp;</div>

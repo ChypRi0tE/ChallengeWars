@@ -13,3 +13,30 @@ $(".nav-button--is-dropdown-arrow").click(function(e){
     $(".nav-relative-dropdown").not(test).addClass("is-hidden");
     e.stopPropagation();
 });
+$(".challenge-hide").click(function(){
+    $(this).closest(".challenge-row-outer-wrap").addClass("is-hidden");
+});
+$(".challenge-show").click(function() {
+   $(".challenge-row-outer-wrap").removeClass("is-hidden");
+});
+$(".form-row--new-challenge-type .form-checkbox").click(function() {
+    $(".form-row--new-challenge-type .form-checkbox").addClass("is-disabled").removeClass("is-selected");
+    $(this).addClass("is-selected");
+    $("#new-type").val($(this).attr("data-checkbox-value"));
+});
+$(".form-row--new-challenge-who .form-checkbox").click(function() {
+    $(".form-row--new-challenge-who .form-checkbox").addClass("is-disabled").removeClass("is-selected");
+    $(this).addClass("is-selected");
+    $("#new-who").val($(this).attr("data-checkbox-value"));
+    if ($(this).attr("data-checkbox-value") == "custom"){
+        $(".form-groups").removeClass("is-hidden");
+    } else {$(".form-groups").addClass("is-hidden");}
+});
+$(".form-group--steam").click(function(){
+    $(this).toggleClass("is-selected");
+});
+$(".form-row--new-challenge-level .form-checkbox").click(function() {
+    $(".form-row--new-challenge-level .form-checkbox").addClass("is-disabled").removeClass("is-selected");
+    $(this).addClass("is-selected");
+    $("#new-level").val($(this).attr("data-checkbox-value"));
+});

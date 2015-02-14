@@ -6,6 +6,7 @@
  * Time: 15:57
  */
     $_PAGENAME_ = "Accueil";
+    $_PAGETITLE_ = "Accueil";
     $_PAGEHEAD_ = "Challenges";
 
     $_PINNED_HEADER = "Featured Challenges";

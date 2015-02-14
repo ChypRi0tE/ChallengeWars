@@ -6,6 +6,7 @@
  * Time: 23:29
  */
 $_PAGENAME_ = "Challenge";
+$_PAGETITLE_ = "Challenge";
 $_PAGEHEAD_ = "ChypRiotE";
 
 $_LIST_NB = 10;

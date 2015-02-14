@@ -9,28 +9,28 @@
             <div class="nav-button-container <?php isSelected("accueil"); ?>">
                 <div class="nav-relative-dropdown is-hidden">
                     <div class="nav-absolute-dropdown">
-                        <a class="nav-row" href="/challenges/new">
+                        <a class="nav-row" href="new.php">
                             <i class="icon-green fa fa-fw fa-plus-circle"></i>
-                            <div class="nav__row__summary">
+                            <div class="nav-row-summary">
                                 <p class="nav-row-summary-name">Create a New Challenge</p>
                                 <p class="nav-row-summary-description">Get started with a new challenge.</p>
                             </div>
                         </a>
-                        <a class="nav-row" href="/challenges/created">
+                        <a class="nav-row" href="user.php?id=<?php echo $_SESSION['currentUser']->getId(); ?>&tab=created">
                             <i class="icon-grey fa fa-fw fa-flash"></i>
-                            <div class="nav__row__summary">
+                            <div class="nav-row-summary">
                                 <p class="nav-row-summary-name">View Created</p>
                                 <p class="nav-row-summary-description">Check the status of your challenges.</p>
                             </div>
                         </a>
-                        <a class="nav-row" href="/challenges/entered">
+                        <a class="nav-row" href="user.php?id=<?php echo $_SESSION['currentUser']->getId(); ?>&tab=entered">
                             <i class="icon-red fa fa-fw fa-tag"></i>
-                            <div class="nav__row__summary">
+                            <div class="nav-row-summary">
                                 <p class="nav-row-summary-name">View Entered</p>
                                 <p class="nav-row-summary-description">Browse your challenge entries.</p>
                             </div>
                         </a>
-                        <a class="nav-row" href="/challenges/won">
+                        <a class="nav-row" href="user.php?id=<?php echo $_SESSION['currentUser']->getId(); ?>&tab=won">
                             <i class="icon-yellow fa fa-fw fa-trophy"></i>
                             <div class="nav-row-summary">
                                 <p class="nav-row-summary-name">View Won</p>
@@ -47,14 +47,14 @@
                     <div class="nav-absolute-dropdown">
                         <a class="nav-row" href="/forum/new">
                             <i class="icon-green fa fa-fw fa-plus-circle"></i>
-                            <div class="nav__row__summary">
+                            <div class="nav-row-summary">
                                 <p class="nav-row-summary-name">Create a New Discussion</p>
                                 <p class="nav-row-summary-description">Start a topic on the forum.</p>
                             </div>
                         </a>
                         <a class="nav-row" href="/forum/created">
                             <i class="icon-grey fa fa-fw fa-edit"></i>
-                            <div class="nav__row__summary">
+                            <div class="nav-row-summary">
                                 <p class="nav-row-summary-name">View Created</p>
                                 <p class="nav-row-summary-description">Check the status of your discussions.</p>
                             </div>
@@ -69,7 +69,7 @@
                     <div class="nav-absolute-dropdown">
                         <a class="nav-row" href="/support/tickets/new">
                             <i class="icon-green fa fa-fw fa-plus-circle"></i>
-                            <div class="nav__row__summary">
+                            <div class="nav-row-summary">
                                 <p class="nav-row-summary-name">Create a New Ticket</p>
                                 <p class="nav-row-summary-description">Start a support ticket.</p>
                             </div>
@@ -86,13 +86,13 @@
         <div class="nav-right-container">
             <div class="nav-button-container">
                 <div class="nav-button-container--notification nav-button-container--inactive">
-                    <a title="Challenges Created" class="nav-button nav-button--notification" href="/challenges/created"><i class="fa fa-flash"></i></a>
+                    <a title="Challenges Created" class="nav-button nav-button--notification" href="user.php?id=<?php echo $_SESSION['currentUser']->getId(); ?>&tab=created"><i class="fa fa-flash"></i></a>
                 </div>
                 <div class="nav-button-container--notification nav-button-container--inactive">
-                    <a title="Challenges Won" class="nav-button nav-button--notification" href="/challenges/won"><i class="fa fa-trophy"></i></a>
+                    <a title="Challenges Won" class="nav-button nav-button--notification" href="user.php?id=<?php echo $_SESSION['currentUser']->getId(); ?>&tab=won"><i class="fa fa-trophy"></i></a>
                 </div>
                 <div class="nav-button-container--notification nav-button-container--inactive">
-                    <a title="Messages" class="nav-button nav-button--notification" href="/user/inbox"><i class="fa fa-envelope"></i></a>
+                    <a title="Messages" class="nav-button nav-button--notification" href="/account/inbox"><i class="fa fa-envelope"></i></a>
                 </div>
             </div>
             <div class="nav-button-container <?php isSelected("user"); ?>">
@@ -102,14 +102,14 @@
                     <div class="nav-absolute-dropdown">
                         <a class="nav-row" href="/account/profile/sync">
                             <i class="icon-green fa fa-fw fa-refresh"></i>
-                            <div class="nav__row__summary">
+                            <div class="nav-row-summary">
                                 <p class="nav-row-summary-name">Sync with League of Legends</p>
                                 <p class="nav-row-summary-description">Last synced <span title="Yesterday, 4:32pm">22 hours ago</span>.</p>
                             </div>
                         </a>
                         <a class="nav-row" href="logout.php">
                             <i class="icon-blue fa fa-fw fa-sign-out"></i>
-                            <div class="nav__row__summary">
+                            <div class="nav-row-summary">
                                 <p class="nav-row-summary-name">Logout</p>
                                 <p class="nav-row-summary-description">Sign-out of your account.</p>
                             </div>

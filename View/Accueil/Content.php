@@ -1,9 +1,9 @@
 <div class="page-heading">
     <div class="page-heading-breadcrumbs"><a href="/ChallengeWars"><?php echo $_LIST_HEADER; ?></a></div>
-    <a href="account/settings/challenges"><i class="fa fa-cog"></i></a>
+    <div class="challenge-show" title="Show all"><i class="fa fa-eye"></i></div>
 </div>
 <div>
-<?php for ($i = 0; $i != $_LIST_NB && !empty($listChallenge[$i]); $i++) {
+<?php for ($i = 0; !empty($listChallenge[$i]); $i++) {
     $user = $UserManager->get($listChallenge[$i]->getIdCreator()); ?>
     <div class="challenge-row-outer-wrap">
         <div class="challenge-row-inner-wrap">
@@ -11,15 +11,16 @@
                 <h2 class="challenge-heading">
                     <a class="challenge-heading-name" href="challenge.php?id=<?php echo $listChallenge[$i]->getId(); ?>"><?php echo $listChallenge[$i]->getTitle(); ?></a>
                     <?php if ($listChallenge[$i]->getIsAdvanced()) { ?>
-                    <span class="challenge-heading-thin">(20 CP)</span>
+                    <span class="challenge-heading-thin">(<?php echo $listChallenge[$i]->getCost(); ?> CP)</span>
                     <?php } ?>
-                    <i data-popup="popup--hide-games" data-game-id="1620" class="challenge-icon challenge-hide trigger-popup fa fa-eye-slash"></i>
+                    <i class="challenge-icon challenge-hide fa fa-eye-slash" title="Hide challenge"></i>
                 </h2>
                 <div class="challenge-columns">
-                    <div><i class="fa fa-clock-o"></i> <span title="<?php echo $listChallenge[$i]->getDateEnd(); ?>"><?php getTimeFromNow($listChallenge[$i]->getDateEnd()); ?></span></div>
-                    <div class="challenge-column--width-fill text-right"><span title="<?php echo $listChallenge[$i]->getDateCreation(); ?>"><?php getTimeFromNow($listChallenge[$i]->getDateCreation()); ?></span> by <a class="challenge-username" href="user.php?id=<?php echo $listChallenge[$i]->getIdCreator(); ?>"><?php echo $user->getUsername(); ?></a></div>
+                    <div><i class="fa fa-clock-o"></i> <span title="<?php echo $listChallenge[$i]->getDateEnd(); ?>"><?php $listChallenge[$i]->getDateEnd(); ?><em>TODO</em></span></div>
+                    <div class="challenge-column--invite-only"><span title="<?php echo $listChallenge[$i]->getType(); ?>"><?php echo getChallengeType($listChallenge[$i]->getType()); ?> Challenge</span></div>
+                    <div class="challenge-column--width-fill text-right"><span title="<?php echo $listChallenge[$i]->getDateCreation(); ?>"><?php $listChallenge[$i]->getDateCreation(); ?><em>TODO</em></span> by <a class="challenge-username" href="user.php?id=<?php echo $listChallenge[$i]->getIdCreator(); ?>"><?php echo $user->getUsername(); ?></a></div>
                     <?php if ($listChallenge[$i]->getIsAdvanced()) { ?>
-                    <div class="challenge-column--contributor-level challenge-column--contributor-level--advanced" title="Advanced Challenge">Advanced</div>
+                    <div class="challenge-column--contributor-level challenge-column--contributor-level--negative" title="Advanced Challenge">Advanced</div>
                     <?php } ?>
                 </div>
                 <div class="challenge-links">
@@ -39,8 +40,8 @@
 <?php } ?>
 </div>
 <div class="pagination">
-    <div class="pagination-results">Displaying <strong>1</strong> to <strong><?php echo $i; ?></strong> of <strong><?php echo $ChallengeManager->getNbOngoing(); ?></strong> results</div>
-    <div class="pagination-navigation">
+    <div class="pagination-results">Displaying <strong><?php echo $i; ?></strong> results</div>
+<?php /*    <div class="pagination-navigation">
         <a data-page-number="1" class="is-selected" href="/giveaways"><span>1</span></a>
         <a data-page-number="2" href="/giveaways/search?page=2"><span>2</span></a>
         <a data-page-number="3" href="/giveaways/search?page=3"><span>3</span></a>
@@ -48,5 +49,5 @@
         <a data-page-number="5" href="/giveaways/search?page=5"><span>5</span></a> ...
         <a data-page-number="2" href="/giveaways/search?page=2"><span>Next</span> <i class="fa fa-angle-right"></i></a>
         <a data-page-number="41" href="/giveaways/search?page=41"><span>Last</span> <i class="fa fa-angle-double-right"></i></a>
-    </div>
+    </div>*/?>
 </div>
