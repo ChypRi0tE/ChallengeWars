@@ -60,4 +60,7 @@
       <index name="idUser" unique="true" columns="idUser"/>
     </table>
   </data-source>
+  <data-source name="MySQL - 5gbc_15477651_lolc@sql203.5gb.co" uuid="bbe2bdcb-9f85-4323-9fe5-0748f46e3a3b">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
 </component>

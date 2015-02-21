@@ -5,6 +5,8 @@
  * Date: 08/02/2015
  * Time: 21:44
  */
+ 
+    include_once("Controller/Website/GlobalVariables.php");
     session_start();
     session_destroy();
-    header('Location: /ChallengeWars');
+    header('Location: '.$_SITE_INDEX_);

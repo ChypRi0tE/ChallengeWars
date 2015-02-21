@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html>
 <?php
-    include("Controller/Website/Utils.php");
-    include("Controller/Accueil/Utils.php");
-    include "Controller/Website/Display.php";
-    include("Controller/".$_PAGENAME_."/Datas.php");
-    include("View/Website/Header.php");
+include("Controller/Website/Utils.php");
+include("Controller/Accueil/Utils.php");
+include("Controller/" . $_PAGENAME_ . "/Datas.php");
+include("View/Website/Header.php");
 ?>
 <body>
 <?php if (isLogged()) {
@@ -17,8 +16,8 @@
         <div class="widget-container">
             <?php include("View/".$_PAGENAME_."/Sidebar.php"); ?>
             <div>
-            <?php //if (file_exists("View/".$_PAGENAME_."/Pinned.php")){include("View/".$_PAGENAME_."/Pinned.php");} ?>
-            <?php include("View/".$_PAGENAME_."/Content.php"); ?>
+                <?php //if (file_exists("View/".$_PAGENAME_."/Pinned.php")){include("View/".$_PAGENAME_."/Pinned.php");} ?>
+                <?php include("View/".$_PAGENAME_."/Content.php"); ?>
             </div>
         </div>
     </div>

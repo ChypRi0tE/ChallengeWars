@@ -2,7 +2,7 @@
     <nav>
         <div class="nav-left-container">
             <div class="nav-button-container nav-button-container--notification">
-                <a class="nav-logo-outer-wrap" href="/ChallengeWars">
+                <a class="nav-logo-outer-wrap" href="">
                     <div class="nav-logo-inner-wrap"></div>
                 </a>
             </div>
@@ -23,7 +23,7 @@
                                 <p class="nav-row-summary-description">Check the status of your challenges.</p>
                             </div>
                         </a>
-                        <a class="nav-row" href="user.php?id=<?php echo $_SESSION['currentUser']->getId(); ?>&tab=entered">
+                        <a class="nav-row" href="user.php?id=<?php echo $_SESSION['currentUser']->getId(); ?>&tab=entries">
                             <i class="icon-red fa fa-fw fa-tag"></i>
                             <div class="nav-row-summary">
                                 <p class="nav-row-summary-name">View Entered</p>
@@ -39,9 +39,10 @@
                         </a>
                     </div>
                 </div>
-                <a class="nav-button nav-button--is-dropdown" href="/ChallengeWars">Challenges</a>
+                <a class="nav-button nav-button--is-dropdown" href="challenge.php">Challenges</a>
                 <div class="nav-button nav-button--is-dropdown-arrow"><i class="fa fa-angle-down"></i></div>
             </div>
+            <?php /*
             <div class="nav-button-container <?php isSelected("forum"); ?>">
                 <div class="nav-relative-dropdown is-hidden">
                     <div class="nav-absolute-dropdown">
@@ -64,10 +65,11 @@
                 <a class="nav-button nav-button--is-dropdown" href="/forum.php">Forum</a>
                 <div class="nav-button nav-button--is-dropdown-arrow"><i class="fa fa-angle-down"></i></div>
             </div>
+            */ ?>
             <div class="nav-button-container <?php isSelected("support"); ?>">
                 <div class="nav-relative-dropdown is-hidden">
                     <div class="nav-absolute-dropdown">
-                        <a class="nav-row" href="/support/tickets/new">
+                        <a class="nav-row" href="support/tickets/new">
                             <i class="icon-green fa fa-fw fa-plus-circle"></i>
                             <div class="nav-row-summary">
                                 <p class="nav-row-summary-name">Create a New Ticket</p>
@@ -76,11 +78,11 @@
                         </a>
                     </div>
                 </div>
-                <a class="nav-button nav-button--is-dropdown" href="/support.php">Support</a>
+                <a class="nav-button nav-button--is-dropdown" href="support.php">Support</a>
                 <div class="nav-button nav-button--is-dropdown-arrow"><i class="fa fa-angle-down"></i></div>
             </div>
             <div class="nav-button-container <?php isSelected("faq"); ?>">
-                <a class="nav-button" href="/about/faq.php">FAQ</a>
+                <a class="nav-button" href="about/faq.php">FAQ</a>
             </div>
         </div>
         <div class="nav-right-container">
@@ -92,7 +94,7 @@
                     <a title="Challenges Won" class="nav-button nav-button--notification" href="user.php?id=<?php echo $_SESSION['currentUser']->getId(); ?>&tab=won"><i class="fa fa-trophy"></i></a>
                 </div>
                 <div class="nav-button-container--notification nav-button-container--inactive">
-                    <a title="Messages" class="nav-button nav-button--notification" href="/account/inbox"><i class="fa fa-envelope"></i></a>
+                    <a title="Messages" class="nav-button nav-button--notification" href="account/inbox"><i class="fa fa-envelope"></i></a>
                 </div>
             </div>
             <div class="nav-button-container <?php isSelected("user"); ?>">
@@ -100,7 +102,7 @@
                 <div class="nav-button nav-button--is-dropdown-arrow"><i class="fa fa-angle-down"></i></div>
                 <div class="nav-relative-dropdown is-hidden">
                     <div class="nav-absolute-dropdown">
-                        <a class="nav-row" href="/account/profile/sync">
+                        <a class="nav-row" href="account/profile/sync">
                             <i class="icon-green fa fa-fw fa-refresh"></i>
                             <div class="nav-row-summary">
                                 <p class="nav-row-summary-name">Sync with League of Legends</p>
@@ -118,7 +120,7 @@
                 </div>
             </div>
             <div class="nav-button-container nav-button-container--notification">
-                <a href="/user/ChypRiotE" class="nav-avatar-outer-wrap">
+                <a href="<?php echo $_SITE_INDEX_; ?>/user/ChypRiotE" class="nav-avatar-outer-wrap">
                     <div class="nav-avatar-inner-wrap" style="background-image:url(assets/img/<?php echo $_SESSION['currentUser']->getAvatar(); ?>);"></div>
                 </a>
             </div>

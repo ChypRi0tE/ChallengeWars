@@ -7,9 +7,8 @@
  */
 
 namespace Challenge\Manager;
-use Manager;
 
-class Challenge implements Manager {
+class Challenge implements \Manager {
     private $_bdd;
     private $_table;
 

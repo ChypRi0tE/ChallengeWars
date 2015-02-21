@@ -6,6 +6,7 @@
  * Time: 23:41
  */
     $bdd = connectDatabase();
+    
     $ChallengeManager = new \Challenge\Manager\Challenge($bdd, $_TABLE_CHALLENGES_);
     $UserManager = new \Member\Manager\User($bdd, $_TABLE_USERS_);
     $CommentManager = new \Challenge\Manager\Comment($bdd, $_TABLE_COMMENTS_);

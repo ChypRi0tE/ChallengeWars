@@ -46,7 +46,7 @@
         } else {
             $data = $q->fetch();
             $_SESSION['currentUser'] = new \Member\User($data);
-            header('Location: /ChallengeWars');
+            header('Location: '.$_SITE_INDEX_);
         }
     }
 
@@ -77,5 +77,5 @@
         $mgr = new Member\Manager\User($_bdd, $_TABLE_USERS_);
         $usr = new \Member\User($data);
         $mgr->add($usr);
-        header('Location: /ChallengeWars');
+        header('Location: '.$_SITE_INDEX_);
     }
