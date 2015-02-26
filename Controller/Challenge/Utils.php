@@ -10,12 +10,13 @@ include_once("Controller/Challenge/Variables.php");
     if (isset($_GET['id']) && !empty($_GET['id'])) {
         $idChallenge = $_GET['id'];
     } else {
-        header('Location: /ChallengeWars');
+        header('Location: '.$_SITE_INDEX_);
     }
+    
     if (!empty($_GET['tab'])) {
-        if ($_GET['tab'] == 'entries')
+        if ($_GET['tab'] == $_LINK_ENTERED_)
             $tabPanel = 'Entries';
-        else if ($_GET['tab'] == 'rankings')
+        else if ($_GET['tab'] == $_LINK_RANKING_)
             $tabPanel = 'Rankings';
         else
             $tabPanel = 'Comments';

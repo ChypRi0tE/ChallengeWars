@@ -2,9 +2,9 @@
     <div>
         <div class="page-heading">
             <div class="page-heading-breadcrumbs">
-                <a href="/ChallengeWars">Challenge</a>
+                <a href="<?php echo $_SITE_INDEX_; ?>challenge">Challenge</a>
                 <i class="fa fa-angle-right"></i>
-                <a href="new.php">New</a>
+                <a href="<?php echo $_SITE_INDEX_; ?>challenge/new">New</a>
             </div>
         </div>
         <form method="post" action="" id="form-login">

@@ -2,35 +2,35 @@
     <nav>
         <div class="nav-left-container">
             <div class="nav-button-container nav-button-container--notification">
-                <a class="nav-logo-outer-wrap" href="">
+                <a class="nav-logo-outer-wrap" href="<?php echo $_SITE_INDEX_; ?>">
                     <div class="nav-logo-inner-wrap"></div>
                 </a>
             </div>
             <div class="nav-button-container <?php isSelected("accueil"); ?>">
                 <div class="nav-relative-dropdown is-hidden">
                     <div class="nav-absolute-dropdown">
-                        <a class="nav-row" href="new.php">
+                        <a class="nav-row" href="<?php echo $_LINK_NEW_; ?>">
                             <i class="icon-green fa fa-fw fa-plus-circle"></i>
                             <div class="nav-row-summary">
                                 <p class="nav-row-summary-name">Create a New Challenge</p>
                                 <p class="nav-row-summary-description">Get started with a new challenge.</p>
                             </div>
                         </a>
-                        <a class="nav-row" href="user.php?id=<?php echo $_SESSION['currentUser']->getId(); ?>&tab=created">
+                        <a class="nav-row" href="<?php echo $_LINK_USER_ ."/".$_SESSION['currentUser']->getUsername()."/".$_LINK_CREATED_; ?>">
                             <i class="icon-grey fa fa-fw fa-flash"></i>
                             <div class="nav-row-summary">
                                 <p class="nav-row-summary-name">View Created</p>
                                 <p class="nav-row-summary-description">Check the status of your challenges.</p>
                             </div>
                         </a>
-                        <a class="nav-row" href="user.php?id=<?php echo $_SESSION['currentUser']->getId(); ?>&tab=entries">
+                        <a class="nav-row" href="<?php echo $_LINK_USER_ ."/".$_SESSION['currentUser']->getUsername()."/".$_LINK_ENTERED_; ?>">
                             <i class="icon-red fa fa-fw fa-tag"></i>
                             <div class="nav-row-summary">
                                 <p class="nav-row-summary-name">View Entered</p>
                                 <p class="nav-row-summary-description">Browse your challenge entries.</p>
                             </div>
                         </a>
-                        <a class="nav-row" href="user.php?id=<?php echo $_SESSION['currentUser']->getId(); ?>&tab=won">
+                        <a class="nav-row" href="<?php echo $_LINK_USER_ ."/".$_SESSION['currentUser']->getUsername()."/".$_LINK_WON_; ?>">
                             <i class="icon-yellow fa fa-fw fa-trophy"></i>
                             <div class="nav-row-summary">
                                 <p class="nav-row-summary-name">View Won</p>
@@ -39,7 +39,7 @@
                         </a>
                     </div>
                 </div>
-                <a class="nav-button nav-button--is-dropdown" href="challenge.php">Challenges</a>
+                <a class="nav-button nav-button--is-dropdown" href="<?php echo $_LINK_CHALLENGE_; ?>">Challenges</a>
                 <div class="nav-button nav-button--is-dropdown-arrow"><i class="fa fa-angle-down"></i></div>
             </div>
             <?php /*
@@ -65,7 +65,6 @@
                 <a class="nav-button nav-button--is-dropdown" href="/forum.php">Forum</a>
                 <div class="nav-button nav-button--is-dropdown-arrow"><i class="fa fa-angle-down"></i></div>
             </div>
-            */ ?>
             <div class="nav-button-container <?php isSelected("support"); ?>">
                 <div class="nav-relative-dropdown is-hidden">
                     <div class="nav-absolute-dropdown">
@@ -81,35 +80,36 @@
                 <a class="nav-button nav-button--is-dropdown" href="support.php">Support</a>
                 <div class="nav-button nav-button--is-dropdown-arrow"><i class="fa fa-angle-down"></i></div>
             </div>
+            */ ?>
             <div class="nav-button-container <?php isSelected("faq"); ?>">
-                <a class="nav-button" href="about/faq.php">FAQ</a>
+                <a class="nav-button" href="<?php echo $_LINK_FAQ_; ?>">FAQ</a>
             </div>
         </div>
         <div class="nav-right-container">
             <div class="nav-button-container">
                 <div class="nav-button-container--notification nav-button-container--inactive">
-                    <a title="Challenges Created" class="nav-button nav-button--notification" href="user.php?id=<?php echo $_SESSION['currentUser']->getId(); ?>&tab=created"><i class="fa fa-flash"></i></a>
+                    <a title="Challenges Created" class="nav-button nav-button--notification" href="<?php echo $_LINK_USER_ ."/".$_SESSION['currentUser']->getUsername()."/".$_LINK_CREATED_; ?>"><i class="fa fa-flash"></i></a>
                 </div>
                 <div class="nav-button-container--notification nav-button-container--inactive">
-                    <a title="Challenges Won" class="nav-button nav-button--notification" href="user.php?id=<?php echo $_SESSION['currentUser']->getId(); ?>&tab=won"><i class="fa fa-trophy"></i></a>
+                    <a title="Challenges Won" class="nav-button nav-button--notification" href="<?php echo $_LINK_USER_ ."/".$_SESSION['currentUser']->getUsername()."/".$_LINK_WON_; ?>"><i class="fa fa-trophy"></i></a>
                 </div>
                 <div class="nav-button-container--notification nav-button-container--inactive">
-                    <a title="Messages" class="nav-button nav-button--notification" href="account/inbox"><i class="fa fa-envelope"></i></a>
+                    <a title="Messages" class="nav-button nav-button--notification" href="/"><i class="fa fa-envelope"></i></a>
                 </div>
             </div>
             <div class="nav-button-container <?php isSelected("user"); ?>">
-                <a class="nav-button nav-button--is-dropdown" href="user.php?id=<?php echo $_SESSION['currentUser']->getId(); ?>"><?php echo $_SESSION['currentUser']->getUsername(); ?> (<?php echo $_SESSION['currentUser']->getPoints(); ?> CP)</a>
+                <a class="nav-button nav-button--is-dropdown" href="<?php echo $_LINK_USER_ ."/".$_SESSION['currentUser']->getUsername()?>"><?php echo $_SESSION['currentUser']->getUsername(); ?> (<?php if ($_SESSION['currentUser']->getIsAdvanced()){echo "Advanced";}else{echo "Starter";} ?>)</a>
                 <div class="nav-button nav-button--is-dropdown-arrow"><i class="fa fa-angle-down"></i></div>
                 <div class="nav-relative-dropdown is-hidden">
                     <div class="nav-absolute-dropdown">
-                        <a class="nav-row" href="account/profile/sync">
+                        <a class="nav-row" href="<?php echo $_LINK_USER_ ."/".$_SESSION['currentUser']->getUsername()."/".$_LINK_SYNC_; ?>">
                             <i class="icon-green fa fa-fw fa-refresh"></i>
                             <div class="nav-row-summary">
                                 <p class="nav-row-summary-name">Sync with League of Legends</p>
                                 <p class="nav-row-summary-description">Last synced <span title="Yesterday, 4:32pm">22 hours ago</span>.</p>
                             </div>
                         </a>
-                        <a class="nav-row" href="logout.php">
+                        <a class="nav-row" href="<?php echo $_LINK_LOGOUT_; ?>">
                             <i class="icon-blue fa fa-fw fa-sign-out"></i>
                             <div class="nav-row-summary">
                                 <p class="nav-row-summary-name">Logout</p>
@@ -120,8 +120,8 @@
                 </div>
             </div>
             <div class="nav-button-container nav-button-container--notification">
-                <a href="<?php echo $_SITE_INDEX_; ?>/user/ChypRiotE" class="nav-avatar-outer-wrap">
-                    <div class="nav-avatar-inner-wrap" style="background-image:url(assets/img/<?php echo $_SESSION['currentUser']->getAvatar(); ?>);"></div>
+                <a href="<?php echo $_LINK_USER_ ."/".$_SESSION['currentUser']->getUsername(); ?>" class="nav-avatar-outer-wrap">
+                    <div class="nav-avatar-inner-wrap" style="background-image:url(/assets/img/<?php echo $_SESSION['currentUser']->getAvatar(); ?>);"></div>
                 </a>
             </div>
         </div>

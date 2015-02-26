@@ -46,19 +46,19 @@ body {
     font-family: "Open Sans";
     font-style: normal;
     font-weight: 300;
-    src: local("Open Sans Light"), local("OpenSans-Light"), url("http://www.steamgifts.com/assets/css/../fonts/open-sans-v10-greek_cyrillic_latin-300.woff2") format("woff2"), url("http://www.steamgifts.com/assets/css/../fonts/open-sans-v10-greek_cyrillic_latin-300.woff") format("woff");
+    src: local("Open Sans Light"), local("OpenSans-Light"), url("/assets/fonts/open-sans-v10-greek_cyrillic_latin-300.woff2") format("woff2"), url("/assets/fonts/open-sans-v10-greek_cyrillic_latin-300.woff") format("woff");
 }
 @font-face {
     font-family: "Open Sans";
     font-style: normal;
     font-weight: 700;
-    src: local("Open Sans Bold"), local("OpenSans-Bold"), url("http://www.steamgifts.com/assets/css/../fonts/open-sans-v10-greek_cyrillic_latin-700.woff2") format("woff2"), url("http://www.steamgifts.com/assets/css/../fonts/open-sans-v10-greek_cyrillic_latin-700.woff") format("woff");
+    src: local("Open Sans Bold"), local("OpenSans-Bold"), url("/assets/fonts/open-sans-v10-greek_cyrillic_latin-700.woff2") format("woff2"), url("/assets/fonts/open-sans-v10-greek_cyrillic_latin-700.woff") format("woff");
 }
 @font-face {
     font-family: "Droid Sans Mono";
     font-style: normal;
     font-weight: 400;
-    src: local("Droid Sans Mono"), local("DroidSansMono"), url("http://www.steamgifts.com/assets/css/../fonts/droid-sans-mono-v7-latin-regular.woff2") format("woff2"), url("http://www.steamgifts.com/assets/css/../fonts/droid-sans-mono-v7-latin-regular.woff") format("woff");
+    src: local("Droid Sans Mono"), local("DroidSansMono"), url("/assets/fonts/droid-sans-mono-v7-latin-regular.woff2") format("woff2"), url("assets/fonts/droid-sans-mono-v7-latin-regular.woff") format("woff");
 }
 /*-----------------------------
 **--HEADER---------------------
@@ -132,6 +132,7 @@ header {
     color: #465670;
     background-color: #f0f2f5;
     padding: 25px;
+    min-height: 550px;
 }
 .page-inner-wrap {
     max-width: 1400px;

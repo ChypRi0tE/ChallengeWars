@@ -160,9 +160,14 @@ class Challenge implements \Manager {
     }
     public function     getNbWon($id) {
         $q = $this->_bdd->query('SELECT count(*) FROM '.$this->_table.' WHERE isAdvanced = true AND status = 1');
-        return 2;
+        return $q->fetch()[0];
     }
     public function     getNbFriends($id) {
         return 8;
+    }
+    
+    public function   getNbOngoingForType($type) {
+      $q = $this->_bdd->query('SELECT count(*) FROM '.$this->_table.' WHERE status = 1 AND type = '.$type);
+      return $q->fetch()[0];
     }
 }

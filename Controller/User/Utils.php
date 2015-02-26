@@ -7,17 +7,17 @@
  */
 include_once("Controller/User/Variables.php");
 
-if (isset($_GET['id']) && !empty($_GET['id'])) {
-    $idUser = $_GET['id'];
+if (isset($_GET['name']) && !empty($_GET['name'])) {
+    $name = $_GET['name'];
 } else {
-    header('Location: /ChallengeWars');
+    header('Location: /');
 }
 if (!empty($_GET['tab'])) {
-    if ($_GET['tab'] == 'won')
+    if ($_GET['tab'] == $_LINK_WON_)
         $tabPanel = 'Won';
-    else if ($_GET['tab'] == 'entries')
+    else if ($_GET['tab'] == $_LINK_ENTERED_)
         $tabPanel = 'Entries';
-    else if ($_GET['tab'] == 'comments')
+    else if ($_GET['tab'] == $_LINK_UCOMMENT_)
         $tabPanel = 'Comments';
     else
         $tabPanel = 'Created';
@@ -48,23 +48,27 @@ if (!empty($_GET['tab'])) {
         }
     }
     function    getPageHeading($tab) {
-        global $thisStats;
+        global $thisStats, $thisUser, $_LINK_USER_;
         $head = "";
         switch ($tab) {
             case "Created":
                 $head = "Created";
+                $tas = "created";
                 break;
             case "Won":
                 $head = "Won";
+                $tas = "won";
                 break;
             case "Entries":
                 $head = "Entered";
+                $tas = "entered";
                 break;
             case "Comments":
                 $head = "Comments";
+                $tas = "comments";
                 break;
         }
-        return '<a href="user.php?'.$_SERVER['QUERY_STRING'].'">'.$head.'</a>';
+        return '<a href="'.$_LINK_USER_.'/'.$thisUser->getUsername().'/'.$tas.'">'.$head.'</a>';
     }
 
 //Sidebar

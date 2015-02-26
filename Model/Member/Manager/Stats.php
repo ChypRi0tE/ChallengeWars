@@ -29,7 +29,6 @@ class Stats implements \Manager {
                     :challCreated,
                     :commentPosted)
                   ");
-
         $q->bindValue(':idUser', $stats->getIdUser());
         $q->bindValue(':dateInscription', $stats->getDateInscription());
         $q->bindValue(':challEntered', $stats->getChallEntered());

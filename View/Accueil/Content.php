@@ -1,5 +1,5 @@
 <div class="page-heading">
-    <div class="page-heading-breadcrumbs"><a href="/ChallengeWars"><?php echo $_LIST_HEADER; ?></a></div>
+    <div class="page-heading-breadcrumbs"><a href="<?php echo $_SITE_INDEX_; ?>"><?php echo $_LIST_HEADER; ?></a></div>
     <div class="challenge-show" title="Show all"><i class="fa fa-eye"></i></div>
 </div>
 <div>
@@ -9,30 +9,58 @@
         <div class="challenge-row-inner-wrap">
             <div class="challenge-summary">
                 <h2 class="challenge-heading">
-                    <a class="challenge-heading-name" href="challenge.php?id=<?php echo $listChallenge[$i]->getId(); ?>"><?php echo $listChallenge[$i]->getTitle(); ?></a>
+                    <a class="challenge-heading-name" href="<?php echo $_LINK_CHALLENGE_ . "/challenge-" . $listChallenge[$i]->getId(); ?>"><?php echo $listChallenge[$i]->getTitle(); ?></a>
                     <?php if ($listChallenge[$i]->getIsAdvanced()) { ?>
                     <span class="challenge-heading-thin">(<?php echo $listChallenge[$i]->getCost(); ?> CP)</span>
                     <?php } ?>
                     <i class="challenge-icon challenge-hide fa fa-eye-slash" title="Hide challenge"></i>
                 </h2>
                 <div class="challenge-columns">
-                    <div><i class="fa fa-clock-o"></i> <span title="<?php echo $listChallenge[$i]->getDateEnd(); ?>"><?php $listChallenge[$i]->getDateEnd(); ?><em>TODO</em></span></div>
-                    <div class="challenge-column--invite-only"><span title="<?php echo $listChallenge[$i]->getType(); ?>"><?php echo getChallengeType($listChallenge[$i]->getType()); ?> Challenge</span></div>
-                    <div class="challenge-column--width-fill text-right"><span title="<?php echo $listChallenge[$i]->getDateCreation(); ?>"><?php $listChallenge[$i]->getDateCreation(); ?><em>TODO</em></span> by <a class="challenge-username" href="user.php?id=<?php echo $listChallenge[$i]->getIdCreator(); ?>"><?php echo $user->getUsername(); ?></a></div>
+                    <div>
+                      <i class="fa fa-clock-o"></i> 
+                      <span title="Ending <?php echo date("j F H:i", strtotime($listChallenge[$i]->getDateEnd())); ?>">
+                        <em><?php echo date("j F H:i", strtotime($listChallenge[$i]->getDateEnd())); ?></em>
+                      </span>
+                    </div>
+                    <div class="challenge-column--invite-only">
+                      <span title="<?php echo getChallengeType($listChallenge[$i]->getType(), false); ?> Challenge">
+                        <?php echo getChallengeType($listChallenge[$i]->getType(), true); ?> Challenge
+                      </span>
+                    </div>
+                    <div class="challenge-column--width-fill text-right"> 
+                      <span title="Created <?php echo date("j F Y", strtotime($listChallenge[$i]->getDateCreation())); ?>">
+                        <?php echo date("j F Y", strtotime($listChallenge[$i]->getDateCreation())); ?>
+                      </span> by <a class="challenge-username" href="<?php echo $_LINK_USER_ . "/" . $user->getUsername(); ?>">
+                          <?php echo $user->getUsername(); ?>
+                        </a>
+                    </div>
                     <?php if ($listChallenge[$i]->getIsAdvanced()) { ?>
                     <div class="challenge-column--contributor-level challenge-column--contributor-level--negative" title="Advanced Challenge">Advanced</div>
                     <?php } ?>
                 </div>
                 <div class="challenge-links">
-                    <a href="challenge.php?id=<?php echo $listChallenge[$i]->getId(); ?>&tab=entries"><i class="fa fa-tag"></i> <span><?php echo $EntryManager->getNbForChallenge($listChallenge[$i]->getId()); ?> entries</span></a>
-                    <a href="challenge.php?id=<?php echo $listChallenge[$i]->getId(); ?>&tab=comments"><i class="fa fa-comment"></i> <span><?php echo $CommentManager->getNbForChallenge($listChallenge[$i]->getId()); ?> comments</span></a>
-                    <a href="challenge.php?id=<?php echo $listChallenge[$i]->getId(); ?>&tab=rankings"><i class="fa fa-trophy"></i> <span>rankings</span></a>
+                    <a href="<?php echo $_LINK_CHALLENGE_ . "/challenge-" . $listChallenge[$i]->getId() . "/" .$_LINK_ENTRIES_; ?>">
+                      <i class="fa fa-tag"></i> 
+                      <span>
+                        <?php echo $EntryManager->getNbForChallenge($listChallenge[$i]->getId()); ?> entries
+                      </span>
+                    </a>
+                    <a href="<?php echo $_LINK_CHALLENGE_ . "/challenge-" . $listChallenge[$i]->getId() . "/" .$_LINK_COMMENT_; ?>">
+                      <i class="fa fa-comment"></i> 
+                      <span>
+                        <?php echo $CommentManager->getNbForChallenge($listChallenge[$i]->getId()); ?> comments
+                      </span>
+                    </a>
+                    <a href="<?php echo $_LINK_CHALLENGE_ . "/challenge-" . $listChallenge[$i]->getId() . "/" .$_LINK_RANKING_; ?>">
+                      <i class="fa fa-trophy"></i> 
+                      <span>rankings</span>
+                    </a>
                 </div>
             </div>
-            <a href="user.php?id=<?php echo $listChallenge[$i]->getIdCreator(); ?>" class="global-image-outer-wrap global-image-outer-wrap--avatar-small">
+            <a href="<?php echo $_LINK_USER_ . "/" . $user->getUsername(); ?>" class="global-image-outer-wrap global-image-outer-wrap--avatar-small">
                 <div class="global-image-inner-wrap" style="background-image:url(assets/img/<?php echo $user->getAvatar(); ?>);"></div>
             </a>
-            <a class="global-image-outer-wrap global-image-outer-wrap--game-medium" href="challenge.php?id=<?php echo $listChallenge[$i]->getId(); ?>">
+            <a class="global-image-outer-wrap global-image-outer-wrap--game-medium" href="<?php echo $_LINK_CHALLENGE_ . "/challenge-" . $listChallenge[$i]->getId(); ?>">
                 <div class="global-image-inner-wrap" style="background-image:url(assets/img/filler500.jpg);"></div>
             </a>
         </div>

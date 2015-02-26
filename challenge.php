@@ -3,14 +3,11 @@
 <?php
 include("Controller/Website/Utils.php");
 include("Controller/Challenge/Utils.php");
-include "Controller/Website/Display.php";
 include("Controller/".$_PAGENAME_."/Datas.php");
 include("View/Website/Header.php");
 ?>
 <body>
-<?php if (isLogged()) {
-    include('View/Website/LoggedNav.php');} else {
-    include('View/Website/GuestNav.php');} ?>
+<?php if (isLogged()) {include('View/Website/LoggedNav.php');} else {include('View/Website/GuestNav.php');} ?>
 <?php include("View/".$_PAGENAME_."/Featured.php"); ?>
 <div class="page-outer-wrap">
     <div class="page-inner-wrap">
@@ -22,7 +19,7 @@ include("View/Website/Header.php");
             </div>
         </div>
     </div>
-    <?php //include("View/".$_PAGENAME_."/Latest.php"); ?>
+    <?php /*include("View/".$_PAGENAME_."/Latest.php");*/ ?>
 </div>
 <?php include('View/Website/Footer.php'); ?>
 </body>

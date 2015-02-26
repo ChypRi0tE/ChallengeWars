@@ -1,5 +1,5 @@
 <div class="sidebar">
-    <?php if (isLogged() && $_SESSION['currentUser']->getId() != $thisUser->getId()) { ?>
+    <?php if (isLogged() && $_ALLOW_FRIENDS_ && $_SESSION['currentUser']->getId() != $thisUser->getId()) { ?>
         <div class="sidebar-entry-insert">
             <a rel="nofollow" target="_blank" href="http://steamcommunity.com/profiles/76561197990861574" data-tooltip="Add to favorites">
                 <i class="fa fa-fw fa-heart"></i> Add to friends
@@ -13,7 +13,7 @@
     <h3 class="sidebar-heading">Activity</h3>
     <ul class="sidebar-navigation">
         <li class="sidebar-navigation-item <?php isActive("Created"); ?>">
-            <a class="sidebar-navigation-item-link" href="user.php?id=<?php echo $idUser; ?>&tab=created">
+            <a class="sidebar-navigation-item-link" href="<?php echo $_LINK_USER_ ."/".$thisUser->getUsername()."/".$_LINK_CREATED_; ?>">
                 <?php addCaret("Created"); ?>
                 <div class="sidebar-navigation-item-name">Created</div>
                 <div class="sidebar-navigation-item-underline"></div>
@@ -21,7 +21,7 @@
             </a>
         </li>
         <li class="sidebar-navigation-item <?php isActive("Entries"); ?>">
-            <a class="sidebar-navigation-item-link" href="user.php?id=<?php echo $idUser; ?>&tab=entries">
+            <a class="sidebar-navigation-item-link" href="<?php echo $_LINK_USER_ ."/".$thisUser->getUsername()."/".$_LINK_ENTERED_; ?>">
                 <?php addCaret("Entries"); ?>
                 <div class="sidebar-navigation-item-name">Entered</div>
                 <div class="sidebar-navigation-item-underline"></div>
@@ -29,7 +29,7 @@
             </a>
         </li>
         <li class="sidebar-navigation-item <?php isActive("Won"); ?>">
-            <a class="sidebar-navigation-item-link" href="user.php?id=<?php echo $idUser; ?>&tab=won">
+            <a class="sidebar-navigation-item-link" href="<?php echo $_LINK_USER_ ."/".$thisUser->getUsername()."/".$_LINK_WON_; ?>">
                 <?php addCaret("Won"); ?>
                 <div class="sidebar-navigation-item-name">Won</div>
                 <div class="sidebar-navigation-item-underline"></div>
@@ -37,7 +37,7 @@
             </a>
         </li>
         <li class="sidebar-navigation-item <?php isActive("Comments"); ?>">
-            <a class="sidebar-navigation-item-link" href="user.php?id=<?php echo $idUser; ?>&tab=comments">
+            <a class="sidebar-navigation-item-link" href="<?php echo $_LINK_USER_ ."/".$thisUser->getUsername()."/".$_LINK_COMMENT_; ?>">
                 <?php addCaret("Comments"); ?>
                 <div class="sidebar-navigation-item-name">Comments</div>
                 <div class="sidebar-navigation-item-underline"></div>

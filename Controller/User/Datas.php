@@ -12,7 +12,9 @@ $CommentManager = new \Challenge\Manager\Comment($bdd, $_TABLE_COMMENTS_);
 $EntryManager = new \Challenge\Manager\Entry($bdd, $_TABLE_ENTRIES_);
 $StatsManager = new \Member\Manager\Stats($bdd, $_TABLE_USERS_STATS_);
 
-$thisUser = $UserManager->get($idUser);
+$thisUser = $UserManager->getFromName($name);
+if ($thisUser == null) {header('Location: '.$_SITE_INDEX_);}
+$idUser = $thisUser->getId();
 $thisStats = $StatsManager->getUserStats($idUser);
 $dateToday = new DateTime();
 

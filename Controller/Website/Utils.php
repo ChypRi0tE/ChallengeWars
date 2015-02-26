@@ -66,16 +66,20 @@
         }
     }
 
-    function    getChallengeType($type) {
+    function    getChallengeType($type, $bool) {
         switch ($type) {
             case 1:
-                return '<i class="fa fa-crosshairs"></i> Creep';
+                $str = $bool ? '<i class="fa fa-crosshairs"></i> ':'';
+                return  $str .= 'Creep';
             case 2:
-                return '<i class="fa fa-flag-checkered"></i> Victory';
+                $str = $bool ? '<i class="fa fa-flag-checkered"></i> ':'';
+                return  $str .= 'Victory';
             case 3:
-                return '<i class="fa fa-clock-o"></i> Time';
+                $str = $bool ? '<i class="fa fa-clock-o"></i> ':'';
+                return  $str .= 'Time';
             case 4:
-                return '<i class="fa fa-cog"></i> Custom';
+                $str = $bool ? '<i class="fa fa-cog"></i> ':'';
+                return  $str .= 'Custom';
         }
     }
 ?>

@@ -15,8 +15,9 @@ class User {
     protected   $_mail;
     protected   $_password;
     protected   $_avatar;
-    protected   $_points;
     protected   $_rank;
+    protected   $_isAdvanced;
+    protected   $_isValidated;
 
     public function __construct(array $data) {
         $this->create($data);
@@ -46,12 +47,6 @@ class User {
     public function setId($id) {
         $this->_id = $id;
     }
-    public function getPoints() {
-        return $this->_points;
-    }
-    public function setPoints($points) {
-        $this->_points = $points;
-    }
     public function getMail() {
         return $this->_mail;
     }
@@ -75,5 +70,17 @@ class User {
     }
     public function setPassword($password) {
         $this->_password = $password;
+    }
+    public function getIsAdvanced() {
+        return $this->_isAdvanced;
+    }
+    public function setIsAdvanced($isAdvanced) {
+        $this->_isAdvanced = $isAdvanced;
+    }
+    public function getIsValidated() {
+        return $this->_isValidated;
+    }
+    public function setIsValidated($isValidated) {
+        $this->_isValidated = $isValidated;
     }
 }

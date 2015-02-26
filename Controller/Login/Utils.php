@@ -7,7 +7,9 @@
  */
     include_once("Controller/Login/Variables.php");
 
+    if (isLogged()) {header('Location: '. $_SITE_INDEX_); }
     function    checkRegistration($post, $_bdd) {
+      global $_TABLE_USERS_;
         if ($_POST['register-password'] != $_POST['register-password-check']) {
             return new \Error\Error("Password does not match.", "register", 2);
         }
@@ -17,12 +19,12 @@
         if (strlen($_POST['register-password']) <= 5) {
             return new \Error\Error("Password is too short.", "register", 2);
         }
-        $q = $_bdd->query('SELECT count(*) FROM cw_users WHERE username="'.$_POST['register-username'].'"');
+        $q = $_bdd->query('SELECT count(*) FROM '.$_TABLE_USERS_.' WHERE username="'.$_POST['register-username'].'"');
         $data =  $q->fetch();
         if ($data[0] != 0) {
             return new \Error\Error("Username already used.", "register", 2);
         }
-        $q = $_bdd->query('SELECT count(*) FROM cw_users WHERE mail="'.$_POST['register-mail'].'"');
+        $q = $_bdd->query('SELECT count(*) FROM '.$_TABLE_USERS_.' WHERE mail="'.$_POST['register-mail'].'"');
         $data =  $q->fetch();
         if ($data[0] != 0) {
             return new \Error\Error("Email already used.", "register", 2);
@@ -30,7 +32,6 @@
         return null;
     }
 
-    if (isLogged()) {header('Location: /ChallengeWars'); }
     if (isset($_POST['do-login'])) {
         if (empty($_POST['login-username']) || empty ($_POST['login-password'])) {
             $_isLoginError = true;
@@ -39,14 +40,14 @@
         $_bdd = connectDatabase();
         $username = htmlspecialchars($_POST['login-username']);
         $password = md5(htmlspecialchars($_POST['login-password']));
-        $q = $_bdd->query('SELECT * FROM cw_users WHERE username="'.$username.'" AND password="'.$password.'"');
-        if (!$q) {
+        $q = $_bdd->query('SELECT * FROM '.$_TABLE_USERS_.' WHERE username="'.$username.'" AND password="'.$password.'"');
+        $data = $q->fetch();
+        if (!$data) {
             $_isLoginError = true;
             $_loginError = new \Error\Error("Wrong username and/or password", "login", 2);
         } else {
-            $data = $q->fetch();
             $_SESSION['currentUser'] = new \Member\User($data);
-            header('Location: '.$_SITE_INDEX_);
+            header('Location: '. $_SITE_INDEX_);
         }
     }
 
@@ -72,10 +73,21 @@
         $data['password'] = md5($_POST['register-password']);
         $data['mail'] = $_POST['register-mail'];
         $data['avatar'] = 'default.jpg';
-        $data['points'] = 1;
+        $data['isAdvanced'] = 0;
+        $data['isValidated'] = 0;
         $data['rank'] = 0;
         $mgr = new Member\Manager\User($_bdd, $_TABLE_USERS_);
         $usr = new \Member\User($data);
         $mgr->add($usr);
+        $usr = $mgr->getFromName($usr->getUsername());
+        $dataStats['idUser'] = $usr->getId();
+        $dataStats['dateInscription'] = date("Y-m-d H:i:s");
+        $dataStats['challEntered'] = 0;
+        $dataStats['challWon'] = 0;
+        $dataStats['challCreated'] = 0;
+        $dataStats['commentPosted'] = 0;
+        $statmgr = new Member\Manager\Stats($_bdd, $_TABLE_USERS_STATS_);
+        $stats = new \Member\Stats($dataStats);
+        $statmgr->add($stats);
         header('Location: '.$_SITE_INDEX_);
     }

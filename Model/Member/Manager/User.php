@@ -21,12 +21,13 @@ class User implements \Manager {
     public function    add($user) {
         if (!($user instanceof \Member\User)) {new \Error\TypeError("Manager/User", "User", $user->type);}
         $q = $this->_bdd->prepare("INSERT INTO " . $this->_table . "
-                     (username, mail, password, avatar, points, rank)
+                     (username, mail, password, avatar, isAdvanced, isValidated, rank)
                     VALUES (:username,
                     :mail,
                     :password,
                     :avatar,
-                    :points,
+                    :isAdvanced,
+                    :isValidated,
                     :rank)
                   ");
 
@@ -34,14 +35,16 @@ class User implements \Manager {
         $q->bindValue(':mail', $user->getMail());
         $q->bindValue(':password', $user->getPassword());
         $q->bindValue(':avatar', $user->getAvatar());
-        $q->bindValue(':points', $user->getPoints());
+        $q->bindValue(':isAdvanced', $user->getIsAdvanced());
+        $q->bindValue(':isValidated', $user->getIsValidated());
         $q->bindValue(':rank', $user->getRank());
         $q->execute();
     }
     public function    get($id) {
         $q = $this->_bdd->query('SELECT * FROM '.$this->_table.' WHERE id = '.$id);
-        $data = $q->fetch();
-        return new \Member\User($data);
+        if ($data = $q->fetch())
+          return new \Member\User($data);
+        return null;
     }
     public function    update($user) {
         if (!($user instanceof \Member\User)) {new \Error\TypeError("Manager/User", "User", $user->type);}
@@ -50,7 +53,8 @@ class User implements \Manager {
                     mail = :mail,
                     password = :password,
                     avatar = :avatar,
-                    points = :points,
+                    isAdvanced = :isAdvanced,
+                    isValidated = :isValidated,
                     rank = :rank
                     WHERE
                     id = :id
@@ -60,7 +64,8 @@ class User implements \Manager {
         $q->bindValue(':mail', $user->getMail());
         $q->bindValue(':password', $user->getPassword());
         $q->bindValue(':avatar', $user->getAvatar());
-        $q->bindValue(':points', $user->getPoints());
+        $q->bindValue(':isAdvanced', $user->getIsAdvanced());
+        $q->bindValue(':isValidated', $user->getIsValidated());
         $q->bindValue(':rank', $user->getRank());
         $q->bindValue(':id', $user->getId());
 
@@ -68,5 +73,11 @@ class User implements \Manager {
     }
     public function    remove($id) {
         $this->_bdd->exec('DELETE FROM '.$this->_table.' WHERE id = '.$id);
+    }
+    public function    getFromName($name) {
+        $q = $this->_bdd->query('SELECT * FROM '.$this->_table.' WHERE username = "'.$name.'"');
+        if ($data = $q->fetch())
+          return new \Member\User($data);
+        return null;
     }
 }
