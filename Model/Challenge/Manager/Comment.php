@@ -19,21 +19,11 @@ class Comment implements \Manager {
     }
     public function     add($comment) {
         if (!($comment instanceof \Challenge\Comment)) {new \Error\TypeError("Manager/Comment", "Comment", $comment->type);}
-
-        $q = $this->_bdd->prepare("INSERT INTO " . $this->_table . "
-                    ('idChallenge', 'idUser', 'datePost', 'content')
-                    VALUES (:idChallenge,
-                    :idUser,
-                    :datePost,
-                    :content)
-                  ");
-
-        $q->bindValue(':idChallenge', $comment->getIdChallenge(), PDO::PARAM_INT);
-        $q->bindValue(':idUser', $comment->getIdUser(), PDO::PARAM_INT);
-        $q->bindValue(':datePost', $comment->getDatePost());
-        $q->bindValue(':content', $comment->getContent());
-
-        $q->execute();
+        $q = $this->_bdd->query("INSERT INTO " . $this->_table . " (idChallenge, idUser, datePost, content)
+            VALUES (".$comment->getIdChallenge().",
+                    ".$comment->getIdUser().", 
+                    '".$comment->getDatePost()."', 
+                    '".$comment->getContent()."')");
     }
     public function     update($comment) {
         if (!($comment instanceof \Challenge\Comment)) {throw new TypeError("Manager/Comment", "Comment", $comment->type);}

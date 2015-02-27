@@ -15,5 +15,5 @@
     <script src="<?php echo $_SITE_INDEX_; ?>assets/js/jquery.min.js"></script>
     <script src="<?php echo $_SITE_INDEX_; ?>assets/js/bootstrap.min.js"></script>
     <script src="<?php echo $_SITE_INDEX_; ?>assets/js/script.js"></script>
-    <?php if (file_exists("<?php echo $_SITE_INDEX_; ?>assets/js/pages/".$_PAGENAME_.".js")){echo "<script src=\"".$_SITE_INDEX_."assets/js/pages/".$_PAGENAME_.".js\"></script>";} ?>
+    <?php if (file_exists("assets/js/pages/".$_PAGENAME_.".js")){echo "<script src=\"".$_SITE_INDEX_."assets/js/pages/".$_PAGENAME_.".js\"></script>";} ?>
 </footer>

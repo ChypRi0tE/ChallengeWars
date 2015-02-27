@@ -1,6 +1,6 @@
 <div class="page-heading">
     <div class="page-heading-breadcrumbs">
-        <a href="/challenge.php?id=<?php echo $thisChallenge->getId(); ?>&tab=entries">Entries</a>
+        <a href="<?php echo $_LINK_CHALLENGE_ . "/challenge-" . $thisChallenge->getId(). "/".$_LINK_ENTRIES_; ?>"><?php echo $EntryManager->getNbForChallenge($thisChallenge->getId())[0]; ?> Entries</a>
     </div>
 </div>
 <div class="table">
@@ -15,10 +15,10 @@
         <div class="table-row-inner-wrap">
             <div>
                 <a class="global-image-outer-wrap global-image-outer-wrap--avatar-small" href="user.php?id=<?php echo $user->getId(); ?>">
-                    <div class="global-image-inner-wrap" style="background-image:url(assets/img/<?php echo $user->getAvatar(); ?>);"></div></a></div>
+                    <div class="global-image-inner-wrap" style="background-image:url(/assets/img/<?php echo $user->getAvatar(); ?>);"></div></a></div>
             <div class="table-column--width-fill">
                 <a href="user.php?id=<?php echo $user->getId(); ?>" class="table-column-heading"><?php echo $user->getUsername(); ?></a></div>
-            <div class="table-column--width-small text-center"><span title="<?php echo $listEntry[$i]->getDateEntry(); ?>">0 seconds ago</span></div>
+            <div class="table-column--width-small text-center"><?php echo strftime("%d %B at %H:%M",strtotime($listEntry[$i]->getDateEntry())); ?></div>
         </div>
     </div>
 <?php } ?>
@@ -26,7 +26,7 @@
 </div>
 <div class="pagination">
     <?php if ($i) { ?>
-        <div class="pagination-results">Displaying <strong>1</strong> to <strong></strong> of <strong>11</strong> results</div>
+        <div class="pagination-results">Displaying <strong><?php echo $i; ?></strong> of <strong><?php echo $EntryManager->getNbForChallenge($thisChallenge->getId())[0]; ?></strong> results</div>
     <?php } else { ?>
         <div class="pagination-results">No results</div>
     <?php } ?>

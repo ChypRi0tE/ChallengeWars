@@ -13,11 +13,11 @@ if (isset($_GET['name']) && !empty($_GET['name'])) {
     header('Location: /');
 }
 if (!empty($_GET['tab'])) {
-    if ($_GET['tab'] == $_LINK_WON_)
+    if (strtolower($_GET['tab']) == $_LINK_WON_)
         $tabPanel = 'Won';
-    else if ($_GET['tab'] == $_LINK_ENTERED_)
+    else if (strtolower($_GET['tab']) == $_LINK_ENTERED_)
         $tabPanel = 'Entries';
-    else if ($_GET['tab'] == $_LINK_UCOMMENT_)
+    else if (strtolower($_GET['tab']) == $_LINK_UCOMMENT_)
         $tabPanel = 'Comments';
     else
         $tabPanel = 'Created';

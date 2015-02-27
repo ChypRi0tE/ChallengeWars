@@ -7,6 +7,7 @@
  */
 include_once("Controller/Challenge/Variables.php");
 
+  //Récupération de l'id du challenge et du tab en cours
     if (isset($_GET['id']) && !empty($_GET['id'])) {
         $idChallenge = $_GET['id'];
     } else {
@@ -14,9 +15,9 @@ include_once("Controller/Challenge/Variables.php");
     }
     
     if (!empty($_GET['tab'])) {
-        if ($_GET['tab'] == $_LINK_ENTERED_)
+        if (strtolower($_GET['tab']) == $_LINK_ENTRIES_)
             $tabPanel = 'Entries';
-        else if ($_GET['tab'] == $_LINK_RANKING_)
+        else if (strtolower($_GET['tab']) == $_LINK_RANKING_)
             $tabPanel = 'Rankings';
         else
             $tabPanel = 'Comments';
@@ -35,3 +36,11 @@ include_once("Controller/Challenge/Variables.php");
         if ($tabPanel == $link)
             echo '<i class="fa fa-caret-right"></i>';
     }
+    
+    function isUserRegistered() {
+      global $idChallenge, $EntryManager;
+      
+      if(($user = $_SESSION['currentUser']) == null) {return false;}
+      return $EntryManager->getUserChallenge($idChallenge, $user->getId());
+    }
+    

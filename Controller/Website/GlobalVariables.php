@@ -34,7 +34,7 @@
     $_LINK_CHALLENGE_ = $_SITE_INDEX_ . "challenge";
     $_LINK_NEW_ = $_LINK_CHALLENGE_ . "/new";
     $_LINK_ENTRIES_ =  "entries";
-    $_LINK_RANKING_ = "ranking";
+    $_LINK_RANKING_ = "rankings";
     $_LINK_COMMENT_ = "comments";
     
     $_LINK_USER_ =  $_SITE_INDEX_ . "user";
@@ -52,3 +52,4 @@
     $_LINK_LOGIN_ = $_SITE_INDEX_ . "login";
     $_LINK_LOGOUT_ = $_SITE_INDEX_ . "logout";
     
+    //setlocale(LC_TIME, "fr_FR");

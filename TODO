@@ -1,7 +1,8 @@
 //TODO
 Site:
     Challenge() -> requirement, type, image
-
+  
+    UPDATE STATS Comments entered
 
 Page d'accueil:
   filter jquery
@@ -10,8 +11,7 @@ Page User:
     Challenge won
 
 Page Challenge:
-    Inscription
-    Commentaire
+    Affichage points challenge advanced
 
 Page Account:
     TOUT FAIRE
@@ -19,5 +19,4 @@ Page Account:
 Page About:
     TOUT FAIRE
 
-Page Login:
-STATS A L'INSCRIPTION
+CHALLENGE: Winner, prize

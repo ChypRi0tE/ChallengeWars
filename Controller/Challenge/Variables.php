@@ -7,6 +7,6 @@
  */
 $_PAGENAME_ = "Challenge";
 $_PAGETITLE_ = "Challenge";
-$_PAGEHEAD_ = "ChypRiotE";
+$_PAGEHEAD_ = "Challenge";
 
 $_LIST_NB = 10;

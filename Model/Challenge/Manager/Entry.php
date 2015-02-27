@@ -19,18 +19,15 @@ class Entry implements \Manager {
     }
     public function     add($entry) {
         if (!($entry instanceof \Challenge\Entry)) {new \Error\TypeError("Manager/Entry", "Entry", $entry->type);}
-
         $q = $this->_bdd->prepare("INSERT INTO " . $this->_table . "
-                    ('idChallenge', 'idUser', 'dateEntry')
+                    (idChallenge, idUser, dateEntry)
                     VALUES (:idChallenge,
                     :idUser,
                     :dateEntry)
                   ");
-
-        $q->bindValue(':idChallenge', $entry->getIdChallenge(), PDO::PARAM_INT);
-        $q->bindValue(':idUser', $entry->getIdUser(), PDO::PARAM_INT);
+        $q->bindValue(':idChallenge', $entry->getIdChallenge());
+        $q->bindValue(':idUser', $entry->getIdUser());
         $q->bindValue(':dateEntry', $entry->getDateEntry());
-
         $q->execute();
     }
     public function     update($entry) {
@@ -41,7 +38,6 @@ class Entry implements \Manager {
                     dateEntry = :dateEntry
                     WHERE id = :id
                   ');
-
         $q->bindValue(':idChallenge', $entry->getIdChallenge(), PDO::PARAM_INT);
         $q->bindValue(':idUser', $entry->getIdUser(), PDO::PARAM_INT);
         $q->bindValue(':dateEntry', $entry->getDateEntry());
@@ -83,5 +79,13 @@ class Entry implements \Manager {
     public function     getNbForUser($id) {
         $q = $this->_bdd->query('SELECT count(*) FROM '.$this->_table.' WHERE idUser = '.$id);
         return $q->fetch()[0];
+    }
+    public function getUserChallenge($idChall, $idUser) {
+        $q = $this->_bdd->query('SELECT count(*) FROM '.$this->_table.' WHERE idUser = '.$idUser.' AND idChallenge = '.$idChall);
+        return $q->fetch()[0];
+    }
+    public function findUserChallenge($idChall, $idUser) {
+        $q = $this->_bdd->query('SELECT * FROM '.$this->_table.' WHERE idUser = '.$idUser.' AND idChallenge = '.$idChall);
+        return new \Challenge\Entry($q->fetch());
     }
 } 
