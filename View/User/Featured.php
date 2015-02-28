@@ -2,7 +2,7 @@
     <div class="featured-outer-wrap featured-outer-wrap--user" style="background-color: rgb(31,37,46);">
         <div class="featured-inner-wrap">
             <div class="global-image-outer-wrap global-image-outer-wrap--avatar-large">
-                <div class="global-image-inner-wrap" style="background-image:url(/assets/img/<?php echo $thisUser->getAvatar(); ?>);"></div>
+                <div class="global-image-inner-wrap" style="background-image:url(<?php echo $_SITE_INDEX_; ?>assets/img/<?php echo $thisUser->getAvatar(); ?>);"></div>
             </div>
             <div class="featured-summary">
                 <div class="featured-heading">

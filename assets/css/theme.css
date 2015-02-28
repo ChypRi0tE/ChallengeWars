@@ -991,7 +991,6 @@ nav {
 }
 .sidebar {
     min-width: 206px;
-    min-height: 330px;
 }
 .sidebar--wide {
     min-width: 300px;
@@ -2065,4 +2064,185 @@ input.is-disabled, select.is-disabled, textarea.is-disabled {
 input.is-helper, select.is-helper, textarea.is-helper {
     font-style: italic;
     color: #a3a6b2;
+}
+
+/*-----------------------------
+**--MARKDOWN-------------------
+------------------------------*/
+.markdown img {
+    background-color:#fff;
+    display:block;
+    padding:5px;
+    border:1px solid #d2d6e0;
+    border-radius:4px
+}
+.markdown h1,.markdown h2,.markdown h3,.markdown h4,.markdown h5,.markdown h6 {
+    color:#324862;
+    padding-top:5px;
+    margin-bottom:8px !important;
+    line-height:1em !important
+}
+.markdown h1 {
+    font:300 28px "Open Sans",sans-serif
+}
+.markdown h2 {
+    font:700 18px "Open Sans",sans-serif
+}
+.markdown h3 {
+    font:700 14px "Open Sans",sans-serif
+}
+.markdown {
+    word-wrap:break-word
+}
+.markdown--resize-body {
+    font-size:13px;
+    line-height:1.55em
+}
+.markdown table {
+    border-collapse:collapse;
+    border:1px solid #d2d6e0;
+    table-layout:fixed;
+    width:100%
+}
+.markdown thead {
+    background-color:#e8eaef;
+    font-weight:bold;
+    border-bottom:1px solid #d2d6e0
+}
+.markdown td,.markdown th {
+    padding:3px 10px
+}
+.markdown td:not(:last-child),.markdown th:not(:last-child) {
+    border-right:1px solid #d2d6e0
+}
+.markdown tr:not(:last-child) {
+    border-bottom:1px solid #d2d6e0
+}
+.markdown pre {
+    white-space:pre-wrap;
+    background-color:#e8eef6;
+    border:1px solid #d0dced;
+    padding:5px 15px;
+    border-radius:4px;
+    text-shadow:1px 1px rgba(255,255,255,0.2);
+    color:#5c7397
+}
+.markdown code {
+    font-family:"Droid Sans Mono",sans-serif;
+    font-size:11px
+}
+.markdown hr {
+    border-top:1px solid #d2d6e0;
+    border-bottom:1px solid rgba(255,255,255,0.3);
+    border-left:none;
+    border-right:none
+}
+.markdown>*:not(:last-child):not(div),.markdown .have>*:not(:last-child):not(div),.markdown .want>*:not(:last-child):not(div) {
+    margin-bottom:15px
+}
+.markdown .spoiler:not(:hover) {
+    background-color:#d9dee6;
+    color:transparent;
+    text-shadow:none
+}
+.markdown ul,.markdown ol {
+    margin-right:25px;
+    margin-left:25px
+}
+.markdown ol>li {
+    counter-increment:list
+}
+.markdown li {
+    padding:2px 5px
+}
+.markdown ol>li:before {
+    content:counter(list) "."
+}
+.markdown ul li:before {
+    content:"•"
+}
+.markdown li:before {
+    color:#da5d88;
+    margin-left:-60px;
+    font-weight:bold;
+    font-size:11px;
+    position:absolute;
+    width:50px;
+    text-align:right
+}
+.markdown .search_highlight {
+    background-color:#ff0;
+    text-shadow:none
+}
+.markdown img {
+    max-width:500px;
+    max-height:500px;
+    margin-top:5px;
+    display:inline-block
+}
+.markdown .comment-toggle-attached {
+    font-size:11px;
+    font-style:italic;
+    text-decoration:underline;
+    color:#c86848;
+    cursor:pointer
+}
+.markdown a {
+    color:#4b72d4;
+    text-decoration:underline
+}
+.markdown blockquote {
+    border-left:5px solid #d2d6e0;
+    padding:3px 15px;
+    font-style:italic;
+    opacity:0.8
+}
+.markdown .have,.markdown .want {
+    border-left:5px solid;
+    padding:10px 20px
+}
+.markdown .have:not(:last-child),.markdown .want:not(:last-child) {
+    margin-bottom:15px
+}
+.markdown .have {
+    border-left-color:#e1868c;
+    background-color:#efedf0
+}
+.markdown .want {
+    border-left-color:#6bbfdb;
+    background-color:#e8eff3
+}
+.markdown blockquote blockquote {
+    border-left:none;
+    padding:0;
+    opacity:1
+}
+
+/*-----------------------------
+**--NOTIFICATION---------------
+------------------------------*/
+.notification {
+    border:1px solid;
+    border-radius:4px;
+    padding:0 15px;
+    font-size:11px;
+    line-height:32px;
+    overflow:hidden
+}
+.notification a {
+    text-decoration:underline
+}
+.notification--success {
+    background-image:linear-gradient(#f7fcf2 0%, #e7f6da 100%);
+    background-image:-moz-linear-gradient(#f7fcf2 0%, #e7f6da 100%);
+    background-image:-webkit-linear-gradient(#f7fcf2 0%, #e7f6da 100%);
+    border-color:#c5e9a5;
+    color:#8fa47b
+}
+.notification--warning {
+    background-image:linear-gradient(#f6f6e6 0px, #f5f5df 20px);
+    background-image:-moz-linear-gradient(#f6f6e6 0px, #f5f5df 20px);
+    background-image:-webkit-linear-gradient(#f6f6e6 0px, #f5f5df 20px);
+    border-color:#ede5b2;
+    color:#a59d7c
 }

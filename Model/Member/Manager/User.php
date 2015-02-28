@@ -80,4 +80,16 @@ class User implements \Manager {
           return new \Member\User($data);
         return null;
     }
+    public function     getAll() {
+        $q = $this->_bdd->query('SELECT * FROM '.$this->_table.' ORDER BY username ASC');
+        $list = [];
+        while ($data = $q->fetch()){
+            $list[] = new \Member\User($data);
+        }
+        return $list;
+    }
+    public function     getNbUsers() {
+        $q = $this->_bdd->query('SELECT count(*) FROM '.$this->_table);
+        return $q->fetch()[0];
+    }
 }

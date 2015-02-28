@@ -6,9 +6,8 @@
             </div>
             <div>
       <?php /*          <div><i class="fa fa-book"></i> <a href="<?php echo $_SITE_INDEX_; ?>privacy">Privacy Policy</a></div> */?>
-                <div><i class="fa fa-gavel"></i> <a href="<?php echo $_LINK_TERMS_; ?>">Terms of Service</a></div>
-                <div><i class="fa fa-wrench"></i> <a href="<?php echo $_LINK_ROLES_; ?>">Roles</a></div>
-                <div><i class="fa fa-user"></i> <a href="<?php echo $_LINK_USERS_ ?>">Users</a></div>
+                <div><i class="fa fa-gavel"></i> <a href="<?php echo $_LINK_ABOUT_."/".$_LINK_TERMS_; ?>">Terms of Service</a></div>
+                <div><i class="fa fa-user"></i> <a href="<?php echo $_LINK_ABOUT_."/".$_LINK_USERS_ ?>">Users</a></div>
             </div>
         </div>
     </div>

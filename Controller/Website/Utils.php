@@ -81,5 +81,5 @@
                 $str = $bool ? '<i class="fa fa-cog"></i> ':'';
                 return  $str .= 'Custom';
         }
+        return null;
     }
-?>

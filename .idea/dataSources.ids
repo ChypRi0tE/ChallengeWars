@@ -63,4 +63,7 @@
   <data-source name="MySQL - 5gbc_15477651_lolc@sql203.5gb.co" uuid="bbe2bdcb-9f85-4323-9fe5-0748f46e3a3b">
     <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
   </data-source>
+  <data-source name="MySQL - b12_15918047_challengewars@sql307.byethost12.com" uuid="caf49d54-31f4-4933-af41-638644ad2128">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
 </component>

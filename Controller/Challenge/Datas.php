@@ -41,7 +41,7 @@ $listEntry = $EntryManager->getForChallenge($idChallenge);
       $data['datePost'] = date("Y-m-d H:i:s", strtotime('+6 hours'));
       $data['content'] = htmlspecialchars($_POST['inputComment']);
       $entry = new \Challenge\Comment($data);
-      $comment = $CommentManager->add($entry);
+      $CommentManager->add($entry);
     }
     header("Location: ".$_SERVER['REQUEST_URI']);
   }

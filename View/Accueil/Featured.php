@@ -1,7 +1,7 @@
 <div class="featured-container">
     <div class="featured-outer-wrap featured-outer-wrap--home" style="background-color: rgb(46,35,9);">
         <div class="featured-inner-wrap">
-            <a href="<?php echo $_LINK_CHALLENGE_ . "/challenge-" . $nextChallenge->getId(); ?>" class="global-image-outer-wrap global-image-outer-wrap--game-xlarge"><img src="/assets/img/filler460.jpg" /></a>
+            <a href="<?php echo $_LINK_CHALLENGE_ . "/challenge-" . $nextChallenge->getId(); ?>" class="global-image-outer-wrap global-image-outer-wrap--game-xlarge"><img src="<?php echo $_SITE_INDEX_; ?>assets/img/filler460.jpg" /></a>
             <div class="featured-summary">
                 <?php   if(isLogged()) { ?>
                 <div class="featured-heading">
@@ -16,7 +16,7 @@
                 <?php } ?>
                 <div class="featured-columns">
                     <a class="global-image-outer-wrap global-image-outer-wrap--avatar-small" href="<?php echo $_LINK_USER_ . "/" . $nextUser->getUsername(); ?>">
-                        <div class="global-image-inner-wrap" style="background-image:url(/assets/img/<?php echo $nextUser->getAvatar(); ?>);"></div>
+                        <div class="global-image-inner-wrap" style="background-image:url(<?php echo $_SITE_INDEX_; ?>assets/img/<?php echo $nextUser->getAvatar(); ?>);"></div>
                     </a>
                     <div class="featured-column">
                         <i style="color: rgb(230,205,149);" class="fa fa-clock-o"></i> 

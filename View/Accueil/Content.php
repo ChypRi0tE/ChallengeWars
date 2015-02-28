@@ -58,10 +58,10 @@
                 </div>
             </div>
             <a href="<?php echo $_LINK_USER_ . "/" . $user->getUsername(); ?>" class="global-image-outer-wrap global-image-outer-wrap--avatar-small">
-                <div class="global-image-inner-wrap" style="background-image:url(assets/img/<?php echo $user->getAvatar(); ?>);"></div>
+                <div class="global-image-inner-wrap" style="background-image:url(<?php echo $_SITE_INDEX_; ?>assets/img/<?php echo $user->getAvatar(); ?>);"></div>
             </a>
             <a class="global-image-outer-wrap global-image-outer-wrap--game-medium" href="<?php echo $_LINK_CHALLENGE_ . "/challenge-" . $listChallenge[$i]->getId(); ?>">
-                <div class="global-image-inner-wrap" style="background-image:url(assets/img/filler500.jpg);"></div>
+                <div class="global-image-inner-wrap" style="background-image:url(<?php echo $_SITE_INDEX_; ?>assets/img/filler500.jpg);"></div>
             </a>
         </div>
     </div>

@@ -24,4 +24,3 @@
     require_once("Model/Error/TypeError.php");
     require_once("Model/Error/SiteError.php");
     require_once("Model/Error/UserError.php");
-?>

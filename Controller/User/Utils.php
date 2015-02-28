@@ -32,6 +32,7 @@ if (!empty($_GET['tab'])) {
             case 0:
                 return "Member";
         }
+        return null;
     }
     function    getResults($tab) {
         global $thisStats;
@@ -46,6 +47,7 @@ if (!empty($_GET['tab'])) {
             case "Comments":
                 return $thisStats->getCommentPosted();
         }
+        return 0;
     }
     function    getPageHeading($tab) {
         global $thisStats, $thisUser, $_LINK_USER_;

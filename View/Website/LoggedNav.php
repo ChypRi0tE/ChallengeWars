@@ -121,7 +121,7 @@
             </div>
             <div class="nav-button-container nav-button-container--notification">
                 <a href="<?php echo $_LINK_USER_ ."/".$_SESSION['currentUser']->getUsername(); ?>" class="nav-avatar-outer-wrap">
-                    <div class="nav-avatar-inner-wrap" style="background-image:url(/assets/img/<?php echo $_SESSION['currentUser']->getAvatar(); ?>);"></div>
+                    <div class="nav-avatar-inner-wrap" style="background-image:url(<?php echo $_SITE_INDEX_; ?>assets/img/<?php echo $_SESSION['currentUser']->getAvatar(); ?>);"></div>
                 </a>
             </div>
         </div>

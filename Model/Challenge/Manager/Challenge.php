@@ -131,6 +131,7 @@ class Challenge implements \Manager {
     }
     public function     getWon($id) {
         //TODO
+        return 0;
     }
     public function     getEntered($id) {
         global $EntryManager;

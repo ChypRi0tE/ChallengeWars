@@ -12,12 +12,12 @@ include('View/Website/Header.php');
     include('View/Website/GuestNav.php');} ?>
 <?php include("View/".$_PAGENAME_."/Featured.php"); ?>
 <div class="page-outer-wrap">
-    <div class="page-inner-wrap">
+    <div class="page-inner-wrap"  style="margin-top: 39px">
         <div class="widget-container">
             <?php include("View/".$_PAGENAME_."/Sidebar.php"); ?>
             <div>
                 <?php if (file_exists("View/".$_PAGENAME_."/Pinned.php")){include("View/".$_PAGENAME_."/Pinned.php");} ?>
-                <?php include("View/".$_PAGENAME_."/Content.php"); ?>
+                <?php include("View/".$_PAGENAME_."/Content/".$tabPanel.".php"); ?>
             </div>
         </div>
     </div>
