@@ -26,3 +26,8 @@ else if ($tabPanel == "Won")
     $listChallenge = $ChallengeManager->getWon($idUser);
 else if ($tabPanel == "Comments")
     $listComments = $CommentManager->getForUser($idUser);
+
+if ($thisUser->getIsValidated()) {
+    $SummonerManager = new \Summoner\Manager\Summoner($bdd, $_TABLE_SUMMONERS_);
+    $thisSummoner = $SummonerManager->get($idUser);
+}

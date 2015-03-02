@@ -16,7 +16,7 @@
                 <?php } ?>
                 <div class="featured-columns">
                     <a class="global-image-outer-wrap global-image-outer-wrap--avatar-small" href="<?php echo $_LINK_USER_ . "/" . $nextUser->getUsername(); ?>">
-                        <div class="global-image-inner-wrap" style="background-image:url(<?php echo $_SITE_INDEX_; ?>assets/img/<?php echo $nextUser->getAvatar(); ?>);"></div>
+                        <div class="global-image-inner-wrap" style="background-image:url(<?php echo $nextUser->displayAvatar(); ?>);"></div>
                     </a>
                     <div class="featured-column">
                         <i style="color: rgb(230,205,149);" class="fa fa-clock-o"></i> 

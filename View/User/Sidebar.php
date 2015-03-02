@@ -1,8 +1,8 @@
 <div class="sidebar">
-    <?php if (isLogged() && $_ALLOW_FRIENDS_ && $_SESSION['currentUser']->getId() != $thisUser->getId()) { ?>
+    <?php if (isLogged() && $_SESSION['currentUser']->getId() == $thisUser->getId() && $thisUser->getIsValidated()) { ?>
         <div class="sidebar-entry-insert">
-            <a rel="nofollow" target="_blank" href="http://steamcommunity.com/profiles/76561197990861574" data-tooltip="Add to favorites">
-                <i class="fa fa-fw fa-heart"></i> Add to friends
+            <a href="">
+                <i class="fa fa-fw fa-refresh"></i> Synchronize
             </a>
         </div>
     <?php } ?>
@@ -42,6 +42,14 @@
                 <div class="sidebar-navigation-item-name">Comments</div>
                 <div class="sidebar-navigation-item-underline"></div>
                 <div class="sidebar-navigation-item-count"><?php echo $thisStats->getCommentPosted(); ?></div>
+            </a>
+        </li>
+        <li class="sidebar-navigation-item <?php isActive("History"); ?>">
+            <a class="sidebar-navigation-item-link" href="<?php echo $_LINK_USER_ ."/".$thisUser->getUsername()."/".$_LINK_HISTORY_; ?>">
+                <?php addCaret("History"); ?>
+                <div class="sidebar-navigation-item-name">Match History</div>
+                <div class="sidebar-navigation-item-underline"></div>
+                <div class="sidebar-navigation-item-count"></div>
             </a>
         </li>
     </ul>

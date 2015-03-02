@@ -14,7 +14,7 @@
                 <div class="challenge-summary">
                     <h2 class="challenge-heading">
                         <a class="challenge-heading-name"
-                           href="challenge.php?id=<?php echo $listChallenge[$i]->getId(); ?>">
+                           href="<?php echo $_LINK_CHALLENGE_ . "/challenge-".$listChallenge[$i]->getId(); ?>">
                             <?php echo $listChallenge[$i]->getTitle(); ?></a>
                         <?php if ($listChallenge[$i]->getIsAdvanced()) { ?>
                             <span class="challenge-heading-thin">(8 CP)</span>

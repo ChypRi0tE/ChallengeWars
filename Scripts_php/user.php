@@ -26,7 +26,15 @@
   }
 if (isset($_POST['type']) && $_POST['type'] == 'putUser') {
     $bdd = connectDatabase();
-    $query = "INSERT INTO " . $_TABLE_USERS_ . " (username, mail, password, avatar, isAdvanced, isValidated, rank) VALUES ('" . $_POST['username'] . "', '" . $_POST['mail'] . "', '" . $_POST['password'] . "', '" . $_POST['avatar'] . "', '" . $_POST['isAdvanced'] . "', '" . $_POST['isValidated'] . "', '" . $_POST['rank'] . "'";
+    $query = "INSERT INTO " . $_TABLE_USERS_ . " (username, mail, password, avatar, isAdvanced, isValidated, rank)
+        VALUES ('" . $_POST['username'] . "',
+                '" . $_POST['mail'] . "',
+                '" . $_POST['password'] . "',
+                '" . $_POST['avatar'] . "',
+                '" . $_POST['isAdvanced'] . "',
+                '" . $_POST['isValidated'] . "',
+                '" . $_POST['rank'] . "'
+        )";
     $q = $bdd->query($query);
     if ($data = $q->fetch()) {
         echo json_encode($data);

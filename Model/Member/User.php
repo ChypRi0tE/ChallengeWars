@@ -38,6 +38,9 @@ class User {
     public function getAvatar() {
         return $this->_avatar;
     }
+    public function displayAvatar() {
+        return "http://ddragon.leagueoflegends.com/cdn/5.3.1/img/profileicon/".$this->_avatar.".png";
+    }
     public function setAvatar($avatar) {
         $this->_avatar = $avatar;
     }

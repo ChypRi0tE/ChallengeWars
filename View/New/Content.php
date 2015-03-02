@@ -36,13 +36,28 @@
                         <div data-checkbox-value="victory" class="form-checkbox is-disabled">
                             <i class="form-checkbox-default fa fa-circle-o"></i><i class="form-checkbox-hover fa fa-circle"></i><i class="form-checkbox-selected fa fa-check-circle"></i> Victory
                         </div>
-                        <div data-checkbox-value="time" class="form-checkbox is-disabled">
-                            <i class="form-checkbox-default fa fa-circle-o"></i><i class="form-checkbox-hover fa fa-circle"></i><i class="form-checkbox-selected fa fa-check-circle"></i> Time
+                        <div data-checkbox-value="kill" class="form-checkbox is-disabled">
+                            <i class="form-checkbox-default fa fa-circle-o"></i><i class="form-checkbox-hover fa fa-circle"></i><i class="form-checkbox-selected fa fa-check-circle"></i> Kills
                         </div>
-                        <div data-checkbox-value="custom" class="form-checkbox is-disabled">
+                    <?php /*   <div data-checkbox-value="custom" class="form-checkbox is-disabled">
                             <i class="form-checkbox-default fa fa-circle-o"></i><i class="form-checkbox-hover fa fa-circle"></i><i class="form-checkbox-selected fa fa-check-circle"></i> Custom
                         </div>
                         <div class="form-input-description">You can also select gift if you wish to add keys after the giveaway ends, rather than now.</div>
+                    */ ?>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-heading">
+                        <div class="form-heading-number">2.</div>
+                        <div class="form-heading-text">Champion</div>
+                    </div>
+                    <div class="form-row-indent">
+                        <div class="form-time-container">
+                            <select class="form-input-small">
+                                <option>Test</option>
+                                <option>Toast</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
                 <div class="form-row">

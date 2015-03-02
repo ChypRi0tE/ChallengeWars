@@ -31,6 +31,7 @@
     $_TABLE_ENTRIES_   = "cw_challenges_entries";
     $_TABLE_USERS_      = "cw_users";
     $_TABLE_USERS_STATS_ = "cw_users_stats";
+    $_TABLE_SUMMONERS_ = "cw_summoners";
     
 
     
@@ -39,6 +40,7 @@
     $_LINK_ENTRIES_ =  "entries";
     $_LINK_RANKING_ = "rankings";
     $_LINK_COMMENT_ = "comments";
+    $_LINK_HISTORY_ = "history";
     
     $_LINK_USER_ =  $_SITE_INDEX_ . "user";
     $_LINK_CREATED_ =  "created";
@@ -55,6 +57,8 @@
     $_LINK_LOGIN_ = $_SITE_INDEX_ . "login";
     $_LINK_LOGOUT_ = $_SITE_INDEX_ . "logout";
 
-    $_LINK_SYNC_ = "account/sync";
+    $_LINK_ACCOUNT_ = $_SITE_INDEX_ . "account";
+    $_LINK_SYNC_ = "sync";
+    $_LINK_INBOX_ = "inbox";
     
     //setlocale(LC_TIME, "fr_FR");

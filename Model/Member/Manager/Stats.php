@@ -44,24 +44,15 @@ class Stats implements \Manager {
     }
     public function     update($stats) {
         if (!($stats instanceof \Member\Stats)) {new \Error\TypeError("Manager/Stats", "Stats", $stats->type);}
-        $q = $this->_bdd->prepare("UPDATE " . $this->_table . "
-                    SET idUser = :idUser,
-                    dateInscription = :dateInscription,
-                    challEntered = :challEntered,
-                    challWon = :challWon,
-                    challCreated = :challCreated,
-                    commentPosted = :commentPosted
-                    WHERE
-                    id = :id
-                  ");
-
-        $q->bindValue(':idUser', $stats->getIdUser());
-        $q->bindValue(':dateInscription', $stats->getDateInscription());
-        $q->bindValue(':challEntered', $stats->getChallEntered());
-        $q->bindValue(':challWon', $stats->getChallWon());
-        $q->bindValue(':challCreated', $stats->getChallCreated());
-        $q->bindValue(':commentPosted', $stats->getCommentPosted());
-        $q->execute();
+        $q = $this->_bdd->exec("UPDATE " . $this->_table . "
+                    SET idUser = ".$stats->getIdUser().",
+                     dateInscription = '".$stats->getDateInscription()."',
+                     challEntered = ".$stats->getChallEntered().",
+                     challWon = ".$stats->getChallWon().",
+                     challCreated = ".$stats->getChallCreated().",
+                     commentPosted = ".$stats->getCommentPosted()."
+                     WHERE id = ".$stats->getId()."
+                 ");
     }
     public function     remove($id) {
         $this->_bdd->exec('DELETE FROM '.$this->_table.' WHERE id = '.$id);

@@ -17,7 +17,7 @@
     <div data-comment-id="<?php echo $listComments[$i]->getId(); ?>" class="comment">
         <div class="ajax comment-parent">
             <a href="<?php echo $_LINK_USER_. "/" . $user->getUsername(); ?>" class="global-image-outer-wrap global-image-outer-wrap--avatar-small">
-                <div class="global-image-inner-wrap" style="background-image:url(/assets/img/<?php echo $user->getAvatar(); ?>);"></div>
+                <div class="global-image-inner-wrap" style="background-image:url(<?php echo $user->displayAvatar(); ?>);"></div>
             </a>
             <div class="comment-summary">
                 <div class="comment-author">

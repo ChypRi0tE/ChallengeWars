@@ -82,7 +82,7 @@
             </div>
             */ ?>
             <div class="nav-button-container <?php isSelected("faq"); ?>">
-                <a class="nav-button" href="<?php echo $_LINK_FAQ_; ?>">FAQ</a>
+                <a class="nav-button" href="<?php echo $_LINK_ABOUT_ . "/" .$_LINK_FAQ_; ?>">FAQ</a>
             </div>
         </div>
         <div class="nav-right-container">
@@ -94,7 +94,7 @@
                     <a title="Challenges Won" class="nav-button nav-button--notification" href="<?php echo $_LINK_USER_ ."/".$_SESSION['currentUser']->getUsername()."/".$_LINK_WON_; ?>"><i class="fa fa-trophy"></i></a>
                 </div>
                 <div class="nav-button-container--notification nav-button-container--inactive">
-                    <a title="Messages" class="nav-button nav-button--notification" href="/"><i class="fa fa-envelope"></i></a>
+                    <a title="Messages" class="nav-button nav-button--notification" href="<?php echo $_LINK_ACCOUNT_ . "/" .$_LINK_INBOX_; ?>"><i class="fa fa-envelope"></i></a>
                 </div>
             </div>
             <div class="nav-button-container <?php isSelected("user"); ?>">
@@ -102,11 +102,16 @@
                 <div class="nav-button nav-button--is-dropdown-arrow"><i class="fa fa-angle-down"></i></div>
                 <div class="nav-relative-dropdown is-hidden">
                     <div class="nav-absolute-dropdown">
-                        <a class="nav-row" href="<?php echo $_LINK_USER_ ."/".$_SESSION['currentUser']->getUsername()."/".$_LINK_SYNC_; ?>">
+                        <a class="nav-row" href="<?php echo $_LINK_ACCOUNT_."/".$_LINK_SYNC_; ?>">
                             <i class="icon-green fa fa-fw fa-refresh"></i>
                             <div class="nav-row-summary">
-                                <p class="nav-row-summary-name">Sync with League of Legends</p>
-                                <p class="nav-row-summary-description">Last synced <span title="Yesterday, 4:32pm">22 hours ago</span>.</p>
+                                <?php if ($_SESSION['currentUser']->getIsValidated()) { ?>
+                                    <p class="nav-row-summary-name">Sync with League of Legends</p>
+                                    <p class="nav-row-summary-description">Last synced <?php echo date("d F, H:i", strtotime($_SESSION['currentSummoner']->getLastSync())); ?>.</p>
+                                <?php } else { ?>
+                                    <p class="nav-row-summary-name">Link your account</p>
+                                    <p class="nav-row-summary-description">Link your League of Legends account to be able to join challenges.</p>
+                                <?php } ?>
                             </div>
                         </a>
                         <a class="nav-row" href="<?php echo $_LINK_LOGOUT_; ?>">
@@ -121,7 +126,7 @@
             </div>
             <div class="nav-button-container nav-button-container--notification">
                 <a href="<?php echo $_LINK_USER_ ."/".$_SESSION['currentUser']->getUsername(); ?>" class="nav-avatar-outer-wrap">
-                    <div class="nav-avatar-inner-wrap" style="background-image:url(<?php echo $_SITE_INDEX_; ?>assets/img/<?php echo $_SESSION['currentUser']->getAvatar(); ?>);"></div>
+                    <div class="nav-avatar-inner-wrap" style="background-image:url(<?php echo $_SESSION['currentUser']->displayAvatar(); ?>);"></div>
                 </a>
             </div>
         </div>

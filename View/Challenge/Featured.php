@@ -36,7 +36,7 @@
                         </a>
                     </div>
                     <a href="<?php echo $_LINK_USER_ . '/' . $thisUser->getUsername(); ?>" class="global-image-outer-wrap global-image-outer-wrap--avatar-small">
-                        <div class="global-image-inner-wrap" style="background-image:url(/assets/img/<?php echo $thisUser->getAvatar(); ?>);"></div>
+                        <div class="global-image-inner-wrap" style="background-image:url(<?php echo $thisUser->displayAvatar(); ?>);"></div>
                     </a>
                 </div>
             </div>

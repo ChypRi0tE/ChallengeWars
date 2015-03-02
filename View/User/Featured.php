@@ -2,7 +2,7 @@
     <div class="featured-outer-wrap featured-outer-wrap--user" style="background-color: rgb(31,37,46);">
         <div class="featured-inner-wrap">
             <div class="global-image-outer-wrap global-image-outer-wrap--avatar-large">
-                <div class="global-image-inner-wrap" style="background-image:url(<?php echo $_SITE_INDEX_; ?>assets/img/<?php echo $thisUser->getAvatar(); ?>);"></div>
+                <div class="global-image-inner-wrap" style="background-image:url(<?php echo $thisUser->displayAvatar(); ?>);"></div>
             </div>
             <div class="featured-summary">
                 <div class="featured-heading">
@@ -17,7 +17,7 @@
                         <div class="featured-table-row">
                             <div class="featured-table-row-left">LoL Username</div>
                     <?php if ($thisUser->getIsValidated()) { ?>
-                            <div class="featured-table-row-right"><span class="featured-online-now">Chypriote</span></div>
+                            <div class="featured-table-row-right"><span class="featured-online-now"><?php echo $thisSummoner->getSummonerName(); ?></span></div>
                     <?php } else { ?>
                             <div class="featured-table-row-right">Non validé</div>
                     <?php } ?>
@@ -42,7 +42,7 @@
                         </div>
                         <div class="featured-table-row">
                             <div class="featured-table-row-left">Challenge Won</div>
-                            <div class="featured-table-row-right"><a style="color: rgb(156,184,230);" href="<?php echo $_LINK_USER_ ."/".$thisUser->getUsername()."/".$_LINK_WON_; ?>"><?php echo $thisStats->getChallWon(); ?></a> (3%)</div>
+                            <div class="featured-table-row-right"><a style="color: rgb(156,184,230);" href="<?php echo $_LINK_USER_ ."/".$thisUser->getUsername()."/".$_LINK_WON_; ?>"><?php echo $thisStats->getChallWon(); ?></a> (<?php echo ($thisStats->getChallWon()/$thisStats->getChallEntered()*100); ?>%)</div>
                         </div>
                         <div class="featured-table-row">
                             <div class="featured-table-row-left">Comments Posted</div>

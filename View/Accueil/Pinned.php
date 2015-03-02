@@ -25,7 +25,7 @@
                 </div>
             </div>
             <a href="user.php?id=<?php echo $listFeaturedChallenge[$i]->getIdCreator(); ?>" class="global-image-outer-wrap global-image-outer-wrap--avatar-small">
-                <div class="global-image-inner-wrap" style="background-image:url(assets/img/<?php echo $user->getAvatar(); ?>);"></div>
+                <div class="global-image-inner-wrap" style="background-image:url(<?php echo $user->displayAvatar(); ?>);"></div>
             </a>
             <a class="global-image-outer-wrap global-image-outer-wrap--game-medium" href="challenge.php?id=<?php echo $listFeaturedChallenge[$i]->getId(); ?>">
                 <div class="global-image-inner-wrap" style="background-image:url(assets/img/filler500.jpg);"></div>

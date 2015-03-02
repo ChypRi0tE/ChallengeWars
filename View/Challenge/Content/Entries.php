@@ -14,10 +14,10 @@
     <div class="table-row-outer-wrap">
         <div class="table-row-inner-wrap">
             <div>
-                <a class="global-image-outer-wrap global-image-outer-wrap--avatar-small" href="user.php?id=<?php echo $user->getId(); ?>">
-                    <div class="global-image-inner-wrap" style="background-image:url(/assets/img/<?php echo $user->getAvatar(); ?>);"></div></a></div>
+                <a class="global-image-outer-wrap global-image-outer-wrap--avatar-small" href="<?php echo $_LINK_USER_ . '/' . $user->getUsername(); ?>">
+                    <div class="global-image-inner-wrap" style="background-image:url(<?php echo $user->displayAvatar(); ?>);"></div></a></div>
             <div class="table-column--width-fill">
-                <a href="user.php?id=<?php echo $user->getId(); ?>" class="table-column-heading"><?php echo $user->getUsername(); ?></a></div>
+                <a href="<?php echo $_LINK_USER_ . '/' . $user->getUsername(); ?>" class="table-column-heading"><?php echo $user->getUsername(); ?></a></div>
             <div class="table-column--width-small text-center"><?php echo strftime("%d %B at %H:%M",strtotime($listEntry[$i]->getDateEntry())); ?></div>
         </div>
     </div>

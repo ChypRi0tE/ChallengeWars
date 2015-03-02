@@ -46,7 +46,12 @@
             $_isLoginError = true;
             $_loginError = new \Error\Error("Wrong username and/or password", "login", 2);
         } else {
-            $_SESSION['currentUser'] = new \Member\User($data);
+            $user = new \Member\User($data);
+            $_SESSION['currentUser'] = $user;
+            if ($user->getIsValidated()) {
+                $q = $_bdd->query('SELECT * FROM cw_summoners WHERE userId = ' . $user->getId());
+                $_SESSION['currentSummoner'] = new \Summoner\Summoner($q->fetch());
+            }
             header('Location: '. $_SITE_INDEX_);
         }
     }
@@ -72,7 +77,7 @@
         $data['username'] = $_POST['register-username'];
         $data['password'] = md5($_POST['register-password']);
         $data['mail'] = $_POST['register-mail'];
-        $data['avatar'] = 'default.jpg';
+        $data['avatar'] = '0';
         $data['isAdvanced'] = 0;
         $data['isValidated'] = 0;
         $data['rank'] = 0;

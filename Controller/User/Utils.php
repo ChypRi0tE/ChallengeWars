@@ -19,6 +19,8 @@ if (!empty($_GET['tab'])) {
         $tabPanel = 'Entries';
     else if (strtolower($_GET['tab']) == $_LINK_UCOMMENT_)
         $tabPanel = 'Comments';
+    else if (strtolower($_GET['tab']) == $_LINK_HISTORY_)
+        $tabPanel = 'History';
     else
         $tabPanel = 'Created';
 } else {
@@ -46,6 +48,8 @@ if (!empty($_GET['tab'])) {
                 return $thisStats->getChallEntered();
             case "Comments":
                 return $thisStats->getCommentPosted();
+            case "History":
+                return $thisSummoner->getNbGames();
         }
         return 0;
     }
@@ -68,6 +72,10 @@ if (!empty($_GET['tab'])) {
             case "Comments":
                 $head = "Comments";
                 $tas = "comments";
+                break;
+            case "History":
+                $head = "History";
+                $tas = "History";
                 break;
         }
         return '<a href="'.$_LINK_USER_.'/'.$thisUser->getUsername().'/'.$tas.'">'.$head.'</a>';
