@@ -54,27 +54,28 @@
                     <div class="form-row-indent">
                         <div class="form-time-container">
                             <select class="form-input-small">
-                                <option>Test</option>
-                                <option>Toast</option>
+							<option> All Champions </option>
+                        <?php for ($i = 0; !empty($listChampions[$i]); $i++) {
+                               echo "<option>".$listChampions[$i]."</option>";
+                           }
+						   ?>
                             </select>
                         </div>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-heading">
-                        <div class="form-heading-number">2.</div>
+                        <div class="form-heading-number">3.</div>
                         <div class="form-heading-text">Time Range</div>
                     </div>
                     <div class="form-row-indent">
                         <div class="form-time-container">
-                            <div>Start:<br />
-                                <input class="form-input-small hasDatepicker" type="text" value="" name="start_time"></div>
-                            <div>End:<br />
-                                <input class="form-input-small hasDatepicker" type="text" value="" name="end_time" ></div>
+                            This challenge will end on <?php echo date("d M", strtotime("+7 days")); ?>
                         </div>
                         <div class="form-input-description">Challenges must start and end within the next 30 days, with a minimum time open of 1 hour.</div>
                     </div>
                 </div>
+                <?php /*
                 <div class="form-row form-row--new-challenge-who">
                     <div class="form-heading">
                         <div class="form-heading-number">3.</div>
@@ -195,6 +196,7 @@
                         <div class="form-input-description">Select who will be allowed to join your challenge.</div>
                     </div>
                 </div>
+                */ ?>
                 <div class="form-row form-row--new-challenge-level">
                     <div class="form-heading">
                         <div class="form-heading-number">4.</div>

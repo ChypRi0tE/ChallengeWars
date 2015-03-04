@@ -21,7 +21,7 @@ class Challenge implements \Manager {
         if (!($challenge instanceof \Challenge\Challenge)) {new \Error\TypeError("Manager/Challenge", "Challenge", $challenge->type);}
 
         $q = $this->_bdd->prepare("INSERT INTO " . $this->_table . "
-                    ('title', 'dateCreation', 'dateEnd', 'idCreator', 'idPrize', 'description', 'isAdvanced', 'status', 'cost', 'type', 'image')
+                    ('title', 'dateCreation', 'dateEnd', 'idCreator', 'idPrize', 'description', 'isAdvanced', 'status', 'cost', 'type', 'image', 'champion', 'won_by')
                     VALUES (:title,
                     :dateCreation,
                     :dateEnd,
@@ -32,7 +32,9 @@ class Challenge implements \Manager {
                     :status,
                     :cost,
                     :type,
-                    :image)
+                    :image,
+					:champion,
+					:won_by)
                   ");
 
         $q->bindValue(':title', $challenge->getTitle());
@@ -46,7 +48,9 @@ class Challenge implements \Manager {
         $q->bindValue(':cost', $challenge->getCost(), PDO::PARAM_INT);
         $q->bindValue(':type', $challenge->getType(), PDO::PARAM_INT);
         $q->bindValue(':image', $challenge->getImage());
-
+		$q->bindValue(':champion', $challenge->getChampion());
+		$q->bindValue(':won_by', $challenge->getWonBy());
+		
         $q->execute();
     }
     public function     update($challenge) {
@@ -62,7 +66,9 @@ class Challenge implements \Manager {
                     status = :status,
                     cost = :cost,
                     type = :type,
-                    image = :image
+                    image = :image,
+					champion = :champion,
+					won_by = :won_by
                     WHERE id = :id
                   ');
 
@@ -77,6 +83,8 @@ class Challenge implements \Manager {
         $q->bindValue(':cost', $challenge->getCost(), PDO::PARAM_INT);
         $q->bindValue(':type', $challenge->getType(), PDO::PARAM_INT);
         $q->bindValue(':image', $challenge->getImage());
+		$q->bindValue(':champion', $challenge->getChampion());
+		$q->bindValue(':won_by', $challenge->getWonBy());
         $q->bindValue(':id', $challenge->getId(), PDO::PARAM_INT);
 
         $q->execute();

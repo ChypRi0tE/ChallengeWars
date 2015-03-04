@@ -48,28 +48,17 @@ class User implements \Manager {
     }
     public function    update($user) {
         if (!($user instanceof \Member\User)) {new \Error\TypeError("Manager/User", "User", $user->type);}
-        $q = $this->_bdd->prepare("UPDATE " . $this->_table . "
-                    SET username = :username,
-                    mail = :mail,
-                    password = :password,
-                    avatar = :avatar,
-                    isAdvanced = :isAdvanced,
-                    isValidated = :isValidated,
-                    rank = :rank
+        $q = $this->_bdd->query("UPDATE " . $this->_table . "
+                    SET username = '".$user->getUsername()."',
+                    mail = '".$user->getMail()."',
+                    password = '".$user->getPassword()."',
+                    avatar = ".$user->getAvatar().",
+                    isAdvanced = ".$user->getIsAdvanced().",
+                    isValidated = ".$user->getIsValidated().",
+                    rank = ".$user->getRank()."
                     WHERE
-                    id = :id
+                    id = ".$user->getId()."
                   ");
-
-        $q->bindValue(':username', $user->getUsername());
-        $q->bindValue(':mail', $user->getMail());
-        $q->bindValue(':password', $user->getPassword());
-        $q->bindValue(':avatar', $user->getAvatar());
-        $q->bindValue(':isAdvanced', $user->getIsAdvanced());
-        $q->bindValue(':isValidated', $user->getIsValidated());
-        $q->bindValue(':rank', $user->getRank());
-        $q->bindValue(':id', $user->getId());
-
-        $q->execute();
     }
     public function    remove($id) {
         $this->_bdd->exec('DELETE FROM '.$this->_table.' WHERE id = '.$id);

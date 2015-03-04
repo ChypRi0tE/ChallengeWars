@@ -21,6 +21,8 @@ class Challenge {
     protected $_cost;
     protected $_type;
     protected $_image;
+	protected $_champion;
+	protected $_won_by;
 
     public function __construct(array $data) {
         $this->create($data);
@@ -110,5 +112,16 @@ class Challenge {
     public function setType($type) {
         $this->_type = $type;
     }
-
+    public function getChampion() {
+        return $this->_champion;
+    }
+    public function setChampion($champion) {
+        $this->_champion = $champion;
+    }
+    public function getWonBy() {
+        return $this->_won_by;
+    }
+    public function setWonBy($won_by) {
+        $this->_won_by = $won_by;
+    }
 }

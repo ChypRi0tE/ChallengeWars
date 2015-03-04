@@ -1,10 +1,11 @@
 <div class="sidebar">
     <?php if (isLogged() && $_SESSION['currentUser']->getId() == $thisUser->getId() && $thisUser->getIsValidated()) { ?>
-        <div class="sidebar-entry-insert">
-            <a href="">
+        <form id="formSync" action="" method="post">
+            <input type="hidden" value="sync" />
+            <div class="sidebar-entry-insert" id="submit-form-sync">
                 <i class="fa fa-fw fa-refresh"></i> Synchronize
-            </a>
-        </div>
+            </div>
+        </form>
     <?php } ?>
     <div class="sidebar-search-container">
         <input class="sidebar-search-input is-helper" name="search-query" type="text" data-helper-str="Search..." placeholder="Search..."/>

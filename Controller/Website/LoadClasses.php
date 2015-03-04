@@ -6,7 +6,6 @@
  * Time: 17:11
  */
 
-
     require_once("Model/Challenge/Challenge.php");
     require_once("Model/Challenge/Entry.php");
     require_once("Model/Challenge/Comment.php");
@@ -27,3 +26,5 @@
 
     require_once("Model/Summoner/Summoner.php");
     require_once("Model/Summoner/Manager/Summoner.php");
+
+    require_once("Model/RiotApi.php");

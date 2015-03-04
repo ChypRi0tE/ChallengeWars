@@ -6,7 +6,8 @@
     </div>
 </div>
 <?php if ($_SESSION['currentUser']->getIsValidated()) { ?>
-<form>
+<form id="formSync" method="post" action="">
+    <input type="hidden" name="sync" />
 <div class="form-rows">
     <div class="form-row">
         <div class="form-heading">
@@ -17,10 +18,10 @@
             <div class="form-sync">
                 <div class="form-sync-data">
                     <div class="notification notification--success">
-                        <i class="fa fa-check-circle"></i> Last synchronisation: .
+                        <i class="fa fa-check-circle"></i> Last synchronisation: <?php echo date("d F, H:i", strtotime($_SESSION['currentSummoner']->getLastSync())); ?>.
                     </div>
                 </div>
-                <div class="form-sync-default">
+                <div class="form-sync-default" id="submit-form-sync" >
                     <i class="fa fa-refresh"></i> Sync Account
                 </div>
             </div>
@@ -30,7 +31,9 @@
 </div>
 </form>
 <?php } else { ?>
-<form>
+<form id="formVerify" method="post" action="">
+    <input type="hidden" name="inputCode" value="<?php echo $verifyCode; ?>" />
+    <input type="hidden" name="verify" />
     <div class="form-rows">
         <div class="form-row">
             <div class="form-heading">
@@ -44,14 +47,14 @@
                 <div class="markdown">
                     <ol>
                         <li>Open your League of Legends client.</li>
-                        <li>Rename one of your <strong>rune</strong> pages to <em>random code</em>. Make sure to save the changes.</li>
+                        <li>Rename one of your <strong>rune</strong> pages to <em><?php echo $verifyCode; ?></em>. Make sure to save the changes.</li>
                         <li>Enter your summoner name below.</li>
                         <li>Click the "Link Account" button</li>
                     </ol>
                 </div><br />
                 <div class="form-sync">
-                    <input class="form-input-small" type="text" name="inputAccount" value="" />
-                    <div class="form-sync-default" style="width:15%">
+                    <input class="form-input-small" type="text" name="inputAccount" value="<?php if (isset($_POST['inputAccount'])) {echo $_POST['inputAccount']; } ?>" />
+                    <div class="form-sync-default" id="submit-form-verify" style="width:15%">
                         <i class="fa fa-link"></i> Link Account
                     </div>
                 </div>

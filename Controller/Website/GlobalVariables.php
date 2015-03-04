@@ -24,6 +24,7 @@
         $_SITE_INDEX_ = "/";
     }
     $_ALLOW_FRIENDS_ = false;
+    $_DEBUG_ = false;
 
 
     $_TABLE_CHALLENGES_ = "cw_challenges";

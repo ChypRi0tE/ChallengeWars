@@ -5,7 +5,7 @@
  * Date: 07/02/2015
  * Time: 18:50
  */
- 
+
     include_once("Controller/Website/GlobalVariables.php");
 
     function    load($class) {
@@ -82,4 +82,19 @@
                 return  $str .= 'Custom';
         }
         return null;
+    }
+
+    function    synchronize($id) {
+        global $bdd, $_TABLE_SUMMONERS_, $_TABLE_USERS_;
+        $api = new RiotApi('euw');
+        $Umanager = new \Member\Manager\User($bdd, $_TABLE_USERS_);
+        $Smanager = new \Summoner\Manager\Summoner($bdd, $_TABLE_SUMMONERS_);
+        $usr = $Umanager->get($id);
+        $sum = $Smanager->getFromId($id);
+        $sum->setLastSync(date("Y-m-d H:i", strtotime("+6 hours")));
+        $usr->setAvatar($api->getSummoner($sum->getSummonerId())['profileIconId']);
+        $Umanager->update($usr);
+        $Smanager->update($sum);
+        $_SESSION['currentUser'] = $usr;
+        $_SESSION['currentSummoner'] = $sum;
     }

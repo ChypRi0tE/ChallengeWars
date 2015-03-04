@@ -29,5 +29,5 @@ else if ($tabPanel == "Comments")
 
 if ($thisUser->getIsValidated()) {
     $SummonerManager = new \Summoner\Manager\Summoner($bdd, $_TABLE_SUMMONERS_);
-    $thisSummoner = $SummonerManager->get($idUser);
+    $thisSummoner = $SummonerManager->getFromId($idUser);
 }

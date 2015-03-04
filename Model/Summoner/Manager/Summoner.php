@@ -17,24 +17,16 @@ class Summoner implements \Manager {
         $this->_bdd = $bdd;
         $this->_table = $table;
     }
-
     public function    add($sum) {
         if (!($sum instanceof \Summoner\Summoner)) {new \Error\TypeError("Manager/Summoner", "Summoner", $sum->type);}
-        $q = $this->_bdd->prepare("INSERT INTO " . $this->_table . "
+        $q = $this->_bdd->query("INSERT INTO " . $this->_table . "
                      (userId, summonerId, summonerName, dateValidation, lastSync)
-                    VALUES (:userId,
-                    :summonerId,
-                    :summonerName,
-                    :dateValidation,
-                    :lastSync)
+                    VALUES (".$sum->getUserId().",
+                    ".$sum->getSummonerId().",
+                    '".$sum->getSummonerName()."',
+                    '".$sum->getDateValidation()."',
+                    '".$sum->getLastSync()."')
                   ");
-
-        $q->bindValue(':userId', $sum->getUserId());
-        $q->bindValue(':summonerId', $sum->getSummonerId());
-        $q->bindValue(':summonerName', $sum->getSummonerName());
-        $q->bindValue(':dateValidation', $sum->getDateValidation());
-        $q->bindValue(':lastSync', $sum->getLastSync());
-        $q->execute();
     }
 
     public function    get($id) {

@@ -92,3 +92,9 @@ if (!empty($_GET['tab'])) {
         if ($tabPanel == $link)
             echo '<i class="fa fa-caret-right"></i>';
     }
+
+if (isset($_POST['sync'])) {
+    echo "test";
+    synchronize($_SESSION['currentUser']->getId());
+    header('Location: '.$_LINK_USER_."/".$_SESSION['currentUser']->getUsername());
+}
