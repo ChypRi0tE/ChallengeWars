@@ -6,14 +6,15 @@
  * Time: 13:15
  */
 
-$listChampions = array();
-require_once("Scripts_php/RiotApi.php");
+
+$listChampions = array(array(),array());
 
 $api = new RiotAPi('euw');
+
 $history = $api->getStatic('champion');
-//print_r($history['data']);
+
 foreach ($history['data'] as $value) {
-	array_push($listChampions, $value['name']);
-	}
- usort($listChampions, "strcasecmp");
-?>
+		array_push($listChampions[0], $value['id']);
+		array_push($listChampions[1], $value['name']);
+		}
+ ?>
