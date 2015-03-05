@@ -36,11 +36,13 @@ if (isset($_POST['type']) && $_POST['type'] == 'putUser') {
                 '" . $_POST['rank'] . "'
         )";
     $q = $bdd->query($query);
-    if ($data = $q->fetch()) {
-        echo json_encode($data);
-    } else {
-        echo "{\"error\":\"query return was empty\"}";
-    }
+    $data = $q->fetch();
+    //Ajout des stats 
+    $uid = $bdd->lastInsertId();
+    $q = $bdd->query("INSERT INTO " . $_TABLE_USERS_STATS_ . "
+                     (idUser, dateInscription, challEntered, challWon, challCreated, commentPosted)
+                    VALUES (".$uid.", '".date("Y-m-d H:i:s")."', 0, 0, 0, 0)");
+    echo $q ? json_encode($data) : "{\"error\":\"query return was empty\"}";
 }
   
   //requete GET pour les SELECT

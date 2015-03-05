@@ -95,7 +95,7 @@ if (!empty($_GET['tab'])) {
 
 if (isset($_POST['sync'])) {
     synchronize($_SESSION['currentUser']->getId());
-    header('Location: '.$_LINK_USER_."/".$_SESSION['currentUser']->getUsername());
+    header('Location: '.$_SERVER['REDIRECT_URL']);
 }
 
     function    getChampionPic($id) {

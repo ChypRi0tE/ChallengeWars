@@ -29,7 +29,7 @@ else if ($tabPanel == "Won")
 else if ($tabPanel == "Comments")
     $listComments = $CommentManager->getForUser($idUser);
 else if ($tabPanel == "History")
-    $listMatches = $MatchManager->getFromUser($idUser);
+    $listMatches = $MatchManager->getFromUser($idUser, 'DESC');
 
 if ($thisUser->getIsValidated()) {
     $SummonerManager = new \Summoner\Manager\Summoner($bdd, $_TABLE_SUMMONERS_);

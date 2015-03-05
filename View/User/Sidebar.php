@@ -45,13 +45,15 @@
                 <div class="sidebar-navigation-item-count"><?php echo $thisStats->getCommentPosted(); ?></div>
             </a>
         </li>
+        <?php if ($thisUser->getIsValidated()) { ?>
         <li class="sidebar-navigation-item <?php isActive("History"); ?>">
             <a class="sidebar-navigation-item-link" href="<?php echo $_LINK_USER_ ."/".$thisUser->getUsername()."/".$_LINK_HISTORY_; ?>">
                 <?php addCaret("History"); ?>
                 <div class="sidebar-navigation-item-name">Match History</div>
                 <div class="sidebar-navigation-item-underline"></div>
-                <div class="sidebar-navigation-item-count"></div>
+                <div class="sidebar-navigation-item-count"><?php echo $MatchManager->getNbForUser($idUser); ?></div>
             </a>
         </li>
+        <?php } ?>
     </ul>
 </div>

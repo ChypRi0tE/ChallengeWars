@@ -26,7 +26,7 @@
                         </div>
                     </div>
                     <div class="table-column--width-fill text-center">
-                        <?php echo $listMatches[$i]->getKills() . "/" . $listMatches[$i]->getAssists() . "/" . $listMatches[$i]->getDeaths(); ?>
+                        <?php echo $listMatches[$i]->getKills() . "/" . $listMatches[$i]->getDeaths() . "/" . $listMatches[$i]->getAssists(); ?>
                     </div>
                     <div class="table-column--width-fill text-center">
                         <?php echo $listMatches[$i]->getCreeps(); ?>

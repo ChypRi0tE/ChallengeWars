@@ -44,7 +44,7 @@ if (isset($_POST['verify'])) {
                 $_SESSION['currentSummoner'] = $sum;
             }
         }
-        header('Location: '.$_SITE_INDEX_);
+        header('Location: '.$_LINK_ACCOUNT_."/".$_LINK_SYNC_);
     }
 }
 if (isset($_POST['sync'])) {

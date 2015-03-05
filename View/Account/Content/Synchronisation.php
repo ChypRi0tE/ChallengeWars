@@ -54,7 +54,7 @@
                 </div><br />
                 <div class="form-sync">
                     <input class="form-input-small" type="text" name="inputAccount" value="<?php if (isset($_POST['inputAccount'])) {echo $_POST['inputAccount']; } ?>" />
-                    <div class="form-sync-default" id="submit-form-verify" style="width:15%">
+                    <div class="form-sync-default" id="submit-form-verify" style="width:168px">
                         <i class="fa fa-link"></i> Link Account
                     </div>
                 </div>

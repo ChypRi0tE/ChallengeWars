@@ -62,12 +62,17 @@ class Match implements \Manager {
         $this->_bdd->exec('DELETE FROM '.$this->_table.' WHERE id = '.$id);
     }
 
-    public function getFromUser($id) {
-        $q = $this->_bdd->query('SELECT * FROM ' . $this->_table . ' WHERE userId = ' . $id);
+    public function getFromUser($id, $order) {
+        $q = $this->_bdd->query('SELECT * FROM ' . $this->_table . ' WHERE userId = ' . $id . ' ORDER BY matchCreation '.$order);
         $list = [];
         while ($data = $q->fetch())
             $list[] = new \Summoner\Match($data);
         return $list;
+    }
+
+    public function getNbForUser($id) {
+        $q = $this->_bdd->query('SELECT count(*) FROM ' . $this->_table . ' WHERE userId = ' . $id);
+        return $q->fetch()[0];
     }
 
     public function getFromChampion($id) {
@@ -84,5 +89,12 @@ class Match implements \Manager {
         while ($data = $q->fetch())
             $list[] = new \Summoner\Match($data);
         return $list;
+    }
+    
+    public function checkExistence($uid, $mid) {
+      $q = $this->_bdd->query('SELECT * FROM ' . $this->_table . ' WHERE userId = '.$uid.' AND matchId = '.$mid);
+      if ($data = $q->fetch())
+        return true;
+      return false;
     }
 }

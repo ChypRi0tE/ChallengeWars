@@ -30,7 +30,7 @@ class RiotApi {
     const RATE_LIMIT_SHORT = 10;
 
     // Cache variables
-    const CACHE_LIFETIME_MINUTES = 60;
+    const CACHE_LIFETIME_MINUTES = 30;
     const CACHE_ENABLED = TRUE;
 
     private $REGION;
@@ -220,7 +220,7 @@ class RiotApi {
             // block for the appropriate amount of time
             elseif($queue->count() >= $call_limit){
                 if($timeSinceOldest < $interval){ //order of ops matters
-                    echo("sleeping for".($interval - $timeSinceOldest + 1)." seconds\n");
+                    //echo("sleeping for".($interval - $timeSinceOldest + 1)." seconds\n");
                     sleep($interval - $timeSinceOldest);
                 }
             }
@@ -249,8 +249,7 @@ class RiotApi {
 
         //caching
         if(self::CACHE_ENABLED){
-            $cacheFile = 'cache/' . md5($url);
-
+            $cacheFile = 'Model/cache/' . md5($url);
             if (file_exists($cacheFile)) {
                 $fh = fopen($cacheFile, 'r');
                 $cacheTime = trim(fgets($fh));
