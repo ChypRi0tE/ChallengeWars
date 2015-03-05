@@ -26,5 +26,7 @@
 
     require_once("Model/Summoner/Summoner.php");
     require_once("Model/Summoner/Manager/Summoner.php");
+    require_once("Model/Summoner/Match.php");
+    require_once("Model/Summoner/Manager/Match.php");
 
     require_once("Model/RiotApi.php");

@@ -7,43 +7,36 @@
                 <a href="<?php echo $_SITE_INDEX_; ?>challenge/new">New</a>
             </div>
         </div>
-        <form method="post" action="" id="form-login">
+        <form method="post" action="" id="formNew">
             <div class="form-rows">
-                <?php /*
                 <div class="form-row">
                     <div class="form-heading">
                         <div class="form-heading-number">1.</div>
-                        <div class="form-heading-text">Select a Game</div>
+                        <div class="form-heading-text">Challenge Title</div>
                     </div>
                     <div class="form-row-indent">
-                        <select name="new-game" placeholder="Select a game">
-                            <option value="league">League of legends</option>
-                            <option value="cs">Counter Strike: Global Offensive</option>
-                        </select>
+                        <input class="form-input-medium" name="inputName" type="text" required>
                     </div>
                 </div>
- */ ?>
                 <div class="form-row form-row--new-challenge-type">
                     <div class="form-heading">
-                        <div class="form-heading-number">1.</div>
+                        <div class="form-heading-number">2.</div>
                         <div class="form-heading-text">Type of Challenge</div>
                     </div>
                     <div class="form-row-indent">
-                        <input type="hidden" id="new-type" name="type" value="">
+                        <input type="hidden" id="inputType" name="inputType" value="">
                         <div data-checkbox-value="creep" class="form-checkbox is-disabled">
                             <i class="form-checkbox-default fa fa-circle-o"></i><i class="form-checkbox-hover fa fa-circle"></i><i class="form-checkbox-selected fa fa-check-circle"></i> Creep
+                            <div class="form-input-description form-type is-hidden">Creep challenge description.</div>
                         </div>
                         <div data-checkbox-value="victory" class="form-checkbox is-disabled">
                             <i class="form-checkbox-default fa fa-circle-o"></i><i class="form-checkbox-hover fa fa-circle"></i><i class="form-checkbox-selected fa fa-check-circle"></i> Victory
+                            <div class="form-input-description form-type is-hidden">Victory challenge description.</div>
                         </div>
                         <div data-checkbox-value="kill" class="form-checkbox is-disabled">
                             <i class="form-checkbox-default fa fa-circle-o"></i><i class="form-checkbox-hover fa fa-circle"></i><i class="form-checkbox-selected fa fa-check-circle"></i> Kills
+                            <div class="form-input-description form-type is-hidden">Kill challenge description.</div>
                         </div>
-                    <?php /*   <div data-checkbox-value="custom" class="form-checkbox is-disabled">
-                            <i class="form-checkbox-default fa fa-circle-o"></i><i class="form-checkbox-hover fa fa-circle"></i><i class="form-checkbox-selected fa fa-check-circle"></i> Custom
-                        </div>
-                        <div class="form-input-description">You can also select gift if you wish to add keys after the giveaway ends, rather than now.</div>
-                    */ ?>
                     </div>
                 </div>
                 <div class="form-row">
@@ -54,15 +47,12 @@
                     <div class="form-row-indent">
                         <div class="form-time-container">
 							<input type="hidden" name="champion" value="">
-                            <select class="form-input-small">
-				
-							<option> All Champions </option>
+                            <select class="form-input-small" id="inputChampion" name="inputChampion">
+							    <option value="0"> All Champions </option>
                         <?php for ($i = 0; !empty($listChampions[1][$i]); $i++) {
                                echo "<option value=".$listChampions[0][$i].">".$listChampions[1][$i]."</option>";
                            }
 						   ?>
-							
-							
                             </select>
                         </div>
                     </div>
@@ -74,9 +64,9 @@
                     </div>
                     <div class="form-row-indent">
                         <div class="form-time-container">
-                            This challenge will end on <?php echo date("d M", strtotime("+7 days")); ?>
+                            This challenge will end on &nbsp;<strong><?php echo date("l j F", strtotime("+7 days")); ?></strong>.
                         </div>
-                        <div class="form-input-description">Challenges must start and end within the next 30 days, with a minimum time open of 1 hour.</div>
+                        <div class="form-input-description">Challenges end a week after their creation.</div>
                     </div>
                 </div>
                 <?php /*
@@ -207,7 +197,7 @@
                         <div class="form-heading-text">Level requirement</div>
                     </div>
                     <div class="form-row-indent">
-                        <input type="hidden" name="new-level" value="starter">
+                        <input type="hidden" name="inputLevel" value="starter">
                         <div data-checkbox-value="starter" class="form-checkbox is-disabled">
                             <i class="form-checkbox-default fa fa-circle-o"></i><i class="form-checkbox-hover fa fa-circle"></i><i class="form-checkbox-selected fa fa-check-circle"></i> Starter
                         </div>
@@ -224,7 +214,7 @@
                         <div class="form-heading-optional">(Optional)</div>
                     </div>
                     <div class="form-row-indent">
-                        <textarea name="description"></textarea>
+                        <textarea name="inputDescription"></textarea>
                     </div>
                 </div>
                 <button type="submit" class="form-submit-button pull-right" name="do-new">

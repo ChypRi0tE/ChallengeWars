@@ -42,7 +42,7 @@ class User implements \Manager {
     }
     public function    get($id) {
         $q = $this->_bdd->query('SELECT * FROM '.$this->_table.' WHERE id = '.$id);
-        if ($data = $q->fetch())
+        if ($data = $q->fetch()) {print_r($data);}
           return new \Member\User($data);
         return null;
     }

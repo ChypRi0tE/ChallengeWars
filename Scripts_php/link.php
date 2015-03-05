@@ -6,7 +6,7 @@
  * Time: 01:30
  */
 include_once("../Controller/Website/GlobalVariables.php");
-require_once("RiotApi.php");
+require_once("Riotpi.php");
 
 if (isset($_POST['verify'])) {
     if (empty($_POST['inputAccount'])) {
@@ -14,7 +14,7 @@ if (isset($_POST['verify'])) {
     } else if (empty($_POST['userId'])) {
         echo "{\"error\":\"empty user id, received: ".$_POST['userId']."\"}";
     } else {
-        $api = new RiotApi('euw');
+        $api = new Riotpi('euw');
         try {
             $bdd = new PDO('mysql:host='.$_BDD_SERVER_.';dbname='.$_BDD_NAME_, $_BDD_USER_, $_BDD_PASS_);
         } catch (Exception $e) {

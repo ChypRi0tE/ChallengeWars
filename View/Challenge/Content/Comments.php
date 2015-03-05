@@ -55,7 +55,7 @@
 <div class="comment comment--submit">
     <div class="comment-parent">
         <a href="<?php echo $_LINK_USER_. "/" . $_SESSION['currentUser']->getUsername(); ?>" class="global-image-outer-wrap global-image-outer-wrap--avatar-small">
-            <div class="global-image-inner-wrap" style="background-image:url(/assets/img/<?php echo $_SESSION['currentUser']->getAvatar(); ?>);"></div>
+            <div class="global-image-inner-wrap" style="background-image:url(<?php echo $_SESSION['currentUser']->displayAvatar(); ?>);"></div>
         </a>
         <div class="comment-summary">
             <div class="comment-author">

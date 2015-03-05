@@ -3,7 +3,6 @@
 <?php
     include("Controller/Website/Utils.php");
     include("Controller/New/Utils.php");
-    include "Controller/Website/Display.php";
     include("Controller/".$_PAGENAME_."/Datas.php");
     include("View/Website/Header.php");
 ?>

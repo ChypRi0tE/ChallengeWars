@@ -652,9 +652,16 @@ nav {
 .global-image-outer-wrap--game-xlarge.global-image-outer-wrap--missing-image i {
     font-size: 64px;
 }
+.global-image-outer-wrap--avatar-medium {
+    height: 40px;
+    width: 40px;
+}
 .global-image-outer-wrap--avatar-large {
     height: 184px;
     width: 184px;
+}
+.global-image-outer-wrap--champion {
+    display: inline-block;
 }
 .global-image-inner-wrap {
     background-position: center center;
@@ -1678,6 +1685,10 @@ nav {
 }
 .form-input-small {
     width: 200px !important;
+    display: inline-block;
+}
+.form-input-medium {
+    width: 400px !important;
     display: inline-block;
 }
 .form-row-indent {

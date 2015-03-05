@@ -66,4 +66,9 @@ class Summoner implements \Manager {
             return new \Summoner\Summoner($data);
         return null;
     }
+
+    public function getNbGames($id) {
+        $q = $this->_bdd->query('SELECT count(*) FROM ' . $this->_table . ' WHERE userId = ' . $id);
+        return $q->fetch()[0];
+    }
 }

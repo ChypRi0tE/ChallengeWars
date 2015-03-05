@@ -33,6 +33,7 @@
     $_TABLE_USERS_      = "cw_users";
     $_TABLE_USERS_STATS_ = "cw_users_stats";
     $_TABLE_SUMMONERS_ = "cw_summoners";
+    $_TABLE_SUMMONERS_HISTORY_ = "cw_summoners_history";
     
 
     

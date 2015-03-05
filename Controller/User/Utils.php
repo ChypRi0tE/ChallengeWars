@@ -49,12 +49,12 @@ if (!empty($_GET['tab'])) {
             case "Comments":
                 return $thisStats->getCommentPosted();
             case "History":
-                return $thisSummoner->getNbGames();
+                return 1;
         }
         return 0;
     }
     function    getPageHeading($tab) {
-        global $thisStats, $thisUser, $_LINK_USER_;
+        global $thisUser, $_LINK_USER_;
         $head = "";
         switch ($tab) {
             case "Created":
@@ -94,7 +94,14 @@ if (!empty($_GET['tab'])) {
     }
 
 if (isset($_POST['sync'])) {
-    echo "test";
     synchronize($_SESSION['currentUser']->getId());
     header('Location: '.$_LINK_USER_."/".$_SESSION['currentUser']->getUsername());
 }
+
+    function    getChampionPic($id) {
+        global $bdd;
+        $q = $bdd->query("SELECT * FROM cw_lol_champions WHERE id = ". $id);
+        if ($data = $q->fetch())
+            return "http://ddragon.leagueoflegends.com/cdn/5.1.2/img/champion/".$data['cleanName'].".png";
+        return null;
+    }

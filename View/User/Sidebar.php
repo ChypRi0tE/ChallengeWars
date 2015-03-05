@@ -1,7 +1,7 @@
 <div class="sidebar">
     <?php if (isLogged() && $_SESSION['currentUser']->getId() == $thisUser->getId() && $thisUser->getIsValidated()) { ?>
         <form id="formSync" action="" method="post">
-            <input type="hidden" value="sync" />
+            <input type="hidden" name="sync" />
             <div class="sidebar-entry-insert" id="submit-form-sync">
                 <i class="fa fa-fw fa-refresh"></i> Synchronize
             </div>

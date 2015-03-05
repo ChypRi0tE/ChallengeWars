@@ -17,7 +17,7 @@
             <?php include("View/".$_PAGENAME_."/Sidebar.php"); ?>
             <div>
                 <?php if (file_exists("View/".$_PAGENAME_."/Pinned.php")){include("View/".$_PAGENAME_."/Pinned.php");} ?>
-                <?php include("View/".$_PAGENAME_."/Content.php"); ?>
+                <?php include("View/".$_PAGENAME_."/Content/".$tabPanel.".php"); ?>
             </div>
         </div>
     </div>

@@ -19,39 +19,21 @@ class Challenge implements \Manager {
 
     public function     add($challenge) {
         if (!($challenge instanceof \Challenge\Challenge)) {new \Error\TypeError("Manager/Challenge", "Challenge", $challenge->type);}
-
-        $q = $this->_bdd->prepare("INSERT INTO " . $this->_table . "
-                    ('title', 'dateCreation', 'dateEnd', 'idCreator', 'idPrize', 'description', 'isAdvanced', 'status', 'cost', 'type', 'image', 'champion', 'won_by')
-                    VALUES (:title,
-                    :dateCreation,
-                    :dateEnd,
-                    :idCreator,
-                    :idPrize,
-                    :description,
-                    :isAdvanced,
-                    :status,
-                    :cost,
-                    :type,
-                    :image,
-					:champion,
-					:won_by)
+        $q = $this->_bdd->query("INSERT INTO " . $this->_table . "
+                    (title, dateCreation, dateEnd, idCreator, idPrize, description, isAdvanced, status, cost, type, champion, winner)
+                    VALUES ('".$challenge->getTitle()."',
+                    '".$challenge->getDateCreation()."',
+                    '".$challenge->getDateEnd()."',
+                    ".$challenge->getIdCreator().",
+                    ".$challenge->getIdPrize().",
+                    '".$challenge->getDescription()."',
+                    ".$challenge->getIsAdvanced().",
+                    ".$challenge->getStatus().",
+                    ".$challenge->getCost().",
+                    ".$challenge->getType().",
+                    ".$challenge->getChampion().",
+					".$challenge->getWinner().")
                   ");
-
-        $q->bindValue(':title', $challenge->getTitle());
-        $q->bindValue(':dateCreation', $challenge->getDateCreation());
-        $q->bindValue(':dateEnd', $challenge->getDateEnd());
-        $q->bindValue(':idCreator', $challenge->getIdCreator(), PDO::PARAM_INT);
-        $q->bindValue(':idPrize', $challenge->getIdPrize(), PDO::PARAM_INT);
-        $q->bindValue(':description', $challenge->getDescription());
-        $q->bindValue(':isAdvanced', $challenge->getIsAdvanced(), PDO::PARAM_BOOL);
-        $q->bindValue(':status', $challenge->getStatus(), PDO::PARAM_INT);
-        $q->bindValue(':cost', $challenge->getCost(), PDO::PARAM_INT);
-        $q->bindValue(':type', $challenge->getType(), PDO::PARAM_INT);
-        $q->bindValue(':image', $challenge->getImage());
-		$q->bindValue(':champion', $challenge->getChampion());
-		$q->bindValue(':won_by', $challenge->getWonBy());
-		
-        $q->execute();
     }
     public function     update($challenge) {
         if (!($challenge instanceof \Challenge\Challenge)) {throw new TypeError("Manager/Challenge", "Challenge", $challenge->type);}
