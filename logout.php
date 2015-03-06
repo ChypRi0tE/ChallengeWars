@@ -6,7 +6,7 @@
  * Time: 21:44
  */
  
-    include_once("Controller/Website/GlobalVariables.php");
+    include_once("Controller/GlobalVariables.php");
     session_start();
     session_destroy();
     header('Location: '.$_SITE_INDEX_);

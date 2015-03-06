@@ -32,20 +32,20 @@
         return $bdd;
     }
 
+//Charge la barre de navigation
+    function    getNavbar() {
+        include("Controller/GlobalVariables.php");
+        include(isLogged()?'View/Website/LoggedNav.php':'View/Website/GuestNav.php');
+    }
+//
     function    getChallengeType($type, $bool) {
         switch ($type) {
             case 1:
-                $str = $bool ? '<i class="fa fa-crosshairs"></i> ':'';
-                return  $str .= 'Creep';
+                return  ($bool ? '<i class="fa fa-crosshairs"></i> ':'') . 'Creep';
             case 2:
-                $str = $bool ? '<i class="fa fa-flag-checkered"></i> ':'';
-                return  $str .= 'Victory';
+                return  ($bool ? '<i class="fa fa-flag-checkered"></i> ':'') . 'Victory';
             case 3:
-                $str = $bool ? '<i class="fa fa-clock-o"></i> ':'';
-                return  $str .= 'Time';
-            case 4:
-                $str = $bool ? '<i class="fa fa-cog"></i> ':'';
-                return  $str .= 'Custom';
+                return  ($bool ? '<i class="fa fa-clock-o"></i> ':'') . 'Time';
         }
         return null;
     }
