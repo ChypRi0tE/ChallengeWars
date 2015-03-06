@@ -21,14 +21,15 @@ class User implements \Manager {
     public function    add($user) {
         if (!($user instanceof \Member\User)) {new \Error\TypeError("Manager/User", "User", $user->type);}
         $q = $this->_bdd->prepare("INSERT INTO " . $this->_table . "
-                     (username, mail, password, avatar, isAdvanced, isValidated, rank)
+                     (username, mail, password, avatar, isAdvanced, isValidated, rank, points)
                     VALUES (:username,
                     :mail,
                     :password,
                     :avatar,
                     :isAdvanced,
                     :isValidated,
-                    :rank)
+                    :rank,
+                    :points)
                   ");
 
         $q->bindValue(':username', $user->getUsername());
@@ -38,12 +39,13 @@ class User implements \Manager {
         $q->bindValue(':isAdvanced', $user->getIsAdvanced());
         $q->bindValue(':isValidated', $user->getIsValidated());
         $q->bindValue(':rank', $user->getRank());
+        $q->bindValue(':points', $user->getPoints());
         $q->execute();
     }
     public function    get($id) {
         $q = $this->_bdd->query('SELECT * FROM '.$this->_table.' WHERE id = '.$id);
         if ($data = $q->fetch())
-          return new \Member\User($data);
+            return new \Member\User($data);
         return null;
     }
     public function    update($user) {
@@ -56,6 +58,7 @@ class User implements \Manager {
                     isAdvanced = ".$user->getIsAdvanced().",
                     isValidated = ".$user->getIsValidated().",
                     rank = ".$user->getRank()."
+                    points = ".$user->getPoints()."
                     WHERE
                     id = ".$user->getId()."
                   ");
@@ -72,9 +75,8 @@ class User implements \Manager {
     public function     getAll() {
         $q = $this->_bdd->query('SELECT * FROM '.$this->_table.' ORDER BY username ASC');
         $list = [];
-        while ($data = $q->fetch()){
+        while ($data = $q->fetch())
             $list[] = new \Member\User($data);
-        }
         return $list;
     }
     public function     getNbUsers() {

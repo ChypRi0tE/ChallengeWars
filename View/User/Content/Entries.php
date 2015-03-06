@@ -65,7 +65,7 @@ $user = $UserManager->get($listChallenge[$i]->getIdCreator()); ?>
         </div>
         <a class="global-image-outer-wrap global-image-outer-wrap--game-medium"
            href="<?php echo $_LINK_CHALLENGE_ . "/challenge-".$listChallenge[$i]->getId(); ?>">
-            <div class="global-image-inner-wrap" style="background-image:url(/assets/img/filler500.jpg);"></div>
+            <div class="global-image-inner-wrap" style="background-image:url(<?php echo getChampionSplash($listChallenge[$i]->getChampion()); ?>);"></div>
         </a>
     </div>
 </div>

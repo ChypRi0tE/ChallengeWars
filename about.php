@@ -2,8 +2,8 @@
 <html>
 <?php
 include("Controller/Website/Utils.php");
-include("Controller/About/Utils.php");
-include("Controller/".$_PAGENAME_."/Datas.php");
+include("Controller/About.php");
+//include("Controller/".$_PAGENAME_."/Datas.php");
 include('View/Website/Header.php');
 ?>
 <body>

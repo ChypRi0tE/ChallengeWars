@@ -1,16 +1,10 @@
 //TODO
 Site:
-    Challenge() -> requirement, type, image
+    Challenge() -> requirement
   
     UPDATE STATS Comments entered
 
 Page d'accueil:
   filter jquery
 
-Page User:
-    Challenge won
-
-Page Challenge:
-    Affichage points challenge advanced
-
-CHALLENGE: Winner, prize
+CHALLENGE: Winner

@@ -60,7 +60,9 @@ class Stats implements \Manager {
 
     public function     getUserStats($id) {
         $q = $this->_bdd->query('SELECT * FROM '.$this->_table.' WHERE idUser = '.$id);
-        $data = $q->fetch();
-        return new \Member\Stats($data);
+
+        if ($data = $q->fetch())
+            return new \Member\Stats($data);
+        return null;
     }
 } 

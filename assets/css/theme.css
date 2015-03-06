@@ -20,7 +20,7 @@ a {
     color: inherit;
     text-decoration: none;
 }
-a:hover{
+a:hover, a:focus{
     text-decoration: none;
 }
 input, select, textarea {
@@ -987,6 +987,7 @@ nav {
     background-image: -moz-linear-gradient(#f7edf1 0%,  #e6d9de 100%);
     background-image: -webkit-linear-gradient(#f7edf1 0%,  #e6d9de 100%);
     text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.7);
+    cursor: pointer;
 }
 .sidebar-entry-delete {
     border-color: #e0e0a8 #dbdba0 #d6d68b #dedea4;
@@ -995,6 +996,7 @@ nav {
     background-image: -moz-linear-gradient(#f6f6ec 0%,  #e9e9ca 100%);
     background-image: -webkit-linear-gradient(#f6f6ec 0%,  #e9e9ca 100%);
     text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.7);
+    cursor: pointer;
 }
 .sidebar {
     min-width: 206px;
@@ -1451,7 +1453,7 @@ nav {
     -ms-flex: 1;
     flex: 1;
 }
-.table--summary, .table-heading {
+.table--summary, .table-heading, .table-row-outer-wrap:hover {
     border: 1px solid #d2d6e0;
     background-color: #e8eaef;
     border-radius: 4px;
@@ -1479,6 +1481,9 @@ nav {
 .table-heading .table-column {
     padding: 0 10px;
 }
+ .table-row-outer-wrap:hover {
+    cursor: pointer;
+ }
 .table-row-inner-wrap>*:not(:last-child), .table-column--last-comment>*:not(:last-child), .table-heading>div[class^=table-column]:not(:last-child) {
     padding-right: 5px;
 }

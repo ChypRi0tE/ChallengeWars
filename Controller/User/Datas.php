@@ -12,6 +12,7 @@ $CommentManager = new \Challenge\Manager\Comment($bdd, $_TABLE_COMMENTS_);
 $EntryManager = new \Challenge\Manager\Entry($bdd, $_TABLE_ENTRIES_);
 $StatsManager = new \Member\Manager\Stats($bdd, $_TABLE_USERS_STATS_);
 $MatchManager = new \Summoner\Manager\Match($bdd, $_TABLE_SUMMONERS_HISTORY_);
+$FriendManager = new \Member\Manager\Friend($bdd, $_TABLE_USERS_FRIENDS_);
 $api = new RiotApi('euw');
 
 $thisUser = $UserManager->getFromName($name);
@@ -34,4 +35,14 @@ else if ($tabPanel == "History")
 if ($thisUser->getIsValidated()) {
     $SummonerManager = new \Summoner\Manager\Summoner($bdd, $_TABLE_SUMMONERS_);
     $thisSummoner = $SummonerManager->getFromId($idUser);
+}
+
+if (isset($_POST['add-friend'])) {
+    addFriend($_SESSION['currentUser']->getId(), $thisUser->getId());
+    header('Location: '.$_SERVER['REDIRECT_URL']);
+}
+
+if (isset($_POST['remove-friend'])) {
+    removeFriend($_SESSION['currentUser']->getId(), $thisUser->getId());
+    header('Location: '.$_SERVER['REDIRECT_URL']);
 }

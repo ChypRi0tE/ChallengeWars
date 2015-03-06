@@ -1,15 +1,30 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: ChypRiotE
- * Date: 08/02/2015
- * Time: 19:02 - 81dc9bdb52d04dc20036dbd8313ed055
- */
-    include_once("Controller/Login/Variables.php");
 
     if (isLogged()) {header('Location: '. $_SITE_INDEX_); }
+/* ---------------------------
+ * VARIABLES------------------
+ * ---------------------------
+ */
+    $_PAGENAME_ = "Login";
+    $_PAGETITLE_ = "Login";
+    $_PAGEHEAD_ = "ChypRiotE";
+
+
+/* ---------------------------
+ * DATAS----------------------
+ * ---------------------------
+ */
+ 
+ 
+/* ---------------------------
+ * FUNCTIONS------------------
+ * ---------------------------
+ */
+//Vérification des infos entrées par l'utilisateur
+//TODO refactorisation en utilisant un manager
     function    checkRegistration($post, $_bdd) {
-      global $_TABLE_USERS_;
+        global $_TABLE_USERS_;
+        
         if ($_POST['register-password'] != $_POST['register-password-check']) {
             return new \Error\Error("Password does not match.", "register", 2);
         }
@@ -32,6 +47,8 @@
         return null;
     }
 
+//Connection 
+//TODO refactorisation en utilisant un manager   
     if (isset($_POST['do-login'])) {
         if (empty($_POST['login-username']) || empty ($_POST['login-password'])) {
             $_isLoginError = true;
@@ -56,6 +73,8 @@
         }
     }
 
+//Enregistrement 
+//TODO refactorisation en utilisant un manager   
     if (isset($_POST['do-register'])) {
         if (empty($_POST['register-username']) || empty ($_POST['register-password']) || empty ($_POST['register-mail']) || empty ($_POST['register-password-check'])) {
             $_isRegisterError = true;

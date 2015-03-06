@@ -11,13 +11,13 @@
         <input type="hidden" name="challengeLeave" />
         <div class="sidebar-entry sidebar-entry-delete" id="sidebar-leave"><i class="fa fa-minus-circle"></i> Remove Entry</div>
       </form>
-    <?php } else if ($thisChallenge->getIsAdvanced() && !$_SESSION['currentUser']->getIsAdvanced()) { ?>
-      <div class="sidebar-entry sidebar-error" id="sidebar-advanced" data-toggle="popover" data-placement="bottom"><i class="fa fa-warning"></i> Advanced challenge</div>
-      <div class="popper-content hide"><span style="color:black">You must be an advanced member to join this challenge.</span></div>
+    <?php } else if ($thisChallenge->getIsAdvanced() && ($_SESSION['currentUser']->getPoints() < $thisChallenge->getCost())) { ?>
+      <div class="sidebar-entry sidebar-error" id="sidebar-advanced" data-toggle="popover" data-placement="bottom"><i class="fa fa-warning"></i> Enter Challenge <?php if ($thisChallenge->getIsAdvanced()) { echo "(".$thisChallenge->getCost()." CP)";} ?></div>
+      <div class="popper-content hide"><span style="color:black">You do not have enough Challenge Points to join this challenge. <a href="<?php echo $_LINK_ABOUT_ . "/" . $_LINK_FAQ_; ?>"><i class="fa fa-question-circle"></i></a></span></div>
     <?php } else { ?>
       <form action="" method="post" id="formJoin">
         <input type="hidden" name="challengeJoin" />
-        <div class="sidebar-entry sidebar-entry-insert" id="sidebar-join"><i class="fa fa-plus-circle"></i> Enter Challenge</div>
+        <div class="sidebar-entry sidebar-entry-insert" id="sidebar-join"><i class="fa fa-plus-circle"></i> Enter Challenge <?php if ($thisChallenge->getIsAdvanced()) { echo "(".$thisChallenge->getCost()." CP)";} ?></div>
       </form>
     <?php } 
   } ?>
@@ -44,7 +44,7 @@
                 <?php addCaret("Rankings"); ?>
                 <div class="sidebar-navigation-item-name">Rankings</div>
                 <div class="sidebar-navigation-item-underline"></div>
-                <div class="sidebar-navigation-item-count">1</div>
+                <div class="sidebar-navigation-item-count"></div>
             </a>
         </li>
     </ul>

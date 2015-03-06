@@ -20,10 +20,11 @@ class Summoner implements \Manager {
     public function    add($sum) {
         if (!($sum instanceof \Summoner\Summoner)) {new \Error\TypeError("Manager/Summoner", "Summoner", $sum->type);}
         $q = $this->_bdd->query("INSERT INTO " . $this->_table . "
-                     (userId, summonerId, summonerName, dateValidation, lastSync)
+                     (userId, summonerId, summonerName, nbGames, dateValidation, lastSync)
                     VALUES (".$sum->getUserId().",
                     ".$sum->getSummonerId().",
                     '".$sum->getSummonerName()."',
+                    '".$sum->getNbGames()."',
                     '".$sum->getDateValidation()."',
                     '".$sum->getLastSync()."')
                   ");
@@ -42,6 +43,7 @@ class Summoner implements \Manager {
                     SET userId = :userId,
                     summonerId = :summonerId,
                     summonerName = :summonerName,
+                    nbGames = :nbGames,
                     dateValidation = :dateValidation,
                     lastSync = :lastSync
                     WHERE id = :id
@@ -50,6 +52,7 @@ class Summoner implements \Manager {
         $q->bindValue(':userId', $sum->getUserId());
         $q->bindValue(':summonerId', $sum->getSummonerId());
         $q->bindValue(':summonerName', $sum->getSummonerName());
+        $q->bindValue(':nbGames', $sum->getNbGames());
         $q->bindValue(':dateValidation', $sum->getDateValidation());
         $q->bindValue(':lastSync', $sum->getLastSync());
         $q->bindValue(':id', $sum->getId());

@@ -2,13 +2,13 @@
     <div class="featured-outer-wrap featured-outer-wrap--challenge" style="background-color:rgb(46,38,38)">
         <div class="featured-inner-wrap">
             <div class="global-image-outer-wrap global-image-outer-wrap--game-large">
-                <img src="/assets/img/filler460.jpg" />
+                <img src="<?php echo getChampionSplash($thisChallenge->getChampion()); ?>" />
             </div>
             <div class="featured-summary">
                 <div class="featured-heading">
                     <div class="featured-heading-medium"><?php echo $thisChallenge->getTitle(); ?></div>
                     <?php if ($thisChallenge->getIsAdvanced()) {?>
-                    <div class="featured-heading-small">(20 CP)</div>
+                    <div class="featured-heading-small">(<?php echo $thisChallenge->getCost(); ?> CP)</div>
                     <?php } ?>
                 </div>
                 <div class="featured-columns">

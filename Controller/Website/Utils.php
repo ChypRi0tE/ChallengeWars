@@ -84,7 +84,7 @@
         return null;
     }
 
-  function history($idSummoner, $idUser) {
+    function    history($idSummoner, $idUser) {
     $api = new RiotApi('euw');
     $array = [];
     $history = $api->getMatchHistory($idSummoner);
@@ -151,4 +151,36 @@
         if ($data = $q->fetch())
             return "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/".$data['cleanName']."_0.jpg";
         return null;
+    }
+
+    function    getChampionPic($id) {
+        global $bdd;
+        $q = $bdd->query("SELECT * FROM cw_lol_champions WHERE id = ". $id);
+        if ($data = $q->fetch())
+            return "http://ddragon.leagueoflegends.com/cdn/5.1.2/img/champion/".$data['cleanName'].".png";
+        return null;
+    }
+    
+    function    getChampionClean($id) {
+        global $bdd;
+        $q = $bdd->query("SELECT * FROM cw_lol_champions WHERE id = ". $id);
+        if ($data = $q->fetch())
+            return $data['cleanName'];
+        return null;
+    }
+    function    isActive($link) {
+        global $tabPanel;
+        if ($tabPanel == $link)
+            echo 'is-selected';
+    }
+    function    addCaret($link) {
+        global $tabPanel;
+        if ($tabPanel == $link)
+            echo '<i class="fa fa-caret-right"></i>';
+    }
+    function    debug($string) {
+      global $_DEBUG_;
+      
+      if ($_DEBUG_)
+        echo "<strong style=\"color:black\">[DEBUG]</strong> ".$string."<br />";
     }

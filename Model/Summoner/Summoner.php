@@ -14,6 +14,7 @@ class Summoner {
     protected   $_userId;
     protected   $_summonerId;
     protected   $_summonerName;
+    protected   $_nbGames;
     protected   $_dateValidation;
     protected   $_lastSync;
 
@@ -68,5 +69,11 @@ class Summoner {
     }
     public function setLastSync($lastSync) {
         $this->_lastSync = $lastSync;
+    }
+    public function getNbGames() {
+        return $this->_nbGames;
+    }
+    public function setNbGames($nbGames) {
+        $this->_nbGames = $nbGames;
     }
 } 

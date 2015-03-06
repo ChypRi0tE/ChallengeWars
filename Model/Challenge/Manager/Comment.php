@@ -69,9 +69,22 @@ class Comment implements \Manager {
         }
         return $list;
     }
+    public  function    getAll() {
+        $q = $this->_bdd->query('SELECT * FROM '.$this->_table);
+        $list = [];
+        while ($data = $q->fetch()) {
+            $list[] = new \Challenge\Comment($data);
+        }
+        return $list;
+    }
 
     public function     getNbForChallenge($id) {
         $q = $this->_bdd->query('SELECT count(*) FROM '.$this->_table.' WHERE idChallenge = '.$id);
+        return $q->fetch()[0];
+    }
+
+    public function     getNbForUser($id) {
+        $q = $this->_bdd->query('SELECT count(*) FROM '.$this->_table.' WHERE idUser = '.$id);
         return $q->fetch()[0];
     }
 }

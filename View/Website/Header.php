@@ -5,4 +5,5 @@
     <link rel="stylesheet" type="text/css" href="<?php echo $_SITE_INDEX_; ?>assets/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo $_SITE_INDEX_; ?>assets/css/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo $_SITE_INDEX_; ?>assets/css/theme.css" />
+	<meta name="google-site-verification" content="-cauCE_qsezWoUaJiLIQRjsq7mUbPMbMckkiUxGHNxg" />
 </head>

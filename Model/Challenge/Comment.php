@@ -28,6 +28,10 @@ class Comment {
         }
     }
 
+    /* ---------------------------
+     * GETTERS-SETTERS------------
+     * ---------------------------
+     */
     public function getContent() {
         return $this->content;
     }

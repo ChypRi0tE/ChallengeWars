@@ -14,10 +14,10 @@ $(".nav-button--is-dropdown-arrow").click(function(e){
     e.stopPropagation();
 });
 $(".challenge-hide").click(function(){
-    $(this).closest(".challenge-row-outer-wrap").addClass("is-hidden");
+    $(this).closest(".challenge-row-outer-wrap").fadeOut();
 });
 $(".challenge-show").click(function() {
-   $(".challenge-row-outer-wrap").removeClass("is-hidden");
+   $(".challenge-row-outer-wrap").fadeIn();
 });
 $(document).ready(function() {
    if ($('footer').position().top < $(window).height()) {
@@ -30,4 +30,7 @@ $( window ).resize(function() {
         $('.page-outer-wrap').css('min-height', ($(window).height() - $('header').height() - $('.featured-container').height() -55) + 'px');
         $('.sidebar').css('min-height', ($(window).height() - $('header').height() - $('.featured-container').height() -55-50) + 'px');
     }
+});
+$(".table-row-outer-wrap").click(function(){
+    window.location.href = $(this).find('a').attr("href");
 });

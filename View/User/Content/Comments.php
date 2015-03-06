@@ -18,7 +18,7 @@
                 <div class="table-row-inner-wrap">
                     <div>
                         <a class="global-image-outer-wrap global-image-outer-wrap--game-small" href="<?php echo $_LINK_CHALLENGE_ . "/challenge-".$listComments[$i]->getIdChallenge(); ?>">
-                            <div class="global-image-inner-wrap" style="background-image:url(/assets/img/filler500.jpg);"></div>
+                            <div class="global-image-inner-wrap" style="background-image:url(<?php echo getChampionSplash($challenge->getChampion()); ?>);"></div>
                         </a>
                     </div>
                     <div class="table-column--width-fill">

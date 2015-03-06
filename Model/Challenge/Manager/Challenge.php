@@ -73,8 +73,9 @@ class Challenge implements \Manager {
     }
     public function     get($id) {
         $q = $this->_bdd->query('SELECT * FROM '.$this->_table.' WHERE id = '.$id);
-        $data = $q->fetch();
-        return new \Challenge\Challenge($data);
+        if ($data = $q->fetch())
+            return new \Challenge\Challenge($data);
+        return null;
     }
     public function     remove($id) {
         $this->_bdd->exec('DELETE FROM '.$this->_table.' WHERE id = '.$id);
@@ -85,6 +86,7 @@ class Challenge implements \Manager {
         $data = $q->fetch();
         return new \Challenge\Challenge($data);
     }
+
     public function     getOngoing() {
         $q = $this->_bdd->query('SELECT * FROM '.$this->_table.' WHERE status = 1 ORDER BY dateEnd ASC');
         $list = [];
@@ -93,8 +95,14 @@ class Challenge implements \Manager {
         }
         return $list;
     }
-
-
+    public function     getEnded() {
+        $q = $this->_bdd->query('SELECT * FROM '.$this->_table.' WHERE status = 2 ORDER BY dateEnd DESC');
+        $list = [];
+        while ($data = $q->fetch()) {
+            $list[] = new \Challenge\Challenge($data);
+        }
+        return $list;
+    }
     public function     getAdvanced() {
         $q = $this->_bdd->query('SELECT * FROM '.$this->_table.' WHERE status = 1 AND isAdvanced = 1 ORDER BY dateEnd ASC');
         $list = [];
@@ -103,8 +111,8 @@ class Challenge implements \Manager {
         }
         return $list;
     }
-    public function     getEnded() {
-        $q = $this->_bdd->query('SELECT * FROM '.$this->_table.' WHERE status = 2 ORDER BY dateEnd DESC');
+    public function     getStarter() {
+        $q = $this->_bdd->query('SELECT * FROM '.$this->_table.' WHERE status = 1 AND isAdvanced = 0 ORDER BY dateEnd ASC');
         $list = [];
         while ($data = $q->fetch()) {
             $list[] = new \Challenge\Challenge($data);
@@ -120,8 +128,12 @@ class Challenge implements \Manager {
         return $list;
     }
     public function     getWon($id) {
-        //TODO
-        return 0;
+        $q = $this->_bdd->query('SELECT * FROM '.$this->_table.' WHERE winner = '.$id.' ORDER BY dateEnd ASC');
+        $list = [];
+        while ($data = $q->fetch()) {
+            $list[] = new \Challenge\Challenge($data);
+        }
+        return $list;
     }
     public function     getEntered($id) {
         global $EntryManager;
@@ -137,12 +149,16 @@ class Challenge implements \Manager {
         $q = $this->_bdd->query('SELECT count(*) FROM '.$this->_table.' WHERE status = 1');
         return $q->fetch()[0];
     }
-    public function     getNbStarter() {
-        $q = $this->_bdd->query('SELECT count(*) FROM '.$this->_table.' WHERE isAdvanced = false AND status = 1');
+    public function     getNbEnded() {
+        $q = $this->_bdd->query('SELECT count(*) FROM '.$this->_table.' WHERE status = 2');
         return $q->fetch()[0];
     }
     public function     getNbAdvanced() {
         $q = $this->_bdd->query('SELECT count(*) FROM '.$this->_table.' WHERE isAdvanced = true AND status = 1');
+        return $q->fetch()[0];
+    }
+    public function     getNbStarter() {
+        $q = $this->_bdd->query('SELECT count(*) FROM '.$this->_table.' WHERE isAdvanced = false AND status = 1');
         return $q->fetch()[0];
     }
     public function     getNbCreated($id) {
@@ -150,15 +166,14 @@ class Challenge implements \Manager {
         return $q->fetch()[0];
     }
     public function     getNbWon($id) {
-        $q = $this->_bdd->query('SELECT count(*) FROM '.$this->_table.' WHERE isAdvanced = true AND status = 1');
+        $q = $this->_bdd->query('SELECT count(*) FROM '.$this->_table.' WHERE winner = '.$id);
+        return $q->fetch()[0];
+    }
+    public function     getNbOngoingForType($type) {
+        $q = $this->_bdd->query('SELECT count(*) FROM '.$this->_table.' WHERE status = 1 AND type = '.$type);
         return $q->fetch()[0];
     }
     public function     getNbFriends($id) {
-        return 8;
-    }
-    
-    public function   getNbOngoingForType($type) {
-      $q = $this->_bdd->query('SELECT count(*) FROM '.$this->_table.' WHERE status = 1 AND type = '.$type);
-      return $q->fetch()[0];
+        return 0;
     }
 }

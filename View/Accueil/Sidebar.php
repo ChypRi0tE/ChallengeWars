@@ -23,7 +23,7 @@
                 <div class="sidebar-navigation-item-underline"></div><div class="sidebar-navigation-item-count"><?php echo $ChallengeManager->getNbAdvanced(); ?></div>
             </a>
         </li>
-        <?php if (isLogged() && $_ALLOW_FRIENDS_) { ?>
+        <?php if (isLogged() && $_ALLOW_FRIENDS_ && false) { ?>
         <li class="sidebar-navigation-item">
             <a class="sidebar-navigation-item-link" href="">
                 <div class="sidebar-navigation-item-name">Friends</div>

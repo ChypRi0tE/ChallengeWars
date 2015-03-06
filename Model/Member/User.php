@@ -18,6 +18,7 @@ class User {
     protected   $_rank;
     protected   $_isAdvanced;
     protected   $_isValidated;
+    protected   $_points;
 
     public function __construct(array $data) {
         $this->create($data);
@@ -85,5 +86,11 @@ class User {
     }
     public function setIsValidated($isValidated) {
         $this->_isValidated = $isValidated;
+    }
+    public function getPoints() {
+        return $this->_points;
+    }
+    public function setPoints($points) {
+        $this->_points = $points;
     }
 }

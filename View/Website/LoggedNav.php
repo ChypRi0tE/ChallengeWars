@@ -98,7 +98,7 @@
                 </div>
             </div>
             <div class="nav-button-container <?php isSelected("user"); ?>">
-                <a class="nav-button nav-button--is-dropdown" href="<?php echo $_LINK_USER_ ."/".$_SESSION['currentUser']->getUsername()?>"><?php echo $_SESSION['currentUser']->getUsername(); ?> (<?php if ($_SESSION['currentUser']->getIsAdvanced()){echo "Advanced";}else{echo "Starter";} ?>)</a>
+                <a class="nav-button nav-button--is-dropdown" href="<?php echo $_LINK_USER_ ."/".$_SESSION['currentUser']->getUsername()?>"><?php echo $_SESSION['currentUser']->getUsername(); ?> (<?php echo $_SESSION['currentUser']->getPoints(); ?> CP)</a>
                 <div class="nav-button nav-button--is-dropdown-arrow"><i class="fa fa-angle-down"></i></div>
                 <div class="nav-relative-dropdown is-hidden">
                     <div class="nav-absolute-dropdown">

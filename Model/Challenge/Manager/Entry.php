@@ -71,6 +71,14 @@ class Entry implements \Manager {
         }
         return $list;
     }
+    public  function    getAll() {
+        $q = $this->_bdd->query('SELECT * FROM '.$this->_table);
+        $list = [];
+        while ($data = $q->fetch()) {
+            $list[] = new \Challenge\Entry($data);
+        }
+        return $list;
+    }
 
     public function     getNbForChallenge($id) {
         $q = $this->_bdd->query('SELECT count(*) FROM '.$this->_table.' WHERE idChallenge = '.$id);

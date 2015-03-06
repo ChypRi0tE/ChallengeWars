@@ -22,11 +22,12 @@
                 </h2>
 
                 <div class="challenge-columns">
-                    <?php if ($listChallenge[$i]->getStatus() == 2) { ?>
+                    <?php if ($listChallenge[$i]->getStatus() == 2) {
+                      $winner = $UserManager->get($listChallenge[$i]->getWinner()); ?>
                         <div class="challenge-column--positive" title="Ended">
                             <i class="fa fa-check-circle"></i>
-                            <a href="<?php echo $_LINK_USER_ . '/' . $thisUser->getUsername(); ?>">
-                                <?php echo $user->getUsername(); ?>
+                            <a href="<?php echo $_LINK_USER_ . '/' . $winner->getUsername(); ?>">
+                                <?php echo $winner->getUsername(); ?>
                             </a>
                         </div>
                     <?php } else { ?>
@@ -65,7 +66,7 @@
             </div>
             <a class="global-image-outer-wrap global-image-outer-wrap--game-medium"
                href="<?php echo $_LINK_CHALLENGE_ . "/challenge-".$listChallenge[$i]->getId(); ?>">
-                <div class="global-image-inner-wrap" style="background-image:url(/assets/img/filler500.jpg);"></div>
+                <div class="global-image-inner-wrap" style="background-image:url(<?php echo getChampionSplash($listChallenge[$i]->getChampion()); ?>);"></div>
             </a>
         </div>
     </div>

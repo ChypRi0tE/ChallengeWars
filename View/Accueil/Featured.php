@@ -1,7 +1,7 @@
 <div class="featured-container">
     <div class="featured-outer-wrap featured-outer-wrap--home" style="background-color: rgb(46,35,9);">
         <div class="featured-inner-wrap">
-            <a href="<?php echo $_LINK_CHALLENGE_ . "/challenge-" . $nextChallenge->getId(); ?>" class="global-image-outer-wrap global-image-outer-wrap--game-xlarge"><img src="<?php echo $_SITE_INDEX_; ?>assets/img/filler460.jpg" /></a>
+            <a href="<?php echo $_LINK_CHALLENGE_ . "/challenge-" . $nextChallenge->getId(); ?>" class="global-image-outer-wrap global-image-outer-wrap--game-xlarge"><img src="<?php echo getChampionSplash($nextChallenge->getChampion()); ?>" /></a>
             <div class="featured-summary">
                 <?php   if(isLogged()) { ?>
                 <div class="featured-heading">

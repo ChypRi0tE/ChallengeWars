@@ -7,3 +7,11 @@ $("#submit-form-sync").click(function(e){
     $("#formSync").submit();
     e.preventDefault();
 });
+$("#submit-form-add").click(function(e){
+    $("#formAdd").submit();
+    e.preventDefault();
+});
+$("#submit-form-remove").click(function(e){
+    $("#formRemove").submit();
+    e.preventDefault();
+});

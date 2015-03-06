@@ -80,6 +80,11 @@ if (!empty($_GET['tab'])) {
         }
         return '<a href="'.$_LINK_USER_.'/'.$thisUser->getUsername().'/'.$tas.'">'.$head.'</a>';
     }
+    
+    function  isFriend($user, $current) {
+      global $FriendManager;
+      return $FriendManager->getFriendship($user, $current);
+    }
 
 //Sidebar
     function    isActive($link) {
@@ -98,10 +103,20 @@ if (isset($_POST['sync'])) {
     header('Location: '.$_SERVER['REDIRECT_URL']);
 }
 
-    function    getChampionPic($id) {
-        global $bdd;
-        $q = $bdd->query("SELECT * FROM cw_lol_champions WHERE id = ". $id);
-        if ($data = $q->fetch())
-            return "http://ddragon.leagueoflegends.com/cdn/5.1.2/img/champion/".$data['cleanName'].".png";
-        return null;
-    }
+  function    addFriend($uid, $cid) {
+    global $FriendManager;
+    
+    $data['userId'] = $uid;
+    $data['friendId'] = $cid;
+    $data['dateAdd'] = date("Y-m-d H:i");
+    $f = new \Member\Friend($data);
+    $FriendManager->add($f);
+    header('Location: '.$_SERVER['REDIRECT_URL']);
+  }
+
+  function    removeFriend($uid, $cid) {
+    global $FriendManager;
+    
+    $FriendManager->removeFriendship($uid, $cid);
+    header('Location: '.$_SERVER['REDIRECT_URL']);
+  }

@@ -6,6 +6,20 @@
                 <i class="fa fa-fw fa-refresh"></i> Synchronize
             </div>
         </form>
+    <?php } else if (isLogged() && $_SESSION['currentUser']->getId() != $thisUser->getId() && !isFriend($_SESSION['currentUser']->getId(), $thisUser->getId())) { ?>
+        <form id="formAdd" action="" method="post">
+            <input type="hidden" name="add-friend" />
+            <div class="sidebar-entry-insert" id="submit-form-add">
+                <i class="fa fa-fw fa-heart"></i> Add Friend
+            </div>
+        </form>
+    <?php } else if (isLogged() && $_SESSION['currentUser']->getId() != $thisUser->getId() && isFriend($_SESSION['currentUser']->getId(), $thisUser->getId())) { ?>
+        <form id="formRemove" action="" method="post">
+            <input type="hidden" name="remove-friend" />
+            <div class="sidebar-entry-delete" id="submit-form-remove">
+                <i class="fa fa-fw fa-trash"></i> Remove Friend
+            </div>
+        </form>
     <?php } ?>
     <div class="sidebar-search-container">
         <input class="sidebar-search-input is-helper" name="search-query" type="text" data-helper-str="Search..." placeholder="Search..."/>

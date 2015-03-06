@@ -2,8 +2,8 @@
 <html>
 <?php
 include("Controller/Website/Utils.php");
-include("Controller/Accueil/Utils.php");
-include("Controller/" . $_PAGENAME_ . "/Datas.php");
+include("Controller/Accueil.php");
+//include("Controller/" . $_PAGENAME_ . "/Datas.php");
 include("View/Website/Header.php");
 ?>
 <body>
@@ -21,7 +21,8 @@ include("View/Website/Header.php");
             </div>
         </div>
     </div>
-    <?php //include("View/".$_PAGENAME_."/Latest.php"); ?>
+    <?php //include("View/".$_PAGENAME_."/Latest.php"); 
+    ?>
 </div>
 <?php include('View/Website/Footer.php'); ?>
 </body>

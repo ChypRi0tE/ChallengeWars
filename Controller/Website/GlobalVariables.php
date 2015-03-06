@@ -23,7 +23,7 @@
         $_BDD_PASS_ = "ettasoeur42";
         $_SITE_INDEX_ = "/";
     }
-    $_ALLOW_FRIENDS_ = false;
+    $_ALLOW_FRIENDS_ = true;
     $_DEBUG_ = false;
 
 
@@ -32,8 +32,10 @@
     $_TABLE_ENTRIES_   = "cw_challenges_entries";
     $_TABLE_USERS_      = "cw_users";
     $_TABLE_USERS_STATS_ = "cw_users_stats";
+    $_TABLE_USERS_FRIENDS_ = "cw_users_friends";
     $_TABLE_SUMMONERS_ = "cw_summoners";
     $_TABLE_SUMMONERS_HISTORY_ = "cw_summoners_history";
+    $_TABLE_RANKINGS_ = "cw_challenges_rankings";
     
 
     
