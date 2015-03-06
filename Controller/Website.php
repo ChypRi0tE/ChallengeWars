@@ -6,18 +6,21 @@
  * Time: 18:50
  */
 
-    include_once("Controller/Website/GlobalVariables.php");
+    include_once("Controller/GlobalVariables.php");
 
+//Chargement des classes
     function    load($class) {
         require_once 'Model/' . $class . '.php';
     }
     spl_autoload_register('load');
-    include_once("Controller/Website/LoadClasses.php");
+    include_once("Controller/LoadClasses.php");
     session_start();
 
+//Vérifie si l'user est connecté ($_SESSION)
     function    isLogged() {
         return isset($_SESSION['currentUser']) && ($_SESSION['currentUser'] != null);
     }
+//Renvoie un PDO object de connection à la base de données
     function    connectDatabase() {
         global $_BDD_SERVER_, $_BDD_USER_, $_BDD_PASS_, $_BDD_NAME_;
 
@@ -27,43 +30,6 @@
             die('<strong>Error :</strong> ' . $e->getMessage());
         }
         return $bdd;
-    }
-    function    isSelected($link) {
-        global $_PAGENAME_;
-        if (strtolower($_PAGENAME_) == strtolower($link))
-            echo "is-selected";
-    }
-
-    function    getRelativeDate($date) {
-        $dateToday = new DateTime();
-        $dateCheck = new DateTime($date);
-        $dateDiff = $dateCheck->diff($dateToday);
-
-        if ($dateDiff->d == 0) {
-            echo "Today";
-        } else if ($dateDiff-> d == 1) {
-            echo "Tomorrow";
-        } else {
-            echo $dateDiff->d . " " . $dateCheck->format("PM");
-        }
-    }
-    function    getTimeFromNow($date) {
-        $dateEnd = new DateTime($date);
-        $dateToday = new DateTime();
-        $dateDiff = $dateEnd->diff($dateToday);
-
-        $r['day'] = $dateDiff->d;
-        $r['hour'] = $dateDiff->h;
-        $r['min'] = $dateDiff->i;
-
-        if ($r['day'] > 0) {
-            if ($r['hour'] == 0)
-                echo "Ending in " . $r['min'] . " minutes";
-            else
-                echo "Ending in " . $r['hour'] . " hours";
-        } else {
-            echo $dateDiff->format('%d %m %y - %h:%i');
-        }
     }
 
     function    getChallengeType($type, $bool) {
@@ -84,6 +50,7 @@
         return null;
     }
 
+//
     function    history($idSummoner, $idUser) {
     $api = new RiotApi('euw');
     $array = [];
@@ -144,15 +111,8 @@
         $_SESSION['currentUser'] = $usr;
         $_SESSION['currentSummoner'] = $sum;
     }
-    
-    function    getChampionSplash($id) {
-        global $bdd;
-        $q = $bdd->query("SELECT * FROM cw_lol_champions WHERE id = ". $id);
-        if ($data = $q->fetch())
-            return "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/".$data['cleanName']."_0.jpg";
-        return null;
-    }
 
+//Affichage des champions
     function    getChampionPic($id) {
         global $bdd;
         $q = $bdd->query("SELECT * FROM cw_lol_champions WHERE id = ". $id);
@@ -160,7 +120,13 @@
             return "http://ddragon.leagueoflegends.com/cdn/5.1.2/img/champion/".$data['cleanName'].".png";
         return null;
     }
-    
+    function    getChampionSplash($id) {
+    global $bdd;
+    $q = $bdd->query("SELECT * FROM cw_lol_champions WHERE id = ". $id);
+    if ($data = $q->fetch())
+        return "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/".$data['cleanName']."_0.jpg";
+    return null;
+}
     function    getChampionClean($id) {
         global $bdd;
         $q = $bdd->query("SELECT * FROM cw_lol_champions WHERE id = ". $id);
@@ -168,16 +134,24 @@
             return $data['cleanName'];
         return null;
     }
+//Affichage de la sidebar
     function    isActive($link) {
         global $tabPanel;
         if ($tabPanel == $link)
             echo 'is-selected';
+    }
+    function    isSelected($link) {
+        global $_PAGENAME_;
+        if (strtolower($_PAGENAME_) == strtolower($link))
+            echo "is-selected";
     }
     function    addCaret($link) {
         global $tabPanel;
         if ($tabPanel == $link)
             echo '<i class="fa fa-caret-right"></i>';
     }
+
+//Affichage des messages de debug
     function    debug($string) {
       global $_DEBUG_;
       

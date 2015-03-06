@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <?php
-include("Controller/Website/Utils.php");
+include("Controller/Website/Website.php");
 include("Controller/About.php");
 //include("Controller/".$_PAGENAME_."/Datas.php");
 include('View/Website/Header.php');
@@ -10,7 +10,7 @@ include('View/Website/Header.php');
 <?php if (isLogged()) {
     include('View/Website/LoggedNav.php');} else {
     include('View/Website/GuestNav.php');} ?>
-<?php include("View/".$_PAGENAME_."/Featured.php"); ?>
+<?php if (file_exists("View/".$_PAGENAME_."/Featured.php")){include("View/".$_PAGENAME_."/Featured.php");} ?>
 <div class="page-outer-wrap">
     <div class="page-inner-wrap"  style="margin-top: 39px">
         <div class="widget-container">

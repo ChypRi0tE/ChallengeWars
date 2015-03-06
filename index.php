@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
 <?php
-include("Controller/Website/Utils.php");
+include("Controller/Website.php");
 include("Controller/Accueil.php");
-//include("Controller/" . $_PAGENAME_ . "/Datas.php");
 include("View/Website/Header.php");
 ?>
 <body>
