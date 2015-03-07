@@ -12,7 +12,7 @@
                 <div class="form-row">
                     <div class="form-heading">
                         <div class="form-heading-number">1.</div>
-                        <div class="form-heading-text">Challenge Title</div>
+                        <div class="form-heading-text">Challenge title</div>
                     </div>
                     <div class="form-row-indent">
                         <input class="form-input-medium" name="inputName" type="text" required>
@@ -60,7 +60,7 @@
                 <div class="form-row">
                     <div class="form-heading">
                         <div class="form-heading-number">3.</div>
-                        <div class="form-heading-text">Time Range</div>
+                        <div class="form-heading-text">Time range</div>
                     </div>
                     <div class="form-row-indent">
                         <div class="form-time-container">

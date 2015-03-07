@@ -5,7 +5,7 @@
  * Date: 04/03/2015
  * Time: 01:30
  */
-include_once("../Controller/Website/GlobalVariables.php");
+include_once("../Controller/GlobalVariables.php");
 require_once("Riotpi.php");
 
 if (isset($_POST['verify'])) {

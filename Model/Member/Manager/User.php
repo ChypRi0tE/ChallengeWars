@@ -57,7 +57,7 @@ class User implements \Manager {
                     avatar = ".$user->getAvatar().",
                     isAdvanced = ".$user->getIsAdvanced().",
                     isValidated = ".$user->getIsValidated().",
-                    rank = ".$user->getRank()."
+                    rank = ".$user->getRank().",
                     points = ".$user->getPoints()."
                     WHERE
                     id = ".$user->getId()."

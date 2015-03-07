@@ -1,6 +1,6 @@
 <?php
-    include_once("../Controller/Website/GlobalVariables.php");
-    include_once("../Controller/Website/Website.php");
+    include_once("../Controller/GlobalVariables.php");
+    include_once("../Controller/Website.php");
 
 
   //requete Post, à utiliser pour INSERT, DELETE, UPDATE etc

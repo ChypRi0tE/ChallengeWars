@@ -32,5 +32,6 @@ $( window ).resize(function() {
     }
 });
 $(".table-row-outer-wrap").click(function(){
-    window.location.href = $(this).find('a').attr("href");
+    if ($(this).attr("class") != "table-row-outer-wrap table-history")
+        window.location.href = $(this).find('a').attr("href");
 });

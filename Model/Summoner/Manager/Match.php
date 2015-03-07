@@ -94,7 +94,7 @@ class Match implements \Manager {
     public function checkExistence($uid, $mid) {
       $q = $this->_bdd->query('SELECT * FROM ' . $this->_table . ' WHERE userId = '.$uid.' AND matchId = '.$mid);
       if ($data = $q->fetch())
-        return true;
+          return true;
       return false;
     }
 }

@@ -1469,7 +1469,7 @@ nav {
 .table-heading .table-column {
     padding: 0 10px;
 }
- .table-row-outer-wrap:hover {
+ .table-row-outer-wrap:not(.table-history):hover {
     cursor: pointer;
  }
 .table-row-inner-wrap>*:not(:last-child), .table-column--last-comment>*:not(:last-child), .table-heading>div[class^=table-column]:not(:last-child) {

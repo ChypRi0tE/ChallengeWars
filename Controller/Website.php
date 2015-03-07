@@ -51,43 +51,40 @@
     }
 
 //
-    function    history($idSummoner, $idUser) {
-    $api = new RiotApi('euw');
-    $array = [];
-    $history = $api->getMatchHistory($idSummoner);
-        for($i = 0; !empty($history[$i]); $i++) {
-            $match = $history[$i];
-            $player = $match['participants'][0];
-            $stats = $player['stats'];
-            $infos['userId'] = $idUser;
-            $infos['matchId'] = $match['matchId'];
-            $infos['matchDuration'] = $match['matchDuration'];
-            $infos['matchCreation'] = $match['matchCreation'];
-            $infos['matchType'] = $match['queueType'];
-            $infos['championId'] = $player['championId'];
-            $infos['kills'] = $stats['kills'];
-            $infos['deaths'] = $stats['deaths'];
-            $infos['assists'] = $stats['assists'];
-            $infos['creeps'] = $stats['minionsKilled'];
-            $infos['victory'] = $stats['winner'];
-            $infos['side'] = $player['teamId'];
+  function history($idSummoner, $idUser) {
+      $api = new RiotApi('euw');
+      $array = [];
+      $history = $api->getGame($idSummoner);
+      for($i = 0; !empty($history['games'][$i]); $i++) {
+          $match = $history['games'][$i];
+          if ($match['subType'] == NORMAL || $match['subType'] == RANKED_SOLO_5x5) {
+              $stats = $match['stats'];
+              $infos['userId'] = $idUser;
+              $infos['matchId'] = $match['gameId'];
+              $infos['matchDuration'] = $stats['timePlayed'];
+              $infos['matchCreation'] = $match['createDate'];
+              $infos['matchType'] = $match['subType'];
+              $infos['championId'] = $match['championId'];
+              $infos['kills'] = $stats['championsKilled'];
+              $infos['deaths'] = $stats['numDeaths'];
+              $infos['assists'] = $stats['assists'];
+              $infos['creeps'] = $stats['minionsKilled'];
+              $infos['victory'] = $stats['win'];
+              $infos['side'] = $match['teamId'];
 
-            $champs = $api->getMatch($history[$i]['matchId']);
-            if ($api->getLastResponseCode() == 200) {
-                $participants = $champs['participants'];
-                $infos['ally1'] = $participants[1]['championId'];
-                $infos['ally2'] = $participants[2]['championId'];
-                $infos['ally3'] = $participants[3]['championId'];
-                $infos['ally4'] = $participants[4]['championId'];
-                $infos['enemy1'] = $participants[5]['championId'];
-                $infos['enemy2'] = $participants[6]['championId'];
-                $infos['enemy3'] = $participants[7]['championId'];
-                $infos['enemy4'] = $participants[8]['championId'];
-                $infos['enemy5'] = $participants[9]['championId'];
-            } 
-            $array[] = new \Summoner\Match($infos);
-        }
-    return $array;
+              $participants = $history['games'][$i]['fellowPlayers'];
+              $a = 1;
+              $b = 1;
+              for ($j=0;!empty($participants[$j]);$j++) {
+                  if ($participants[$j]['teamId'] == $infos['side'])
+                      $infos['ally'.$a++] = $participants[$j]['championId'];
+                  else
+                      $infos['enemy'.$b++] = $participants[$j]['championId'];
+              }
+              $array[] = new \Summoner\Match($infos);
+          }
+      }
+      return $array;
   }
 
     function    synchronize($id) {
@@ -105,8 +102,8 @@
         $Smanager->update($sum);
         $matchHistory = history($sum->getSummonerId(), $id);
         for ($i = 0; !empty($matchHistory[$i]); $i++) {
-          if (!$Mmanager->checkExistence($id, $matchHistory[$i]->getMatchId()))
-            $Mmanager->add($matchHistory[$i]);
+            if (!$Mmanager->checkExistence($id, $matchHistory[$i]->getMatchId()))
+                $Mmanager->add($matchHistory[$i]);
         }
         $_SESSION['currentUser'] = $usr;
         $_SESSION['currentSummoner'] = $sum;

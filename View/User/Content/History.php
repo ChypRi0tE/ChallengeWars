@@ -18,7 +18,7 @@
     </div>
     <div class="table-rows">
         <?php for ($i = 0; !empty($listMatches[$i]); $i++) { ?>
-            <div class="table-row-outer-wrap">
+            <div class="table-row-outer-wrap table-history">
                 <div class="table-row-inner-wrap">
                     <div class="table-column--width-fill">
                         <div class="global-image-outer-wrap global-image-outer-wrap--avatar-medium" title="<?php echo $api->getStatic('champion', $listMatches[$i]->getChampionId())['name']; ?>">
@@ -74,6 +74,9 @@
                         <?php } ?>
                     </div>
                     <div class="table-column--width-small text-center">
+                        <?php   $date = $listMatches[$i]->getMatchCreation();
+                                echo date("j M - H:i", substr($date, 0, 10) + 3600*5);
+                        ?>
                     </div>
                 </div>
             </div>
