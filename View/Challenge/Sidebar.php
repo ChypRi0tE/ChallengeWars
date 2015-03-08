@@ -44,7 +44,7 @@
                 <?php addCaret("Rankings"); ?>
                 <div class="sidebar-navigation-item-name">Rankings</div>
                 <div class="sidebar-navigation-item-underline"></div>
-                <div class="sidebar-navigation-item-count"></div>
+                <div class="sidebar-navigation-item-count"><?php echo $RankManager->getNbForChallenge($thisChallenge->getId())[0]; ?></div>
             </a>
         </li>
     </ul>

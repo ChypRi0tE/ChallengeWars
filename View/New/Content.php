@@ -46,7 +46,6 @@
                     </div>
                     <div class="form-row-indent">
                         <div class="form-time-container">
-							<input type="hidden" name="champion" value="">
                             <select class="form-input-small" id="inputChampion" name="inputChampion">
 							    <option value="0"> All Champions </option>
                         <?php for ($i = 0; !empty($listChampions[1][$i]); $i++) {

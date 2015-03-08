@@ -2,7 +2,7 @@
     include_once("../Controller/GlobalVariables.php");
     include_once("../Controller/Website.php");
 
-
+    require("Riotpi.php");
   //requete Post, à utiliser pour INSERT, DELETE, UPDATE etc
   if (isset($_POST['type']) && $_POST['type'] == 'get') {
     $bdd = connectDatabase();

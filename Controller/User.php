@@ -1,4 +1,7 @@
 <?php
+if (isset($_POST['type'])) {
+    synchronize($_POST['id']);
+}
 //Récupération de l'user affiché
     if (isset($_GET['name']) && !empty($_GET['name'])) {
         $name = $_GET['name'];

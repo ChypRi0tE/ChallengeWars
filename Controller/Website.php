@@ -121,8 +121,8 @@
     global $bdd;
     $q = $bdd->query("SELECT * FROM cw_lol_champions WHERE id = ". $id);
     if ($data = $q->fetch())
-        return "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/".$data['cleanName']."_0.jpg";
-    return null;
+        return "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/" . $data['cleanName'] . "_0.jpg";
+    return "http://euw.leagueoflegends.com/sites/default/files/upload/art/team_graves_3.jpg";
 }
     function    getChampionClean($id) {
         global $bdd;

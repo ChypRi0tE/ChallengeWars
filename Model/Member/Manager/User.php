@@ -72,6 +72,14 @@ class User implements \Manager {
           return new \Member\User($data);
         return null;
     }
+	
+	    public function    getFromId($id) {
+        $q = $this->_bdd->query('SELECT * FROM '.$this->_table.' WHERE id = "'.$id.'"');
+        if ($data = $q->fetch())
+          return new \Member\User($data);
+        return null;
+    }
+	
     public function     getAll() {
         $q = $this->_bdd->query('SELECT * FROM '.$this->_table.' ORDER BY username ASC');
         $list = [];

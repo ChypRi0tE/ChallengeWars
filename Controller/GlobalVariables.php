@@ -36,7 +36,7 @@
     $_TABLE_SUMMONERS_ = "cw_summoners";
     $_TABLE_SUMMONERS_HISTORY_ = "cw_summoners_history";
     $_TABLE_RANKINGS_ = "cw_challenges_rankings";
-    $_TABLE_CHAMPIONS = "cw_lol_champions";
+    $_TABLE_CHAMPIONS_ = "cw_lol_champions";
 
     
     $_LINK_CHALLENGE_ = $_SITE_INDEX_ . "challenge";
