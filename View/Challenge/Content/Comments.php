@@ -6,6 +6,11 @@
         <div class="markdown markdown--resize-body"><p><?php echo $thisChallenge->getDescription(); ?></p></div>
     </div>
 </div>
+<div class="alert alert-info">
+    <strong><?php echo getChallengeType($thisChallenge->getType(), true);?> Challenge :</strong>
+    <br /><br />
+    <?php echo getChallengeDesc($thisChallenge->getType()); ?>
+</div>
 <div class="page-heading">
     <div class="page-heading-breadcrumbs">
         <a href="<?php echo $_LINK_CHALLENGE_ . "/challenge-" . $thisChallenge->getId(). "/".$_LINK_COMMENT_; ?>"><?php echo $CommentManager->getNbForChallenge($thisChallenge->getId())[0]; ?> Comments</a>

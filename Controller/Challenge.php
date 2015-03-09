@@ -111,3 +111,13 @@
         }
         header("Location: ".$_SERVER['REQUEST_URI']);
     }
+
+    function    getChallengeDesc($type) {
+        if ($type == 1) {
+            return "In this challenge, you have to get the most creep per minute with the designated champion. At the end of the challenge, the winner will be the player having the best average cs/minute in all the games played for the challenge.";
+        } else if ($type == 2) {
+            return "In this challenge, you have to get the most victories with the designated champion. At the end of the challenge, the winner will be the player having the highest number of victories in relation to all the games played for the challenge.";
+        } else if ($type == 3) {
+            return "In this challenge, you have to get the most kills with the designated champion. At the end of the challenge, the winner will be the player having the highest number of kills in relation to all the games played for the challenge.";
+        }
+    }
