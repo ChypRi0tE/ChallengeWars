@@ -83,12 +83,12 @@ if (isset($_POST['do-register'])) {
     $_POST['register-password'] = htmlspecialchars($_POST['register-password']);
     $_POST['register-mail'] = htmlspecialchars($_POST['register-mail']);
     $_POST['register-password-check'] = htmlspecialchars($_POST['register-password-check']);
-
+/*
     if (($result = checkRegistration($_POST, $_bdd)) != null) {
         $_isRegisterError = true;
         $_registerError = $result;
         return;
-    }
+    }*/
     $data = [];
     $data['username'] = $_POST['register-username'];
     $data['password'] = md5($_POST['register-password']);
@@ -108,6 +108,7 @@ if (isset($_POST['do-register'])) {
     $dataStats['challWon'] = 0;
     $dataStats['challCreated'] = 0;
     $dataStats['commentPosted'] = 0;
+    $dataStats['nbFriends'] = 0;
     $statmgr = new Member\Manager\Stats($_bdd, $_TABLE_USERS_STATS_);
     $stats = new \Member\Stats($dataStats);
     $statmgr->add($stats);

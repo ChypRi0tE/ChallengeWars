@@ -59,6 +59,14 @@
                 <div class="sidebar-navigation-item-count"><?php echo $thisStats->getCommentPosted(); ?></div>
             </a>
         </li>
+        <li class="sidebar-navigation-item <?php isActive("Friends"); ?>">
+            <a class="sidebar-navigation-item-link" href="<?php echo $_LINK_USER_ ."/".$thisUser->getUsername()."/".$_LINK_FRIENDS_; ?>">
+                <?php addCaret("Friends"); ?>
+                <div class="sidebar-navigation-item-name">Friends</div>
+                <div class="sidebar-navigation-item-underline"></div>
+                <div class="sidebar-navigation-item-count"><?php echo $thisStats->getNbFriends(); ?></div>
+            </a>
+        </li>
         <?php if ($thisUser->getIsValidated()) { ?>
         <li class="sidebar-navigation-item <?php isActive("History"); ?>">
             <a class="sidebar-navigation-item-link" href="<?php echo $_LINK_USER_ ."/".$thisUser->getUsername()."/".$_LINK_HISTORY_; ?>">

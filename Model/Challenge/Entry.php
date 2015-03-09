@@ -14,6 +14,7 @@ class Entry {
     protected $idChallenge;
     protected $idUser;
     protected $dateEntry;
+    protected $points;
 
     public function __construct(array $data) {
         $this->create($data);
@@ -50,5 +51,11 @@ class Entry {
     }
     public function setIdUser($idUser) {
         $this->idUser = $idUser;
+    }
+    public function getPoints() {
+        return $this->points;
+    }
+    public function setPoints($points) {
+        $this->points = $points;
     }
 } 

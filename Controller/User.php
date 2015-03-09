@@ -19,6 +19,8 @@ if (isset($_POST['type'])) {
             $tabPanel = 'Comments';
         else if (strtolower($_GET['tab']) == $_LINK_HISTORY_)
             $tabPanel = 'History';
+        else if (strtolower($_GET['tab']) == $_LINK_FRIENDS_)
+            $tabPanel = 'Friends';
         else
             $tabPanel = 'Created';
     } else {
@@ -65,6 +67,8 @@ if (isset($_POST['type'])) {
         $listComments = $CommentManager->getForUser($idUser);
     else if ($tabPanel == "History")
         $listMatches = $MatchManager->getFromUser($idUser, 'DESC');
+    else if ($tabPanel == "Friends")
+        $listFriends = $FriendManager->getFromUser($idUser);
         
     if ($thisUser->getIsValidated()) {
         $SummonerManager = new \Summoner\Manager\Summoner($bdd, $_TABLE_SUMMONERS_);
@@ -87,7 +91,7 @@ if (isset($_POST['type'])) {
     }
 //Récupération du nombre de challenge/comment/entry/matchs de l'utilisateur
     function    getResults($tab) {
-        global $thisStats;
+        global $thisStats, $MatchManager, $idUser;
 
         switch ($tab) {
             case "Created":
@@ -98,8 +102,10 @@ if (isset($_POST['type'])) {
                 return $thisStats->getChallEntered();
             case "Comments":
                 return $thisStats->getCommentPosted();
+            case "Friends":
+                return $thisStats->getNbFriends();
             case "History":
-                return 1;
+                return $MatchManager->getNbForUser($idUser);
         }
         return 0;
     }
@@ -129,6 +135,10 @@ if (isset($_POST['type'])) {
                 $head = "History";
                 $tas = "History";
                 break;
+            case "Friends":
+                $head = "Friends";
+                $tas = "Friends";
+                break;
         }
         return '<a href="'.$_LINK_USER_.'/'.$thisUser->getUsername().'/'.$tas.'">'.$head.'</a>';
     }
@@ -145,12 +155,18 @@ if (isset($_POST['type'])) {
         $data['friendId'] = $thisUser->getId();
         $data['dateAdd'] = date("Y-m-d H:i");
         $f = new \Member\Friend($data);
+        $stats = $StatsManager->getUserStats($_SESSION['currentUser']->getId());
+        $stats->setNbFriends($stats->getNbFriends()+1);
+        $StatsManager->update($stats);
         $FriendManager->add($f);
         
         header('Location: '.$_SERVER['REDIRECT_URL']);
     }
     if (isset($_POST['remove-friend'])) {
         $FriendManager->removeFriendship($_SESSION['currentUser']->getId(), $thisUser->getId());
+        $stats = $StatsManager->getUserStats($_SESSION['currentUser']->getId());
+        $stats->setNbFriends($stats->getNbFriends()-1);
+        $StatsManager->update($stats);
         header('Location: '.$_SERVER['REDIRECT_URL']);
     }
 

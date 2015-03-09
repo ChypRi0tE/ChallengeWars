@@ -1,6 +1,6 @@
 <div class="page-heading">
     <div class="page-heading-breadcrumbs">
-        <a href="<?php echo $_LINK_CHALLENGE_ . "/challenge-" . $thisChallenge->getId(). "/".$_LINK_ENTRIES_; ?>"><?php echo $EntryManager->getNbForChallenge($thisChallenge->getId())[0]; ?> Entries</a>
+        <a href="<?php echo $_LINK_CHALLENGE_ . "/challenge-" . $thisChallenge->getId(). "/".$_LINK_RANKING_; ?>"><?php echo $EntryManager->getNbForChallenge($thisChallenge->getId())[0]; ?> Entries</a>
     </div>
 </div>
 <div class="table">

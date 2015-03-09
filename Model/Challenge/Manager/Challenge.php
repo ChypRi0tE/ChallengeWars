@@ -48,26 +48,24 @@ class Challenge implements \Manager {
                     status = :status,
                     cost = :cost,
                     type = :type,
-                    image = :image,
 					champion = :champion,
-					won_by = :won_by
+					winner = :winner
                     WHERE id = :id
                   ');
 
         $q->bindValue(':title', $challenge->getTitle());
         $q->bindValue(':dateCreation', $challenge->getDateCreation());
         $q->bindValue(':dateEnd', $challenge->getDateEnd());
-        $q->bindValue(':idCreator', $challenge->getIdCreator(), PDO::PARAM_INT);
-        $q->bindValue(':idPrize', $challenge->getIdPrize(), PDO::PARAM_INT);
+        $q->bindValue(':idCreator', $challenge->getIdCreator());
+        $q->bindValue(':idPrize', $challenge->getIdPrize());
         $q->bindValue(':description', $challenge->getDescription());
-        $q->bindValue(':isAdvanced', $challenge->getIsAdvanced(), PDO::PARAM_BOOL);
-        $q->bindValue(':status', $challenge->getStatus(), PDO::PARAM_INT);
-        $q->bindValue(':cost', $challenge->getCost(), PDO::PARAM_INT);
-        $q->bindValue(':type', $challenge->getType(), PDO::PARAM_INT);
-        $q->bindValue(':image', $challenge->getImage());
+        $q->bindValue(':isAdvanced', $challenge->getIsAdvanced());
+        $q->bindValue(':status', $challenge->getStatus());
+        $q->bindValue(':cost', $challenge->getCost());
+        $q->bindValue(':type', $challenge->getType());
 		$q->bindValue(':champion', $challenge->getChampion());
-		$q->bindValue(':won_by', $challenge->getWonBy());
-        $q->bindValue(':id', $challenge->getId(), PDO::PARAM_INT);
+		$q->bindValue(':winner', $challenge->getWinner());
+        $q->bindValue(':id', $challenge->getId());
 
         $q->execute();
     }
@@ -82,7 +80,7 @@ class Challenge implements \Manager {
     }
 
     public function     getNext() {
-        $q = $this->_bdd->query('SELECT * FROM '.$this->_table.' ORDER BY dateEnd ASC LIMIT 1');
+        $q = $this->_bdd->query('SELECT * FROM '.$this->_table.' WHERE status = 1 ORDER BY dateEnd ASC LIMIT 1');
         $data = $q->fetch();
         return new \Challenge\Challenge($data);
     }

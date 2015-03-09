@@ -39,7 +39,7 @@
                     <?php } ?>
                 </div>
                 <div class="challenge-links">
-                    <a href="<?php echo $_LINK_CHALLENGE_ . "/challenge-" . $listChallenge[$i]->getId() . "/" .$_LINK_ENTRIES_; ?>">
+                    <a href="<?php echo $_LINK_CHALLENGE_ . "/challenge-" . $listChallenge[$i]->getId() . "/" .$_LINK_RANKING_; ?>">
                       <i class="fa fa-tag"></i> 
                       <span>
                         <?php echo $EntryManager->getNbForChallenge($listChallenge[$i]->getId()); ?> entries

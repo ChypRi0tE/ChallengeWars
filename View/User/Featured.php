@@ -27,6 +27,10 @@
                             <div class="featured-table-row-right"><span title="<?php echo date("F j, Y", strtotime($thisStats->getDateInscription())); ?>"><?php echo date("F j, Y", strtotime($thisStats->getDateInscription())); ?></span></div>
                         </div>
                         <div class="featured-table-row">
+                            <div class="featured-table-row-left">Friends</div>
+                            <div class="featured-table-row-right"><?php echo $thisStats->getNbFriends(); ?></div>
+                        </div>
+                        <div class="featured-table-row">
                             <div class="featured-table-row-left">&nbsp;</div>
                             <div class="featured-table-row-right"></div>
                         </div>

@@ -7,6 +7,7 @@
             <div class="table-column--width-small text-center">Comments</div>
             <div class="table-column--width-small text-center">Entries</div>
             <div class="table-column--width-small text-center">Won</div>
+            <div class="table-column--width-small text-center">Friends</div>
             <div class="table-column--width-small text-center">Points</div>
             <div class="table-column--width-small text-center">Registered</div>
         </div>
@@ -26,6 +27,7 @@
                         <div class="table-column--width-small text-center"><?php echo $stats->getCommentPosted(); ?></div>
                         <div class="table-column--width-small text-center"><?php echo $stats->getChallEntered(); ?></div>
                         <div class="table-column--width-small text-center"><?php echo $stats->getChallWon(); ?></div>
+                        <div class="table-column--width-small text-center"><?php echo $stats->getNbFriends(); ?></div>
                         <div class="table-column--width-small text-center"><?php echo $listUsers[$i]->getPoints(); ?></div>
                         <div class="table-column--width-small text-center"><?php echo date("j F Y", strtotime($stats->getDateInscription())); ?></div>
                     </div>

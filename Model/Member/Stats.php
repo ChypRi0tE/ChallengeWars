@@ -17,6 +17,7 @@ class Stats {
     protected $challWon;
     protected $challCreated;
     protected $commentPosted;
+    protected $nbFriends;
 
     public function __construct(array $data) {
         $this->create($data);
@@ -71,5 +72,11 @@ class Stats {
     }
     public function setIdUser($idUser) {
         $this->idUser = $idUser;
+    }
+    public function getNbFriends() {
+        return $this->nbFriends;
+    }
+    public function setNbFriends($nbFriends) {
+        $this->nbFriends = $nbFriends;
     }
 } 

@@ -20,30 +20,27 @@ class Entry implements \Manager {
     public function     add($entry) {
         if (!($entry instanceof \Challenge\Entry)) {new \Error\TypeError("Manager/Entry", "Entry", $entry->type);}
         $q = $this->_bdd->prepare("INSERT INTO " . $this->_table . "
-                    (idChallenge, idUser, dateEntry)
+                    (idChallenge, idUser, dateEntry, points)
                     VALUES (:idChallenge,
                     :idUser,
-                    :dateEntry)
+                    :dateEntry,
+                    :points)
                   ");
         $q->bindValue(':idChallenge', $entry->getIdChallenge());
         $q->bindValue(':idUser', $entry->getIdUser());
         $q->bindValue(':dateEntry', $entry->getDateEntry());
+        $q->bindValue(':points', $entry->getPoints());
         $q->execute();
     }
     public function     update($entry) {
         if (!($entry instanceof \Challenge\Entry)) {throw new TypeError("Manager/Entry", "Entry", $entry->type);}
-        $q = $this->_bdd->prepare('UPDATE ' . $this->_table . '
-                    SET idChallenge = :idChallenge,
-                    idUser = :idUser,
-                    dateEntry = :dateEntry
-                    WHERE id = :id
+        $q = $this->_bdd->query('UPDATE ' . $this->_table . '
+                    SET idChallenge = '.$entry->getIdChallenge().',
+                    idUser = '.$entry->getIdUser().',
+                    dateEntry = "'.$entry->getDateEntry().'",
+                    points = '.$entry->getPoints().'
+                    WHERE id = '.$entry->getId().'
                   ');
-        $q->bindValue(':idChallenge', $entry->getIdChallenge(), PDO::PARAM_INT);
-        $q->bindValue(':idUser', $entry->getIdUser(), PDO::PARAM_INT);
-        $q->bindValue(':dateEntry', $entry->getDateEntry());
-        $q->bindValue(':id', $entry->getId(), PDO::PARAM_INT);
-
-        $q->execute();
     }
     public function     get($id) {
         $q = $this->_bdd->query('SELECT * FROM '.$this->_table.' WHERE id = '.$id);
@@ -95,5 +92,13 @@ class Entry implements \Manager {
     public function findUserChallenge($idChall, $idUser) {
         $q = $this->_bdd->query('SELECT * FROM '.$this->_table.' WHERE idUser = '.$idUser.' AND idChallenge = '.$idChall);
         return new \Challenge\Entry($q->fetch());
+    }
+    public function     getRankingForChallenge($id) {
+        $q = $this->_bdd->query('SELECT * FROM '.$this->_table.' WHERE idChallenge = '.$id.' ORDER BY points DESC');
+        $list = [];
+        while ($data = $q->fetch()) {
+            $list[] = new \Challenge\Entry($data);
+        }
+        return $list;
     }
 } 

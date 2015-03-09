@@ -15,9 +15,13 @@
         <div class="widget-container">
             <div>
             <?php 
-                //refreshEntries();echo "<hr />";
-                //refreshComments();echo "<hr />";
-                refreshUser($UserManager->get(1));
+                cleanEntries();echo "<hr />";
+                cleanComments();echo "<hr />";
+                cleanFriends();echo "<hr />";
+                refreshUsers();echo "<hr />";
+                refreshChallenges();echo "<hr />";
+                cleanChallenges();echo "<hr />";
+
             ?>
             </div>
         </div>

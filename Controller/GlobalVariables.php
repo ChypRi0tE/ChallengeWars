@@ -50,6 +50,7 @@
     $_LINK_CREATED_ =  "created";
     $_LINK_ENTERED_ =  "entered";
     $_LINK_WON_ =  "won";
+    $_LINK_FRIENDS_ =  "friends";
     $_LINK_UCOMMENT_ = "comments";
     
     $_LINK_ABOUT_ = $_SITE_INDEX_ . "about";

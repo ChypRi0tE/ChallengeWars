@@ -39,14 +39,12 @@
     $CommentManager = new \Challenge\Manager\Comment($bdd, $_TABLE_COMMENTS_);
     $EntryManager = new \Challenge\Manager\Entry($bdd, $_TABLE_ENTRIES_);
     $StatManager = new \Member\Manager\Stats($bdd, $_TABLE_USERS_STATS_);
-    $RankManager = new \Challenge\Manager\Rank($bdd, $_TABLE_RANKINGS_);
+    //$RankManager = new \Challenge\Manager\Rank($bdd, $_TABLE_RANKINGS_);
     
     $thisChallenge = $ChallengeManager->get($idChallenge);
     $thisUser = $UserManager->get($thisChallenge->getIdCreator());
     $listComments = $CommentManager->getForChallenge($idChallenge);
-    $listEntry = $EntryManager->getForChallenge($idChallenge);
-    $listRank = $RankManager->getForChallenge($idChallenge);
-
+    $listEntry = $EntryManager->getRankingForChallenge($idChallenge);
 
 /* ---------------------------
  * FUNCTIONS------------------
@@ -67,6 +65,7 @@
             $data['idUser'] = $user->getId();
             $data['idChallenge'] = $idChallenge;
             $data['dateEntry'] = date("Y-m-d H:i:s", strtotime('+6 hours'));
+            $data['points'] = 0;
             $entry = new \Challenge\Entry($data);
             $EntryManager->add($entry);
             $stat->setChallEntered($stat->getChallEntered() + 1);

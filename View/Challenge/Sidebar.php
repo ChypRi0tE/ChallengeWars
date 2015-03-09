@@ -31,6 +31,7 @@
                 <div class="sidebar-navigation-item-count"><?php echo $CommentManager->getNbForChallenge($thisChallenge->getId())[0]; ?></div>
             </a>
         </li>
+        <?php /*
         <li class="sidebar-navigation-item <?php isActive("Entries"); ?>">
             <a class="sidebar-navigation-item-link" href="<?php echo $_LINK_CHALLENGE_ . "/challenge-".$thisChallenge->getId()."/entries"; ?>">
                 <?php addCaret("Entries"); ?>
@@ -39,13 +40,15 @@
                 <div class="sidebar-navigation-item-count live-entry-count"><?php echo $EntryManager->getNbForChallenge($thisChallenge->getId())[0]; ?></div>
             </a>
         </li>
+        */ ?>
         <li class="sidebar-navigation-item <?php isActive("Rankings"); ?>">
             <a class="sidebar-navigation-item-link" href="<?php echo $_LINK_CHALLENGE_ . "/challenge-".$thisChallenge->getId()."/rankings"; ?>">
                 <?php addCaret("Rankings"); ?>
                 <div class="sidebar-navigation-item-name">Rankings</div>
                 <div class="sidebar-navigation-item-underline"></div>
-                <div class="sidebar-navigation-item-count"><?php echo $RankManager->getNbForChallenge($thisChallenge->getId())[0]; ?></div>
+                <div class="sidebar-navigation-item-count"><?php echo $EntryManager->getNbForChallenge($thisChallenge->getId())[0]; ?></div>
             </a>
         </li>
     </ul>
+
 </div>

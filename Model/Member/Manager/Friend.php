@@ -48,4 +48,26 @@ class Friend implements \Manager {
     public function  removeFriendship($user, $current) {
         $this->_bdd->exec('DELETE FROM '.$this->_table.' WHERE userId = '.$user.' AND friendId = '.$current);
     }
+    public function  getFromUser($id) {
+        $q = $this->_bdd->query("SELECT * FROM ".$this->_table." WHERE userId= ".$id);
+        $list = [];
+        while ($data = $q->fetch()) {
+            $list[] = new \Member\Friend($data);
+        }
+        return $list;
+    }
+
+    public function getNbForUser($id) {
+        $q = $this->_bdd->query("SELECT count(*) FROM ".$this->_table." WHERE userId= ".$id);
+        return $q->fetch()[0];
+    }
+
+    public function getAll() {
+        $q = $this->_bdd->query("SELECT * FROM ".$this->_table);
+        $list = [];
+        while ($data = $q->fetch()) {
+            $list[] = new \Member\Friend($data);
+        }
+        return $list;
+    }
 }

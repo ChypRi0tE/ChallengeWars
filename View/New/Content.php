@@ -196,7 +196,7 @@
                         <div class="form-heading-text">Level requirement</div>
                     </div>
                     <div class="form-row-indent">
-                        <input type="hidden" name="inputLevel" value="starter">
+                        <input type="hidden" id="inputLevel" name="inputLevel" value="starter">
                         <div data-checkbox-value="starter" class="form-checkbox is-disabled">
                             <i class="form-checkbox-default fa fa-circle-o"></i><i class="form-checkbox-hover fa fa-circle"></i><i class="form-checkbox-selected fa fa-check-circle"></i> Starter
                         </div>

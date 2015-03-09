@@ -20,22 +20,16 @@ class Stats implements \Manager {
 
     public function     add($stats) {
         if (!($stats instanceof \Member\Stats)) {new \Error\TypeError("Manager/Stats", "Stats", $stats->type);}
-        $q = $this->_bdd->prepare("INSERT INTO " . $this->_table . "
-                     (idUser, dateInscription, challEntered, challWon, challCreated, commentPosted)
-                    VALUES (:idUser,
-                    :dateInscription,
-                    :challEntered,
-                    :challWon,
-                    :challCreated,
-                    :commentPosted)
+        $q = $this->_bdd->query("INSERT INTO " . $this->_table . "
+                     (idUser, dateInscription, challEntered, challWon, challCreated, commentPosted, nbFriends)
+                    VALUES (".$stats->getIdUser().",
+                    '".$stats->getDateInscription()."',
+                    ".$stats->getChallEntered().",
+                    ".$stats->getChallWon().",
+                    ".$stats->getChallCreated().",
+                    ".$stats->getCommentPosted().",
+                    ".$stats->getNbFriends().")
                   ");
-        $q->bindValue(':idUser', $stats->getIdUser());
-        $q->bindValue(':dateInscription', $stats->getDateInscription());
-        $q->bindValue(':challEntered', $stats->getChallEntered());
-        $q->bindValue(':challWon', $stats->getChallWon());
-        $q->bindValue(':challCreated', $stats->getChallCreated());
-        $q->bindValue(':commentPosted', $stats->getCommentPosted());
-        $q->execute();
     }
     public function     get($id) {
         $q = $this->_bdd->query('SELECT * FROM '.$this->_table.' WHERE id = '.$id);
@@ -50,7 +44,8 @@ class Stats implements \Manager {
                      challEntered = ".$stats->getChallEntered().",
                      challWon = ".$stats->getChallWon().",
                      challCreated = ".$stats->getChallCreated().",
-                     commentPosted = ".$stats->getCommentPosted()."
+                     commentPosted = ".$stats->getCommentPosted().",
+                     nbFriends = ".$stats->getNbFriends()."
                      WHERE id = ".$stats->getId()."
                  ");
     }

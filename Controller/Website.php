@@ -45,7 +45,7 @@
             case 2:
                 return  ($bool ? '<i class="fa fa-flag-checkered"></i> ':'') . 'Victory';
             case 3:
-                return  ($bool ? '<i class="fa fa-clock-o"></i> ':'') . 'Time';
+                return  ($bool ? '<i class="fa fa-rocket"></i> ':'') . 'Kill';
         }
         return null;
     }

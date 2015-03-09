@@ -1500,6 +1500,10 @@ nav {
 .table-column-description>*:not(:first-child) {
     margin-top: 5px;
 }
+.table-column--width-xsmall {
+    width: 7%;
+    min-width: 50px;
+}
 .table-column--width-small {
     width: 13%;
     min-width: 90px;
@@ -1507,6 +1511,10 @@ nav {
 .table-column--width-medium {
     width: 21%;
     min-width: 120px;
+}
+.table-column--width-large {
+    width: 75%;
+    min-width: 200px;
 }
 .table-column--last-comment {
     -webkit-box-align: center;
@@ -2249,4 +2257,16 @@ input.is-helper, select.is-helper, textarea.is-helper {
     background-image:-webkit-linear-gradient(#f6f6e6 0px, #f5f5df 20px);
     border-color:#ede5b2;
     color:#a59d7c
+}
+
+.friend-list-box {
+    text-decoration: none;
+    color: #4b72d4;
+    font: 700 14px/22px "Open Sans", sans-serif;
+    font-weight: bold;
+    text-shadow: 1px 1px rgba(255, 255, 255, 0.9);
+}
+.friend-list-box:hover{
+    text-decoration: none;
+    color: #4655a9;
 }
