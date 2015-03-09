@@ -21,8 +21,8 @@
                         <?php } else if ($thisChallenge->getStatus() == 2) { ?>
                             <div class="challenge-column--positive" title="Ended">
                               <i class="fa fa-check-circle"></i> 
-                              <a href="<?php echo $_LINK_USER_ . '/' . $thisUser->getUsername(); ?>">
-                                <?php echo $thisUser->getUsername(); ?>
+                              <a href="<?php echo $_LINK_USER_ . '/' . $thisWinner->getUsername(); ?>">
+                                <?php echo $thisWinner->getUsername(); ?>
                               </a>
                             </div>
                         <?php } ?>

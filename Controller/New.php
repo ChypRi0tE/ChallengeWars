@@ -36,8 +36,8 @@ if (!isLogged()) {header('Location: '. $_SITE_INDEX_); }
         if (empty($_POST['inputType']) || empty($_POST['inputLevel']) || empty($_POST['inputName'])) {
             return;
         }
-        $_POST['inputName'] = htmlspecialchars($_POST['inputName']);
-        $_POST['inputDescription'] = htmlspecialchars($_POST['inputDescription']);
+        $_POST['inputName'] = addslashes(htmlspecialchars($_POST['inputName']));
+        $_POST['inputDescription'] = addslashes(htmlspecialchars($_POST['inputDescription']));
         $user = $_SESSION['currentUser'];
         $stat = $StatManager->getUserStats($user->getId());
 
@@ -64,7 +64,6 @@ if (!isLogged()) {header('Location: '. $_SITE_INDEX_); }
             $data['isAdvanced'] = 1;
             $data['cost'] = 100;
         }
-
         $data['status'] = 1;
         $data['image'] = null;
         $data['winner'] = 0;

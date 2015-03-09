@@ -108,7 +108,7 @@
         debug("Friends refreshed: ".$i." friendships inspected, deleted ".$n."<br />");
     }
     function  cleanChallenges() {
-    global $ChallengeManager, $EntryManager;
+    global $ChallengeManager, $EntryManager, $UserManager;
     debugTop("Cleaning challenges...");
     $listChallenge = $ChallengeManager->getOngoing();
     for ($i = 0; !empty($listChallenge[$i]); $i++) {
@@ -116,8 +116,22 @@
         if (time() > strtotime($listChallenge[$i]->getDateEnd())) {
             debug("---Challenge is over");
             $listEntries = $EntryManager->getRankingForChallenge($listChallenge[$i]->getId());
-            if (!empty($listEntries[0]))
+            if (!empty($listEntries[0])) {
                 $listChallenge[$i]->setWinner($listEntries[0]->getIdUser());
+                $winner = $UserManager->getFromId($listEntries[0]->getIdUser());
+                $winner->setPoints($winner->getPoints() + 300);
+            }
+            for ($i = 1; !empty($listEntries[$i]); $i++) {
+                $user = $UserManager->getFromId($listEntries[$i]->getIdUser());
+                if ($i == 1) {
+                    $user->setPoints($user->getPoints() + 200);
+                } else if ($i == 2) {
+                    $user->setPoints($user->getPoints() + 100);
+                } else {
+                    $user->setPoints($user->getPoints() + 20);
+                }
+                $UserManager->update($user);
+            }
             $listChallenge[$i]->setStatus(2);
             $ChallengeManager->update($listChallenge[$i]);
             debug("-----Challenge closed, ".((!empty($listEntries[0]))?"winner is user ".$listEntries[0]->getIdUser():"no winner found"));

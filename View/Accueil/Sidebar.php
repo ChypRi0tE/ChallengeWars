@@ -6,19 +6,19 @@
     <h3 class="sidebar-heading">Browse</h3>
     <ul class="sidebar-navigation">
         <li class="sidebar-navigation-item is-selected">
-            <a class="sidebar-navigation-item-link" href="#" id="rank-all"><i class="fa fa-caret-right"></i>
+            <a class="sidebar-navigation-item-link" id="rank-all"><i class="fa fa-caret-right"></i>
                 <div class="sidebar-navigation-item-name">All</div>
                 <div class="sidebar-navigation-item-underline"></div><div class="sidebar-navigation-item-count"><?php echo $ChallengeManager->getNbOngoing(); ?></div>
             </a>
         </li>
         <li class="sidebar-navigation-item">
-            <a class="sidebar-navigation-item-link" href="#" id="rank-starter">
+            <a class="sidebar-navigation-item-link" id="rank-starter">
                 <div class="sidebar-navigation-item-name">Starter</div>
                 <div class="sidebar-navigation-item-underline"></div><div class="sidebar-navigation-item-count"><?php echo $ChallengeManager->getNbStarter(); ?></div>
             </a>
         </li>
         <li class="sidebar-navigation-item">
-            <a class="sidebar-navigation-item-link" href="#" id="rank-advanced">
+            <a class="sidebar-navigation-item-link" id="rank-advanced">
                 <div class="sidebar-navigation-item-name">Advanced</div>
                 <div class="sidebar-navigation-item-underline"></div><div class="sidebar-navigation-item-count"><?php echo $ChallengeManager->getNbAdvanced(); ?></div>
             </a>
@@ -41,8 +41,8 @@
             </a>
         </li>
         <li class="sidebar-navigation-item">
-            <a class="sidebar-navigation-item-link" href="#" id="type-time">
-                <div class="sidebar-navigation-item-name">Time</div>
+            <a class="sidebar-navigation-item-link" href="#" id="type-kill">
+                <div class="sidebar-navigation-item-name">Kill</div>
                 <div class="sidebar-navigation-item-underline"></div><div class="sidebar-navigation-item-count"><?php echo $ChallengeManager->getNbOngoingForType(3); ?></div>
             </a>
         </li>

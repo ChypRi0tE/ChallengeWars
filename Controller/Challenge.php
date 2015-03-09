@@ -39,12 +39,12 @@
     $CommentManager = new \Challenge\Manager\Comment($bdd, $_TABLE_COMMENTS_);
     $EntryManager = new \Challenge\Manager\Entry($bdd, $_TABLE_ENTRIES_);
     $StatManager = new \Member\Manager\Stats($bdd, $_TABLE_USERS_STATS_);
-    //$RankManager = new \Challenge\Manager\Rank($bdd, $_TABLE_RANKINGS_);
     
     $thisChallenge = $ChallengeManager->get($idChallenge);
     $thisUser = $UserManager->get($thisChallenge->getIdCreator());
     $listComments = $CommentManager->getForChallenge($idChallenge);
     $listEntry = $EntryManager->getRankingForChallenge($idChallenge);
+    if ($thisChallenge->getStatus() == 2) {$thisWinner = $UserManager->getFromId($thisChallenge->getWinner());}
 
 /* ---------------------------
  * FUNCTIONS------------------
@@ -61,6 +61,13 @@
 //Inscription/Désinscription à un challenge
     if (isset($_POST['challengeJoin']) && !isUserRegistered()) {
         if(($user = $_SESSION['currentUser']) != null) {
+            if($thisChallenge->getIsAdvanced()) {
+                if ($user->getPoints() <= 100)
+                    header("Location: ".$_SERVER['REQUEST_URI']);
+                $user->setPoints($user->getPoints() - 100);
+                $UserManager->update($user);
+                $_SESSION['currentUser'] = $user;
+            }
             $stat = $StatManager->getUserStats($user->getId());
             $data['idUser'] = $user->getId();
             $data['idChallenge'] = $idChallenge;
@@ -78,6 +85,11 @@
             $stat = $StatManager->getUserStats($user->getId());
             $entry = $EntryManager->findUserChallenge($idChallenge, $user->getId());
             $EntryManager->remove($entry->getId());
+            if($thisChallenge->getIsAdvanced()) {
+                $user->setPoints($user->getPoints() + 100);
+                $UserManager->update($user);
+                $_SESSION['currentUser'] = $user;
+            }
             $stat->setChallEntered($stat->getChallEntered() - 1);
             $StatManager->update($stat);
         }
@@ -91,7 +103,7 @@
             $data['idUser'] = $user->getId();
             $data['idChallenge'] = $idChallenge;
             $data['datePost'] = date("Y-m-d H:i:s", strtotime('+6 hours'));
-            $data['content'] = htmlspecialchars($_POST['inputComment']);
+            $data['content'] = addslashes(htmlspecialchars($_POST['inputComment']));
             $entry = new \Challenge\Comment($data);
             $CommentManager->add($entry);
             $stat->setCommentPosted($stat->getCommentPosted() + 1);
