@@ -29,7 +29,10 @@
     $UserManager = new \Member\Manager\User($bdd, $_TABLE_USERS_);
     $StatsManager = new \Member\Manager\Stats($bdd, $_TABLE_USERS_STATS_);
     $SummonerManager = new \Summoner\Manager\Summoner($bdd, $_TABLE_SUMMONERS_);
- 
+    $MessageManager = new \Member\Manager\Message($bdd, $_TABLE_MESSAGES_);
+
+    $listMessages = $MessageManager->getForUser($_SESSION['currentUser']->getId());
+    $listUsers = $UserManager->getAll();
  
 /* ---------------------------
  * FUNCTIONS------------------

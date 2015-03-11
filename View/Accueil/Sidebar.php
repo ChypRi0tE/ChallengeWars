@@ -35,25 +35,25 @@
     <h3 class="sidebar-heading">Categories</h3>
     <ul class="sidebar-navigation">
         <li class="sidebar-navigation-item is-selected">
-            <a class="sidebar-navigation-item-link" href="#" id="type-all"><i class="fa fa-caret-right"></i>
+            <a class="sidebar-navigation-item-link" id="type-all"><i class="fa fa-caret-right"></i>
                 <div class="sidebar-navigation-item-name">All</div>
                 <div class="sidebar-navigation-item-underline"></div><div class="sidebar-navigation-item-count"><?php echo $ChallengeManager->getNbOngoing(); ?></div>
             </a>
         </li>
         <li class="sidebar-navigation-item">
-            <a class="sidebar-navigation-item-link" href="#" id="type-kill">
+            <a class="sidebar-navigation-item-link" id="type-kill">
                 <div class="sidebar-navigation-item-name">Kill</div>
                 <div class="sidebar-navigation-item-underline"></div><div class="sidebar-navigation-item-count"><?php echo $ChallengeManager->getNbOngoingForType(3); ?></div>
             </a>
         </li>
         <li class="sidebar-navigation-item">
-            <a class="sidebar-navigation-item-link" href="#" id="type-creep">
+            <a class="sidebar-navigation-item-link" id="type-creep">
                 <div class="sidebar-navigation-item-name">Creep</div>
                 <div class="sidebar-navigation-item-underline"></div><div class="sidebar-navigation-item-count"><?php echo $ChallengeManager->getNbOngoingForType(1); ?></div>
             </a>
         </li>
         <li class="sidebar-navigation-item">
-            <a class="sidebar-navigation-item-link" href="#" id="type-victory">
+            <a class="sidebar-navigation-item-link" id="type-victory">
                 <div class="sidebar-navigation-item-name">Victory</div>
                 <div class="sidebar-navigation-item-underline"></div><div class="sidebar-navigation-item-count"><?php echo $ChallengeManager->getNbOngoingForType(2); ?></div>
             </a>

@@ -7,6 +7,7 @@
     <file url="file://$PROJECT_DIR$/Model/Challenge/Manager/Entry.php" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/Model/Challenge/Manager/Rank.php" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/Model/Member/Manager/Friend.php" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/Model/Member/Manager/Message.php" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/Model/Member/Manager/Stats.php" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/Model/Member/Manager/User.php" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/Model/Summoner/Manager/Summoner.php" dialect="MySQL" />

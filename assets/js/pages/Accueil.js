@@ -1,0 +1,41 @@
+//
+function setActive(el){
+    el.find('.fa-caret-right').remove();
+    el.parent('li').addClass("is-selected").siblings().removeClass("is-selected").each(function(){$(this).find('.fa-caret-right').remove();});
+    el.html('<i class="fa fa-caret-right"></i>' + el.html());
+}
+$("#rank-all").click(function(){
+    $('.challenge-row-outer-wrap').fadeIn();
+    $(this).parent('li').addClass("is-selected").siblings().removeClass("is-selected");
+    setActive($(this));
+});
+$("#rank-starter").click(function(){
+    $('.challenge-row-outer-wrap').show();
+    $('.challenge-row-outer-wrap').parent().find('.challenge-column--contributor-level--negative').closest('.challenge-row-outer-wrap').fadeOut();
+    setActive($(this));
+});
+$("#rank-advanced").click(function(){
+    $('.challenge-row-outer-wrap').hide();
+    $('.challenge-row-outer-wrap').parent().find('.challenge-column--contributor-level--negative').closest('.challenge-row-outer-wrap').fadeIn();
+    setActive($(this));
+});
+$("#type-all").click(function(){
+    $('.challenge-row-outer-wrap').fadeIn();
+    setActive($(this));
+});
+$("#type-kill").click(function(){
+    $('.challenge-row-outer-wrap').hide();
+    $('.challenge-row-outer-wrap').parent().find('.fa-rocket').closest('.challenge-row-outer-wrap').fadeIn();
+    setActive($(this));
+});
+$("#type-creep").click(function(){
+    $('.challenge-row-outer-wrap').hide();
+    $('.challenge-row-outer-wrap').parent().find('.fa-crosshairs').closest('.challenge-row-outer-wrap').fadeIn();
+    setActive($(this));
+});
+$("#type-victory").click(function(){
+    $('.challenge-row-outer-wrap').hide();
+    $('.challenge-row-outer-wrap').parent().find('.fa-flag-checkered').closest('.challenge-row-outer-wrap').fadeIn();
+    setActive($(this));
+});
+

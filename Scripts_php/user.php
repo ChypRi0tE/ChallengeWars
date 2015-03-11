@@ -16,6 +16,17 @@
   }
   if (isset($_POST['type']) && $_POST['type'] == 'getUsername') {
     $bdd = connectDatabase();
+    $query = "SELECT * FROM " . $_TABLE_USERS_ . " WHERE id = '" . $_POST['id'] . "'";
+    $q = $bdd->query($query);
+    if ($data = $q->fetch()) {
+        echo json_encode($data);
+    } else {
+        echo "{\"error\":\"query return was empty\"}";
+    }      
+  }
+
+  if (isset($_POST['type']) && $_POST['type'] == 'goCo') {
+    $bdd = connectDatabase();
     $query = "SELECT * FROM " . $_TABLE_USERS_ . " WHERE username = '" . $_POST['username'] . "'";
     $q = $bdd->query($query);
     if ($data = $q->fetch()) {
@@ -24,6 +35,19 @@
         echo "{\"error\":\"query return was empty\"}";
     }      
   }
+
+
+  if (isset($_POST['type']) && $_POST['type'] == 'getU') {
+    $bdd = connectDatabase();
+    $query = "SELECT * FROM " . $_TABLE_USERS_ . " WHERE username = '" . $_POST['username'] . "'";
+    $q = $bdd->query($query);
+    if ($data = $q->fetch()) {
+        echo json_encode($data);
+    } else {
+        echo "{\"error\":\"query return was empty\"}";
+    }      
+  }
+
 if (isset($_POST['type']) && $_POST['type'] == 'putUser') {
     $bdd = connectDatabase();
     $query = "INSERT INTO " . $_TABLE_USERS_ . " (username, mail, password, avatar, isAdvanced, isValidated, rank)

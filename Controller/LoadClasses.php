@@ -14,14 +14,16 @@
     require_once("Model/Challenge/Manager/Comment.php");
     require_once("Model/Challenge/Manager/Entry.php");
     require_once("Model/Challenge/Manager/Rank.php");
-    
+
     
     require_once("Model/Member/User.php");
     require_once("Model/Member/Stats.php");
     require_once("Model/Member/Friend.php");
+    require_once("Model/Member/Message.php");
     require_once("Model/Member/Manager/User.php");
     require_once("Model/Member/Manager/Stats.php");
     require_once("Model/Member/Manager/Friend.php");
+    require_once("Model/Member/Manager/Message.php");
     
     require_once("Model/Error/Error.php");
     require_once("Model/Error/TypeError.php");
