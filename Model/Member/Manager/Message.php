@@ -19,7 +19,7 @@ class Message implements \Manager {
     }
     public function     add($message) {
         if (!($message instanceof \Challenge\Message)) {new \Error\TypeError("Manager/Message", "Message", $message->type);}
-        $q = $this->_bdd->query("INSERT INTO " . $this->_table . " (userId, friendId, dateAdd)
+        $q = $this->_bdd->query("INSERT INTO " . $this->_table . " (title, idUser, idAuthor, content, date)
             VALUES ('".$message->getTitle()."',
                     ".$message->getIdUser().",
                     ".$message->getIdAuthor().",
@@ -45,9 +45,8 @@ class Message implements \Manager {
         $q = $this->_bdd->query('SELECT * FROM '.$this->_table.' WHERE idUser = '.$id);
         $list = [];
         while ($data = $q->fetch()) {
-            $list = new \Challenge\Message($data);
+            $list[] = new \Member\Message($data);
         }
         return $list;
     }
-
 } 

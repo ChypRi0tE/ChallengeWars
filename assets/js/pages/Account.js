@@ -11,3 +11,7 @@ $("#submit-form-sync").click(function(e){
     $("#formSync").submit();
     e.preventDefault();
 });
+$("#submit-form-send").click(function(e){
+    $("#formMessage").submit();
+    e.preventDefault();
+});

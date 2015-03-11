@@ -206,9 +206,25 @@
                         <div class="form-input-description">Advanced challenges will be reviewed by an admin.</div>
                     </div>
                 </div>
-                <div class="form-row">
+                <div class="form-row form-row--new-challenge-level">
                     <div class="form-heading">
                         <div class="form-heading-number">5.</div>
+                        <div class="form-heading-text">Availability</div>
+                    </div>
+                    <div class="form-row-indent">
+                        <input type="hidden" id="inputLevel" name="inputOpen" value="public">
+                        <div data-checkbox-value="public" class="form-checkbox is-disabled">
+                            <i class="form-checkbox-default fa fa-circle-o"></i><i class="form-checkbox-hover fa fa-circle"></i><i class="form-checkbox-selected fa fa-check-circle"></i> Public
+                        </div>
+                        <div data-checkbox-value="private" class="form-checkbox is-disabled">
+                            <i class="form-checkbox-default fa fa-circle-o"></i><i class="form-checkbox-hover fa fa-circle"></i><i class="form-checkbox-selected fa fa-check-circle"></i> Private
+                        </div>
+                        <div class="form-input-description">Private challenges can only be seen by users in your friend list.</div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-heading">
+                        <div class="form-heading-number">6.</div>
                         <div class="form-heading-text">Description</div>
                         <div class="form-heading-optional">(Optional)</div>
                     </div>
@@ -217,7 +233,7 @@
                     </div>
                 </div>
                 <button type="submit" class="form-submit-button pull-right" name="do-new">
-                    <i class="fa fa-arrow-circle-right"></i> Review Challenge
+                    <i class="fa fa-arrow-circle-right"></i> Submit Challenge
                 </button>
             </div>
         </form>

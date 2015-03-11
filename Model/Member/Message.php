@@ -10,11 +10,12 @@ namespace Member;
 
 
 class Message {
-    private $_title;
-    private $_idUser;
-    private $_idAuthor;
-    private $_content;
-    private $_date;
+    protected $_id;
+    protected $_title;
+    protected $_idUser;
+    protected $_idAuthor;
+    protected $_content;
+    protected $_date;
 
     public function __construct(array $data) {
         $this->create($data);
@@ -50,16 +51,22 @@ class Message {
     public function setDate($date) {
         $this->_date = $date;
     }
-    public function getTitle() {
-        return $this->_title;
+    public function getId() {
+        return $this->_id;
     }
-    public function setTitle($title) {
-        $this->_title = $title;
+    public function setId($id) {
+        $this->_id = $id;
     }
     public function getIdUser() {
         return $this->_idUser;
     }
     public function setIdUser($idUser) {
         $this->_idUser = $idUser;
+    }
+    public function getTitle() {
+        return $this->_title;
+    }
+    public function setTitle($title) {
+        $this->_title = $title;
     }
 } 

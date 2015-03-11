@@ -6,7 +6,7 @@
     </div>
 </div>
 <div class="table">
-    <?php if (!empty($listMessage)) { ?>
+    <?php if (!empty($listMessages)) { ?>
     <div class="table-heading">
         <div class="table-column--width-xsmall text-center"></div>
         <div class="table-column--width-small text-center">User</div>
@@ -53,16 +53,14 @@
     </div>
 </div>
 <div class="table">
+    <form action="" method="post" id="formSend">
         <div class="form-row">
             <div class="form-heading">
                 <div class="form-heading-number">1.</div>
                 <div class="form-heading-text">Receiver</div>
             </div>
             <div class="form-row-indent">
-                <a href="<?php echo $_LINK_USER_. "/" . $_SESSION['currentUser']->getUsername(); ?>" class="global-image-outer-wrap global-image-outer-wrap--avatar-small">
-                    <div class="global-image-inner-wrap" style="background-image:url(<?php echo $_SESSION['currentUser']->displayAvatar(); ?>);"></div>
-                </a>
-                <select class="form-input-small" name="inputMessage">
+                <select class="form-input-small" name="inputTo">
                     <?php for ($j = 0; !empty($listUsers[$j]); $j++)  { ?>
                         <option value="<?php echo $listUsers[$j]->getId(); ?>"><?php echo $listUsers[$j]->getUsername(); ?></option>
                     <?php } ?>
@@ -72,30 +70,23 @@
         <div class="form-row">
             <div class="form-heading">
                 <div class="form-heading-number">2.</div>
-                <div class="form-heading-text">Champion</div>
+                <div class="form-heading-text">Title</div>
             </div>
             <div class="form-row-indent">
-                <div class="form-time-container">
-                </div>
+                <input class="form-input-medium" name="inputTitle" type="text" required>
             </div>
         </div>
         <div class="form-row">
-            <div class="comment-summary">
-                <div class="comment-author">
-                    <div class="comment-username"><a href="<?php echo $_LINK_USER_. "/" . $_SESSION['currentUser']->getUsername(); ?>"><?php echo $_SESSION['currentUser']->getUsername(); ?></a></div>
-                </div>
-                <div class="comment-display-state">
-                    <div class="comment-description">
-                        <form method="post" id="formComment">
-                            <input type="hidden" name="challengeComment" />
-                            <textarea name="inputComment"></textarea>
-                            <div class="align-button-container">
-                                <a href="" class="comment-submit-button js-submit-form">Submit Comment</a>
-                                <div class="comment-cancel-button js-comment-reply-cancel"><span>Cancel</span></div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+            <div class="form-heading">
+                <div class="form-heading-number">3.</div>
+                <div class="form-heading-text">Message</div>
             </div>
+            <div class="form-row-indent">
+                <textarea name="inputMessage"></textarea>
+            </div>
+            <button type="submit" class="form-submit-button pull-right" name="do-message">
+                <i class="fa fa-arrow-circle-right"></i> Send Message
+            </button>
         </div>
+    </form>
     </div>

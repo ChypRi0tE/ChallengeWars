@@ -31,6 +31,7 @@
     $SummonerManager = new \Summoner\Manager\Summoner($bdd, $_TABLE_SUMMONERS_);
     $MessageManager = new \Member\Manager\Message($bdd, $_TABLE_MESSAGES_);
 
+
     $listMessages = $MessageManager->getForUser($_SESSION['currentUser']->getId());
     $listUsers = $UserManager->getAll();
  
@@ -80,4 +81,16 @@
     if (isset($_POST['sync'])) {
         synchronize($_SESSION['currentUser']->getId());
         header('Location: '.$_LINK_ACCOUNT_."/".$_LINK_SYNC_);
+    }
+
+//Messagerie
+    if (isset($_POST['do-message'])) {
+        $data['idAuthor'] = $_SESSION['currentUser']->getId();
+        $data['title'] = addslashes(htmlspecialchars($_POST['inputTitle']));
+        $data['idUser'] = $_POST['inputTo'];
+        $data['date'] = date("Y-m-d H:i");
+        $data['content'] = addslashes(htmlspecialchars($_POST['inputMessage']));
+        $mess = new \Member\Message($data);
+        $MessageManager->add($mess);
+        header('Location: '.$_LINK_ACCOUNT_."/".$_LINK_INBOX_);
     }
