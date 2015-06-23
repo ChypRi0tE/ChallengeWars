@@ -1,0 +1,11 @@
+RewriteEngine on
+RewriteRule ^([a-zA-Z0-9]+)$   $1.php [L]
+RewriteRule ^challenge/new$   new.php [L]
+RewriteRule ^challenge/challenge-([0-9]+)$    challenge.php?id=$1 [L]
+RewriteRule ^challenge/challenge-([0-9]+)/([a-zA-Z0-9]+)$    challenge.php?id=$1&tab=$2 [L]
+RewriteRule ^user/([a-zA-Z0-9]+)$    user.php?name=$1 [L]
+RewriteRule ^user/([a-zA-Z0-9]+)/([a-zA-Z0-9]+)$    user.php?name=$1&tab=$2 [L]
+RewriteRule ^about/([a-zA-Z0-9]+)$    about.php?tab=$1 [L]
+RewriteRule ^account/([a-zA-Z0-9]+)$    account.php?tab=$1 [L]
+
+ErrorDocument 404 /404

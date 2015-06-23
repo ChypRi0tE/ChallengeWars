@@ -10,7 +10,7 @@
     <div class="table-heading">
         <div class="table-column--width-xsmall text-center"></div>
         <div class="table-column--width-small text-center">User</div>
-        <div class="table-column--width-fill text-center">Title</div>
+        <div class="table-column--width-fill text-center">Message</div>
         <div class="table-column--width-small text-center">Date</div>
     </div>
     <?php } else { ?>
@@ -33,7 +33,7 @@
                             <div class="global-image-inner-wrap" style="background-image:url(<?php echo $user->displayAvatar(); ?>);"></div></a></div>
                     <div class="table-column--width-small">
                         <a href="<?php echo $_LINK_USER_ . '/' . $user->getUsername(); ?>" class="table-column-heading"><?php echo $user->getUsername(); ?></a></div>
-                    <div class="table-column--width-fill"><?php echo $listMessages[$i]->getTitle(); ?></div>
+                    <div class="table-column--width-fill"><?php echo $listMessages[$i]->getContent                                             (); ?></div>
                     <div class="table-column--width-small text-center"><?php echo strftime("%d %B at %H:%M",strtotime($listMessages[$i]->getDate())); ?></div>
                 </div>
             </div>
