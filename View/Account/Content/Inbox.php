@@ -33,7 +33,7 @@
                             <div class="global-image-inner-wrap" style="background-image:url(<?php echo $user->displayAvatar(); ?>);"></div></a></div>
                     <div class="table-column--width-small">
                         <a href="<?php echo $_LINK_USER_ . '/' . $user->getUsername(); ?>" class="table-column-heading"><?php echo $user->getUsername(); ?></a></div>
-                    <div class="table-column--width-fill"><?php echo $listMessages[$i]->getContent                                             (); ?></div>
+                    <div class="table-column--width-fill"><?php echo $listMessages[$i]->getContent(); ?></div>
                     <div class="table-column--width-small text-center"><?php echo strftime("%d %B at %H:%M",strtotime($listMessages[$i]->getDate())); ?></div>
                 </div>
             </div>
@@ -70,15 +70,6 @@
         <div class="form-row">
             <div class="form-heading">
                 <div class="form-heading-number">2.</div>
-                <div class="form-heading-text">Title</div>
-            </div>
-            <div class="form-row-indent">
-                <input class="form-input-medium" name="inputTitle" type="text" required>
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="form-heading">
-                <div class="form-heading-number">3.</div>
                 <div class="form-heading-text">Message</div>
             </div>
             <div class="form-row-indent">
