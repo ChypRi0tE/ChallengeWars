@@ -2,3 +2,4 @@ Unused
 Model/cache
 .phpintel
 .idea
+Controller/GlobalVariables.php
