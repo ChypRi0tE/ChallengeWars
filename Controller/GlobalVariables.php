@@ -5,24 +5,12 @@
  * Date: 08/02/2015
  * Time: 12:35
  */
-    if (false) {
-        $_BDD_SERVER_ = "localhost";
-        $_BDD_NAME_ = "challengewars";
-        $_BDD_USER_ = "root";
-        $_BDD_PASS_ = "toor";
-        $_SITE_INDEX_ = "/ChallengeWars/";
-    } else if (false) {
-        $_BDD_SERVER_ = "sql203.5gb.co";
-        $_BDD_NAME_ = "5gbc_15477651_lolc";
-        $_BDD_USER_ = "5gbc_15477651";
-        $_BDD_PASS_ = "U8r5bhEe95";
-    } else if (true) {
-        $_BDD_SERVER_ = "sql307.byethost12.com";
-        $_BDD_NAME_ = "b12_15918047_challengewars";
-        $_BDD_USER_ = "b12_15918047";
-        $_BDD_PASS_ = "ettasoeur42";
-        $_SITE_INDEX_ = "/";
-    }
+
+    $_BDD_SERVER_ = "";
+    $_BDD_NAME_ = "";
+    $_BDD_USER_ = "";
+    $_BDD_PASS_ = "";
+    $_SITE_INDEX_ = "/";
     $_ALLOW_FRIENDS_ = true;
     $_DEBUG_ = false;
 
