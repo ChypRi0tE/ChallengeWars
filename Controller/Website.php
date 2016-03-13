@@ -5,7 +5,6 @@
  * Date: 07/02/2015
  * Time: 18:50
  */
-
     include_once("Controller/GlobalVariables.php");
 
 //Chargement des classes
@@ -14,7 +13,6 @@
     }
     spl_autoload_register('load');
     include_once("Controller/LoadClasses.php");
-    session_start();
 
 //Vérifie si l'user est connecté ($_SESSION)
     function    isLogged() {
