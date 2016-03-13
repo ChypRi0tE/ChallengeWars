@@ -40,7 +40,7 @@ class User {
         return $this->_avatar;
     }
     public function displayAvatar() {
-        return "http://ddragon.leagueoflegends.com/cdn/5.3.1/img/profileicon/".$this->_avatar.".png";
+        return "http://ddragon.leagueoflegends.com/cdn/6.5.1/img/profileicon/".$this->_avatar.".png";
     }
     public function setAvatar($avatar) {
         $this->_avatar = $avatar;
